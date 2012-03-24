@@ -1,0 +1,51 @@
+%% \section{Introduction} %for journal use above \firstsection{..} instead
+%We introduce and discuss a tool for comparing different charts that are renderings of the same data in order to evaluate them for efficiency.
+Graphics have a central role in the discovery process as well as in the presentation of results. 
+As designer of  charts one of our main goals is to display data so that the information it contains is relayed in the most efficient way. 
+In the search for the best display out of the seemingly endless multitude of methods we are guided by experience, knowledge of perceptual strengths and weaknesses, as well as aesthetic preferences. It is hard, if not impossible, to make the final decision on the design in an  objective manner. 
+We can make this process less subjective by conducting user studies to evaluate competing designs of the same data, and measure designs for their efficiency by recordung how accurately and quickly viewers can extract pieces of information. 
+User studies for evaluating different designs has a long standing tradition. For  statistical graphics user studies have their origin in the (convenience) study on evaluating difficulty of a set of different visual tasks by \citet{cleveland:1984}, which has recently been repeated finding similar results based on a larger and more representative study by \citet{kosara:2010}.
+
+Usually, we need simulation studies to be able to completely control for the signal strength in the data. 
+For charts, this is not a very realistic scenario. The need for displaying information particularly efficiently or accurately usually arises from  a particular problem while analyzing a data set, from which we want to learn new insight. Often, it is difficult to simulate data in such a way that it realistically represents the particular problem, which in turn makes it dubious whether the results from a simulation study are actually applicable to the problem at hand, reminding us painfully of George Box's famous quote on models: ``essentially, all models are wrong, but some are useful." \citep[page=424]{box}  
+
+Lineup tests  \citep{buja:2009} allow us to directly use the data at hand to evaluate different competing designs by using permutations tests \cite{good:2011} of the original dataset. We can therefore get valid quantitative measures for comparing different designs without having to set up a simulation.
+
+When we are presenting a chart we  want to convince our audience of the presence of a particular feature or relationship in the data. 
+In order to enable us to draw a conclusion about presence or absence of a feature in the data, we have, however, to assess what features show up based purely on marginal distributions rather than joint distributions.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=0.32\linewidth]{rexp.pdf} 
+   \includegraphics[height=0.32\linewidth]{rnorm.pdf} 
+   \includegraphics[height=0.32\linewidth]{two-exp.pdf} 
+   \caption{Examples of charts with distinctive features but independent variables. From left to right: scatterplot of $X$ and $Y$ with independent $X, Y \sim Exp_{\lambda=1}$; scatterplot of two variables with mixed normal distribution $N(3,1)$ and $N(-3,1)$; boxplot of $X$ and $Y$ with $X \sim B_{n=100, p=0.1}$ and $Y \sim Exp_{\lambda=1}$. }
+   \label{random}
+\end{figure}
+
+Features in the marginal distributions, such as multi-modality, skewness  or outliers, might interfere with our intuition of what `randomness' might mean in a particular situation and lead us to wrong conclusions. All of the plots in figure \ref{random} show distinctive features. None, of these, however, is a feature of the joint distribution, i.e. all of the variables involved are independent of each other. The scatterplot on the left of figure \ref{random} shows data sampled from an exponential distribution with rate parameter $\lambda=1$. The data in the middle comes from mixing two normal distributions with different means: half of the points has mean $\mu_1 = -3$, the other half has mean $\mu_2=3$, which results in the distinctive four groups.
+The two boxplots on the right appear to show a median shift between the two groups. This, however is a result of both the group size (only 7\% of the points is in the second group) and a skew distribution in vertical direction, with $y \sim Exp_{\lambda=1}$. 
+
+
+Lineup plots have been shown as an effective tool \cite{wickham:2010} for enabling us to quantitively assess the strength of the relationship between $X$ and $Y$.
+In a lineup plot the plot of the actual data is -- as in a police line-up -- inserted among decoy plots. The decoy or {\it null} plots are generated in a way that is consistent with the null hypothesis, i.e. these are plots in which we can assume that any relationship visible is there purely by chance. This gives us a reference framework against which to compare the data plot and, if we are still able to identify the data plot from the lineup because of a distinguishing feature, we have formal evidence that the feature in the data is, in fact, not just coincidental. 
+
+The strength of this evidence is determined by both the number of independent evaluations as well as the size of the lineup. (XXXX needs more motivation HH) The signal strength \cite{majumder:2011} of a particular lineup is given as:
+\[
+\text{signal strength} = 1- \left( \frac{x}{n}\right)^{1/(m-1)},
+\]
+where $m$ is the size of  the lineup, i.e. the number of individuals shown, and $x/n$ is the ratio of correctly identified data plots ($x$) in  $n$ independent evaluations. Signal strength is limited to a range of values between 0 and 1. Higher values indicate stronger signal.
+ In the case of a parametric situation (i.e. the feature shown in the chart can be described in parametric form as a real-valued vector $\theta$ in the data), the signal strength is equivalent to the statistical power of the test.
+
+\section{Lineups for Comparing Designs}
+We are going to make use of the signal strength gained from multiple viewings of a lineup in order to evaluate competing designs as follows:
+\begin{enumerate}
+\item{{\bf Create Lineup Data:} create $m-1$ permutations of $y$}
+\item{{\bf Create lineups from competing designs:} use the same data}
+\item{{\bf Evaluate Lineups:} assess both signal strength and time taken by individuals to come to a decision.}
+\item{{\bf Evaluate Competing Designs:} differences in signal strength or time to decision are due to differences in the design. In the case of multiple observations for each individual, we can also correct for an individual's visual ability. }
+\end{enumerate}
+
+XXXX should we include nullabor code?
+
+%We also know that humans learn about new information through a visual search pattern that emphasizes new information (Wolfe, 2002; Rensick, et al., 1997). Of course, the type of visualization should take the natural human inclinations into account as well. For instance, a good visualization will account for both the ãgestalt? like perceptual tendencies as well as the detail-orientated nature of cognition (Kosslyn, Thompson and Ganis, 2002; Pylshyn,2003)
