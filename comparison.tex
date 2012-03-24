@@ -29,6 +29,7 @@
 \usepackage{mathptmx}
 \usepackage{graphicx}
 \usepackage{times}
+\usepackage{amsmath}
 
 %% We encourage the use of mathptmx for consistent usage of times font
 %% throughout the proceedings. However, if you encounter conflicts
@@ -115,7 +116,7 @@ designs.
 %% Uncomment below to include a teaser figure.
 \teaser{
 \centering
-\includegraphics[height=1in]{polar}
+\includegraphics[height=1in]{polar}\hspace{0.05\linewidth}
 \includegraphics[height=1in]{eucline}
 %\includegraphics[width=16cm]{CypressView.eps}
 \caption{teaser chart should include all different designs}
@@ -144,19 +145,56 @@ designs.
 
 %% \section{Introduction} %for journal use above \firstsection{..} instead
 %We introduce and discuss a tool for comparing different charts that are renderings of the same data in order to evaluate them for efficiency.
-We would like to display data so that the information it contains is relayed in the most efficient way. There are many methods when it comes to how the data can be displayed but the varying efficiency of these methods is hard to measure and compare. We are using different renderings of the  same data in order to evaluate designs for their efficiency by measuring how accurately and quickly viewers can extract pieces of information. 
-This is a technique that has been used for many years now, starting possibly with the (convenience) study on evaluating difficulty of a set of different visual tasks by \citet{cleveland:1984}, which has recently been repeated finding similar results based on a larger and more representative study by \citet{kosara:2010}.
+Graphics have a central role in the discovery process as well as in the presentation of results. 
+As designer of  charts one of our main goals is to display data so that the information it contains is relayed in the most efficient way. 
+In the search for the best display out of the seemingly endless multitude of methods we are guided by experience, knowledge of perceptual strengths and weaknesses, as well as aesthetic preferences. It is hard, if not impossible, to make the final decision on the design in an  objective manner. 
+We can make this process less subjective by conducting user studies to evaluate competing designs of the same data, and measure designs for their efficiency by recordung how accurately and quickly viewers can extract pieces of information. 
+User studies for evaluating different designs has a long standing tradition. For  statistical graphics user studies have their origin in the (convenience) study on evaluating difficulty of a set of different visual tasks by \citet{cleveland:1984}, which has recently been repeated finding similar results based on a larger and more representative study by \citet{kosara:2010}.
 
-XXX What do we differently? We use lineup charts.
-XXX Why is that better? 
-Usually, we need simulation studies to be able to completely control for the signal strength in the data. For charts, this is unrealistic. The need for displaying information particularly efficiently or accurately generally arises from the setting that we are exploring a data set and trying to learn new insight from it. Often, it is difficult at best to come close to a particular data situation using simulated data, which makes studies on competing  designs find answers to the wrong questions.
+Usually, we need simulation studies to be able to completely control for the signal strength in the data. 
+For charts, this is not a very realistic scenario. The need for displaying information particularly efficiently or accurately usually arises from  a particular problem while analyzing a data set, from which we want to learn new insight. Often, it is difficult to simulate data in such a way that it realistically represents the particular problem, which in turn makes it dubious whether the results from a simulation study are actually applicable to the problem at hand, reminding us painfully of George Box's famous quote on models: ``essentially, all models are wrong, but some are useful." \citep[page=424]{box}  
 
-As designers of charts we are guided by experience, knowledge of perceptual strengths and weaknesses, and aesthetic preferences. It is impossible to make the final decision on the design in an  objective manner.
-Lineup tests allow us to directly use the data at hand to evaluate different competing designs by using permutations tests \cite{good:2011} of the original dataset.
+Lineup tests  \citep{buja:2009} allow us to directly use the data at hand to evaluate different competing designs by using permutations tests \cite{good:2011} of the original dataset. We can therefore get valid quantitative measures for comparing different designs without having to set up a simulation.
 
-A simulation study might not be completely 
+When we are presenting a chart we  want to convince our audience of the presence of a particular feature or relationship in the data. 
+In order to enable us to draw a conclusion about presence or absence of a feature in the data, we have, however, to assess what features show up based purely on marginal distributions rather than joint distributions.
 
-Introduce lineup charts \citep{buja:2009}. Include power discussion.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[height=0.32\linewidth]{rexp.pdf} 
+   \includegraphics[height=0.32\linewidth]{rnorm.pdf} 
+   \includegraphics[height=0.32\linewidth]{two-exp.pdf} 
+   \caption{Examples of charts with distinctive features but independent variables. From left to right: scatterplot of $X$ and $Y$ with independent $X, Y \sim Exp_{\lambda=1}$; scatterplot of two variables with mixed normal distribution $N(3,1)$ and $N(-3,1)$; boxplot of $X$ and $Y$ with $X \sim B_{n=100, p=0.1}$ and $Y \sim Exp_{\lambda=1}$. }
+   \label{random}
+\end{figure}
+
+Features in the marginal distributions, such as multi-modality, skewness  or outliers, might interfere with our intuition of what `randomness' might mean in a particular situation and lead us to wrong conclusions. All of the plots in figure \ref{random} show distinctive features. None, of these, however, is a feature of the joint distribution, i.e. all of the variables involved are independent of each other. The scatterplot on the left of figure \ref{random} shows data sampled from an exponential distribution with rate parameter $\lambda=1$. The data in the middle comes from mixing two normal distributions with different means: half of the points has mean $\mu_1 = -3$, the other half has mean $\mu_2=3$, which results in the distinctive four groups.
+The two boxplots on the right appear to show a median shift between the two groups. This, however is a result of both the group size (only 7\% of the points is in the second group) and a skew distribution in vertical direction, with $y \sim Exp_{\lambda=1}$. 
+
+
+Lineup plots have been shown as an effective tool \cite{wickham:2010} for enabling us to quantitively assess the strength of the relationship between $X$ and $Y$.
+In a lineup plot the plot of the actual data is -- as in a police line-up -- inserted among decoy plots. The decoy or {\it null} plots are generated in a way that is consistent with the null hypothesis, i.e. these are plots in which we can assume that any relationship visible is there purely by chance. This gives us a reference framework against which to compare the data plot and, if we are still able to identify the data plot from the lineup because of a distinguishing feature, we have formal evidence that the feature in the data is, in fact, not just coincidental. 
+
+The strength of this evidence is determined by both the number of independent evaluations as well as the size of the lineup. (XXXX needs more motivation HH) The signal strength \cite{majumder:2011} of a particular lineup is given as:
+\[
+\text{signal strength} = 1- \left( \frac{x}{n}\right)^{1/(m-1)},
+\]
+where $m$ is the size of  the lineup, i.e. the number of individuals shown, $x$ is the number of times viewers identified the data plot correctly in  $n$ independent evaluations. Signal strength is limited to a range of values between 0 and 1. Higher values indicate stronger signal.
+ In the case of a parametric situation (i.e. the feature shown in the chart can be described in parametric form as a real-valued vector $\theta$ in the data), the signal strength is equivalent to the statistical power of the test.
+
+\section{Lineups for Comparing Designs}
+We are going to make use of the signal strength gained from multiple viewings of a lineup in order to evaluate competing designs as follows:
+\begin{enumerate}
+\item{{\bf Create Lineup Data:} create $m-1$ permutations of $y$}
+\item{{\bf Create lineups from competing designs:} use the same data}
+\item{{\bf Evaluate Lineups:} assess both signal strength and time taken by individuals to come to a decision.}
+\end{enumerate}
+differences in signal strength are due to rendering (after correcting for individuals' visual ability) 
+
+XXXX should we include nullabor code?
+
+%We also know that humans learn about new information through a visual search pattern that emphasizes new information (Wolfe, 2002; Rensick, et al., 1997). Of course, the type of visualization should take the natural human inclinations into account as well. For instance, a good visualization will account for both the ãgestalt? like perceptual tendencies as well as the detail-orientated nature of cognition (Kosslyn, Thompson and Ganis, 2002; Pylshyn,2003)
+
 
 
 \section{Experimental Setup}
@@ -164,30 +202,29 @@ Describe the experimental setup: polar charts versus euclidean - with and withou
 Figure showing all four types using the same dataset. 
 Discuss construction of each one. Discuss construction of null chart.
 
-The goal of this experiment is to understand the efficiency of displaying information using euclidian and polar coordinates. Efficiency is the deviation from independence, which can be simulated by taking permutations of the original dataset. Data concerning wind patterns and time between flights at SEA airport is used for these charts. The lineup chart is composed of 20 graphics with all of the exact same characteristics except for the data. One of the 20 graphics will be using original airport data while the other 19 will be permutations of that data. There are other variables which are introduced to further our understanding of the way we perceive euclidian and polar coordinates. All combinations of each level of the variables are involved in the experiment for both polar and euclidian coordinates. The graphics in each chart will all have exactly the same level of the variables with the only difference being the data. 
+The goal of this experiment is to understand the efficiency of displaying information using euclidian and polar coordinates. Efficiency is the deviation from independence, which can be simulated by taking permutations of the original dataset. Data concerning wind patterns and time between flights at SEA airport is used for these charts. The lineup chart is composed of 20 graphics with all of the exact same characteristics except for the data. One of the 20 graphics will be using original airport data while the other 19 will be permutations of that data. Efficiency of the chart types can be inferred by how accurately individuals pick out the plot with the original data. There are other variables which are introduced to further our understanding of the way we perceive euclidian and polar coordinates. All combinations of each level of the variables are involved in the experiment for both polar and euclidian coordinates. The graphics in each chart will all have exactly the same level of the variables with the only difference being the data. 
 
-It is possible that one of the chart types benefits more from additional components such as reference lines. The polar and euclidian null charts will be shown either with or without a white reference line. The line is placed at slightly over 50 percent of the y axis.
-
- The x-axis has four placements. The original dataset contains a characteristic wave pattern, which for euclidian coordinates, may be a large factor contributing to the perceived effectiveness of the graphic. Characteristic patterns such as the wave pattern may be perceived in a different way when viewed in polar coordinates. When the x-axis is is shifted the look of the pattern changes. The wave pattern is broken up for euclidian coordinates but for polar coordinates is only shifted around the axis. 
-
-Amount of information necessary for detection as well as correctness is measure for efficiency of chart so the sample size which was taken from the original dataset is of interest. The original data set contained XXX,XXX observations from which we sampled 2, 4, 6, 8, 10, and 24 percent. Samples of 2, 4, and 6 percent were repeated twice to gain more information about the effectiveness of the charts at these levels. Small sample sizes are easier to obtain because of time and money constraints, as well as others. It would be nice to know if there is one type of chart which can show data trends using less information. 
+The other variables which are monitored are existence of reference line, placement of x-axis, and sample size. It is possible that one of the chart types benefits more from additional components such as reference lines. The polar and euclidian null charts will be shown either with or without a white reference line. The line is placed at slightly over 50 percent of the y axis. Additionally, the x-axis has four placements. The original dataset contains a characteristic wave pattern, which for euclidian coordinates, may be a large factor contributing to the perceived effectiveness of the graphic. Characteristic patterns such as the wave pattern may be perceived in a different way when viewed in polar coordinates. When the x-axis is is shifted the look of the pattern changes. The wave pattern is broken up for euclidian coordinates but for polar coordinates is only shifted around the axis. Finally, the amount of information necessary for detection as well as correctness is a measure for efficiency of the charts so the sample size which was taken from the original dataset is of interest. The original data set contained XXX,XXX observations from which 2, 4, 6, 8, 10, and 24 percent of the observations were sampled. Small sample sizes are easier to obtain because of time and money constraints. It would be nice to know if there is one type of chart which can show data trends using less information. 
 
 
  All combinations of these variables were repeated for plots with a reference line and without a reference line, as shown in figure \ref{layouts}.This figure shows examples of graphics showing the actual data, which in the experiment would be randomly positioned among 19 null plots. In total there are XXX unique charts which represent all different combinations of sample size, coordinate type, x-axis placement, and whether or not there is a reference line. The charts are all assigned a difficulty level, which is based on sample size, on a scale from zero to four. There are two plots assigned a difficulty level of zero. These two charts, one polar and one Euclidian, were made from computer generated data and intended to be at the level where an individual, if he or she is not purely guessing, should be able to find the correct plot. 
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
-   \includegraphics[width=1.3in]{Euclidian_NoLine.pdf} 
-   \includegraphics[width=1.3in]{Euclidian_Line.pdf} \\
-   \includegraphics[width=1.3in]{Polar_NoLine.pdf} 
-   \includegraphics[width=1.3in]{Polar_Line.pdf}  
-   \caption{All four layouts of charts The first row shows the data in polar coordinates and the second row shows the data in euclidian coordinates. The first column in both rows show the plots without any reference lines. The second solumn in both rows have a white reference line added. }
+   \includegraphics[width=0.4\linewidth]{Euclidian_NoLine.pdf} \hspace{0.05\linewidth}
+   \includegraphics[width=0.4\linewidth]{Euclidian_Line.pdf} \\
+   \includegraphics[width=0.475\linewidth]{Polar_NoLine.pdf} 
+   \includegraphics[width=0.475\linewidth]{Polar_Line.pdf}  
+   \caption{All four layouts of charts The first row shows the data in polar coordinates and the second row shows the data in euclidian coordinates. The first column in both rows show the plots without any reference lines. The second column in both rows have a white reference line added. }
    \label{layouts}
 \end{figure}
 
-Amazon's Mechanical Turk is an online service in which individuals can request and perform simple tasks and surveys for money. Using Turk we were able to gather data on how people responded to the charts. Each person is shown a series of ten charts and asked to choose the graphic on each chart which they think is "different". They then identify, from a list of choices, why they chose this particular chart as well as how confident they are on a scale of one to five. Personal information such as age group, gender, and education is also collected on a voluntary basis. 
+Amazon's Mechanical Turk is an online service in which individuals can request and perform simple tasks and surveys for money. Using Turk we were able to gather data on how people responded to the charts. Each person is shown a series of ten charts and asked to choose the graphic on each chart which they think is "different". They then identify, from a list of choices, why they chose this particular chart as well as how confident they are on a scale of one to five. Personal information such as age group, gender, and education is also collected on a voluntary basis. The amount of time it took the individual to answer is also recorded. This study allows us to make informed judgments about how the plot type effects efficiency in terms of accuracy and time spent reading the plots. Xcite stephen few?X
 
 Effect is deviation from independence. Cannot be properly measured statistically except in highly aggregated situations, where the effect might be washed out.
+
+Most generally this experiment can be paralleled to the pie chart versus barchart discussion. The Euclidian coordinate plot is made up of bars *whose?* areas are colored proportionally according to the data. The polar coordinate plot is made up of pie slices which are also colored proportionally according to the data. Viewers of these charts will visually decode the areas of the bars and pie slices and make a judgement based on their decoding. How accurate this judgment is is left to be discussed. According to (Kosslyn, Stephen, Graph Design for the Eye and Mind, Oxford University Press, 2006, p. 40), area is usually perceived as a function of what the actual area is. This function is the area raised to an exponent of approximately 0.8 and then multiplied by a constant. However, when bars are parallel, the relative height of these bars is perceived very accurately. From this information, one could infer that the Euclidian coordinate plot may gain efficiency based on the height of the colored bars. 
+
 
 Pie versus Barchart discussion is pretty old: cite some of the literature:
 
