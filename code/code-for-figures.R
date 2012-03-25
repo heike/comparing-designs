@@ -35,3 +35,6 @@ x <- c(rnorm(50, mean=3), rnorm(50, mean=-3))
 y <- c(rnorm(50, mean=3), rnorm(50, mean=-3))[sample(100,100, FALSE)]
 qplot(x,y)
 ggsave("rnorm.pdf", height=3, width=3)
+
+
+x <- rep(1:7, c(1,2,3,4,3,2,1))
