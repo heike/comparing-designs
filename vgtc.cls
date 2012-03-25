@@ -614,7 +614,7 @@ For information on obtaining reprints of this article, please send email~to:~tvc
 %%              \endgroup\par%
 %%          \fi%
         }%
-	\begin{center}\includegraphics{diamondrule.eps}\end{center}
+	\begin{center}\includegraphics{diamondrule-eps-converted-to.pdf}\end{center}
        %\vspace{\abstxtspace}%
 	\ifx\firstsectiontxt\vgtc@empty \else
 	  \section{\firstsectiontxt}
