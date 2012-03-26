@@ -1,9 +1,30 @@
 % !TEX root = comparison.tex
 \section{Experimental Setup}
 We want two discuss two applications, in which we are making use of lineups to compare competing designs. 
-The first one arises from a discussion of how wind direction affects efficiency of an airport. In this example, we are dealing with all flights in and out of Seattle/Tacoma International Airport (SEA) between Jan XXX and Dec XXX. As a measure of airport efficiency we are using time between successive wheel-events (time at wheel take-off or touch-down), which we found to be independent of airline carrier and operating hours, as long as we restricted the data to `regular' operating hours between XXX and XXX and `regular' conditions -- i.e. we eliminated records associated with the top XXX\% wind speed measurements. 
+The first one arises from a discussion of how wind direction affects efficiency of an airport. In this example, we are dealing with all flights \cite{rita} in and out of Seattle/Tacoma International Airport (SEA) between July 2008 and June 2011. As a measure of airport efficiency we are using time between successive wheel-events (time at wheel take-off or touch-down), which we found to be independent of airline carrier and operating hours, as long as we restricted the data to `regular' operating hours between 7 am and midnight and `regular' weather conditions -- i.e. we eliminated records associated with the top 5\% wind speed measurements \cite{noaa-weather}, leaving us with just under 0.5 Million flights.
+
+Statistical tests of mean efficiency by wind direction are not particularly helpful in this situation:
+while the difference in mean efficiency between the most efficient wind direction and the least efficient shows a statistically significant difference with a $p$-value $\le 10^{15}$ %2.2e-16$. 
+However, out of the 34 other wind directions,  another 31 show significant differences in efficiency as well. This is much more a property of the large data size rather than practically usable differences.
 
 \subsection{Wind Direction and Airport Efficiency}
+Deciding on the design: since wind direction is circular, we used (conditional) wind rose charts - i.e. for each of 36 wind directions we show the percentage of flights falling into specific time intervals between successive flights: 0, 1, ..., 7, and 8+ minutes.
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+%   \centering
+   \begin{tabular}{ccl}
+   \includegraphics[width=0.375\linewidth]{Euclidian_NoLine.pdf} & \hspace{-.3in}
+   \includegraphics[width=0.375\linewidth]{Euclidian_Line.pdf} &  \hspace{-.25in} \multirow{2}{*}[.55in]{  \includegraphics[width=0.2\linewidth]{legend.pdf}} \\
+   \includegraphics[width=0.43\linewidth]{Polar_NoLine.pdf} &  \hspace{-.3in}
+   \includegraphics[width=0.43\linewidth]{Polar_Line.pdf}  
+   \end{tabular}
+   \caption{All four competing designs: polar versus Euclidean charts in top and bottom row, with (right) and without (left) reference lines at 50\%. }
+   \label{layouts}
+\end{figure}
+
+In spite of the contextual circular property of wind direction, the pattern in efficiency did not seem to stand out much during the exploration process, which led us to using a corresponding  Euclidean design. Both designs were additionally equipped with a reference line at 50\%. 
+
+Figure \ref{layouts} shows an overview of all four chart types in the study.
+
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -21,7 +42,7 @@ The first one arises from a discussion of how wind direction affects efficiency 
       \includegraphics[width=0.045\linewidth]{Euclidian_NoLine.pdf}
   \end{tabular} 
   \vspace{0.1in}
-   \caption{Power results for two competing designs: polar versus a Euclidean, with and without a reference line. Plots are facetted by percentage of data used. }
+   \caption{Power results for two competing designs: polar versus a Euclidean, with and without a reference line. Error bars indicate 95\% confidence intervals. Plots are facetted by percentage of data used. }
    \label{fig:example}
 \end{figure}
 
@@ -38,15 +59,6 @@ The other variables which are monitored are existence of reference line, placeme
 
  All combinations of these variables were repeated for plots with a reference line and without a reference line, as shown in figure \ref{layouts}.This figure shows examples of graphics showing the actual data, which in the experiment would be randomly positioned among 19 null plots. In total there are XXX unique charts which represent all different combinations of sample size, coordinate type, x-axis placement, and whether or not there is a reference line. The charts are all assigned a difficulty level, which is based on sample size, on a scale from zero to four. There are two plots assigned a difficulty level of zero. These two charts, one polar and one Euclidian, were made from computer generated data and intended to be at the level where an individual, if he or she is not purely guessing, should be able to find the correct plot. 
 
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=0.4\linewidth]{Euclidian_NoLine.pdf} \hspace{0.05\linewidth}
-   \includegraphics[width=0.4\linewidth]{Euclidian_Line.pdf} \\
-   \includegraphics[width=0.475\linewidth]{Polar_NoLine.pdf} 
-   \includegraphics[width=0.475\linewidth]{Polar_Line.pdf}  
-   \caption{All four layouts of charts The first row shows the data in polar coordinates and the second row shows the data in euclidian coordinates. The first column in both rows show the plots without any reference lines. The second column in both rows have a white reference line added. }
-   \label{layouts}
-\end{figure}
 
 Amazon's Mechanical Turk is an online service in which individuals can request and perform simple tasks and surveys for money. Using Turk we were able to gather data on how people responded to the charts. Each person is shown a series of ten charts and asked to choose the graphic on each chart which they think is "different". They then identify, from a list of choices, why they chose this particular chart as well as how confident they are on a scale of one to five. Personal information such as age group, gender, and education is also collected on a voluntary basis. The amount of time it took the individual to answer is also recorded. This study allows us to make informed judgments about how the plot type effects efficiency in terms of accuracy and time spent reading the plots. Xcite stephen few?X
 
