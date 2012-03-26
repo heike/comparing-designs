@@ -43,7 +43,7 @@ this allows us to introduce the {\it signal strength} \cite{majumder:2011} of a 
 Signal strength is limited to a range of values between 0 and 1. Higher values indicate stronger signal.
  In the case of a parametric situation (i.e. the feature shown in the chart can be described in parametric form as a real-valued vector $\theta$ in the data), it can be shown \cite{majumder:2011} that the signal strength is strongly correlated to the $p$-value of the corresponding statistical test for $\theta$.
  
-\section{Lineups for Comparing Designs}
+\section{Comparison of Designs}
 We are going to make use of the signal strength gained from multiple viewings of a lineup in order to evaluate competing designs as follows:
 \begin{enumerate}
 \item{{\bf Create Lineup Data:} create data for a lineup of size $m$ by  creating  $m-1$ permutations of $y$ or, in the case of a simulation study, drawing $m-1$ samples of size $n$ (the number of rows in the data) from the null distribution. Add the original data to the lineup data randomly between 1 and $m$. }
@@ -59,19 +59,11 @@ Comparing power of competing designs therefore involves comparing percentages of
 \[
 p_1 - p_2 \pm t_{1-\alpha/2, n-1} \sqrt{p_1(1-p_1)/n_1 + p_2(1-p_2)/n_2},
 \]
-where $n$ is Welch-Satterthwaite \cite{welch:1947} of the degrees of freedom. Note that we use $p_i = (x_i+1)/(n_i+1)$ and $n_i+2$ for a better coverage of the confidence interval \cite{agresti:1998}.
+where $n$ is the Welch-Satterthwaite \cite{welch:1947} estimate of the degrees of freedom. Note that we use $p_i = (x_i+1)/(n_i+1)$ and $n_i+2$ for a better coverage of the confidence interval \cite{agresti:1998}.
 
 While this allows a direct comparison of the designs, we cannot adjust for the individuals' perceptual abilities.
-In the case that we have multiple responses from each person (i.e. several {\it different} lineup tasks), we can estimate for their perceptual ability and correct power differences between competing designs accordingly, e.g. by modeling their power with a subject-specific random intercept.
+In the case that we have multiple responses from each person (i.e. data is collected on several {\it different} lineup tasks), we can estimate for their perceptual ability and correct power differences between competing designs accordingly, e.g. by modeling power using  a subject-specific random intercept in a generalized linear model.
 
-\subsection{First Example}
-
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=\linewidth]{turk4-designs.pdf} 
-   \caption{Power results for two competing designs: polar versus a Euclidean, with and without a reference line. Plots are facetted by percentage of data used. }
-   \label{fig:example}
-\end{figure}
 
 
 
