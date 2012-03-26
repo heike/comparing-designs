@@ -57,12 +57,21 @@ XXXX should we include nullabor code?
 The power of a statistical test is defined as the probability to reject the null hypothesis. Translated to the visual tests, power is the probability to identify the data plot from the lineup. 
 Comparing power of competing designs therefore involves comparing percentages of correct responses $p_1$ and $p_2$. An $\alpha\cdot$100\% confidence interval for this comparison is given as 
 \[
-p_1 - p_2 \pm t_{1-\alpha/2, n-1} \sqrt{p_1(1-p_1)/n_1 + p2(1-p_2)/n_2},
+p_1 - p_2 \pm t_{1-\alpha/2, n-1} \sqrt{p_1(1-p_1)/n_1 + p_2(1-p_2)/n_2},
 \]
 where $n$ is Welch-Satterthwaite \cite{welch:1947} of the degrees of freedom. Note that we use $p_i = (x_i+1)/(n_i+1)$ and $n_i+2$ for a better coverage of the confidence interval \cite{agresti:1998}.
 
+While this allows a direct comparison of the designs, we cannot adjust for the individuals' perceptual abilities.
+In the case that we have multiple responses from each person (i.e. several {\it different} lineup tasks), we can estimate for their perceptual ability and correct power differences between competing designs accordingly, e.g. by modeling their power with a subject-specific random intercept.
+
 \subsection{First Example}
 
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\linewidth]{turk4-designs.pdf} 
+   \caption{Power results for two competing designs: polar versus a Euclidean, with and without a reference line. Plots are facetted by percentage of data used. }
+   \label{fig:example}
+\end{figure}
 
 
 
