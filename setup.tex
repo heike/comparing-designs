@@ -4,8 +4,8 @@ We want two discuss two applications, in which we are making use of lineups to c
 The first one arises from a discussion of how wind direction affects efficiency of an airport. In this example, we are dealing with all flights \cite{rita} in and out of Seattle/Tacoma International Airport (SEA) between July 2008 and June 2011. As a measure of airport efficiency we are using time between successive wheel-events (time at wheel take-off or touch-down), which we found to be independent of airline carrier and operating hours, as long as we restricted the data to `regular' operating hours between 7 am and midnight and `regular' weather conditions -- i.e. we eliminated records associated with the top 5\% wind speed measurements \cite{noaa-weather}, leaving us with just under 0.5 Million flights.
 
 Statistical tests of mean efficiency by wind direction are not particularly helpful in this situation:
-while the difference in mean efficiency between the most efficient wind direction and the least efficient shows a statistically significant difference with a $p$-value $\le 10^{15}$ %2.2e-16$. 
-However, out of the 34 other wind directions,  another 31 show significant differences in efficiency as well. This is much more a property of the large data size rather than practically usable differences.
+the difference in mean efficiency between the most efficient wind direction and the least efficient shows a statistically significant difference with a $p$-value $\le 10^{15}$. %2.2e-16$. 
+However, out of the 34 other wind directions,  another 31 show significant differences in efficiency as well. This is much more a property of the large data size rather than practically usable differences. Mere significances also do not allow us an assessment of the underlying pattern.
 
 \subsection{Wind Direction and Airport Efficiency}
 In deciding on the design for displaying efficiency  by wind direction we were using the fact that wind direction is circular, and  displayed the data as (conditional) wind rose charts - i.e. for each of 36 wind directions we show the percentage of flights falling into one-minute intervals between successive flights, from  0 minutes to 8 minutes or more.
@@ -13,9 +13,10 @@ In deciding on the design for displaying efficiency  by wind direction we were u
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 %   \centering
+ \hspace{-.1in}
    \begin{tabular}{ccl}
-   \includegraphics[width=0.375\linewidth]{Euclidian_NoLine.pdf} & \hspace{-.3in}
-   \includegraphics[width=0.375\linewidth]{Euclidian_Line.pdf} &  \hspace{-.25in} \multirow{2}{*}[.55in]{  \includegraphics[width=0.2\linewidth]{legend.pdf}} \\
+   \includegraphics[width=0.375\linewidth]{euclid_noline.pdf} & \hspace{-.3in}
+   \includegraphics[width=0.375\linewidth]{euclid_line.pdf} &  \hspace{-.2in} \multirow{2}{*}[.55in]{  \includegraphics[width=0.2\linewidth]{legend.pdf}} \\
    \includegraphics[width=0.43\linewidth]{Polar_NoLine.pdf} &  \hspace{-.3in}
    \includegraphics[width=0.43\linewidth]{Polar_Line.pdf}  
    \end{tabular}
@@ -24,14 +25,13 @@ In deciding on the design for displaying efficiency  by wind direction we were u
 \end{figure}
 
 In spite of the contextual circular property of wind direction, the pattern in efficiency did not seem to stand out well during the exploration process, which led us to using a corresponding  Euclidean design. Both designs were additionally equipped with a reference line at 50\%. 
-Figure \ref{layouts} shows an overview of all four chart types in the study.
-
+Figure \ref{layouts} shows an overview of all four chart types in the study. During the exploration of the data, it became clear that Seattle airport functions at it best with winds coming from the East to Southeast, while winds from the West seemed to be most troublesome. Since runways can be used in both directions, changing the runway usage according to dominant wind direction for that day or time of the year might be a feasible solution in gaining efficiency. 
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
 
 \begin{tabular}{cl}
-\phantom{\includegraphics[width=0.03\linewidth]{Polar_Line.pdf}} & \vspace{-0.02in} \multirow{10}{*}{\hspace{-0.25in}\includegraphics[width=0.9\linewidth]{turk4-designs.pdf}} \\
+\phantom{\includegraphics[width=0.03\linewidth]{Polar_Line.pdf}} & \vspace{-0.035in} \multirow{10}{*}{\hspace{-0.25in}\includegraphics[width=0.9\linewidth]{turk4-designs.pdf}} \\
 \includegraphics[width=0.055\linewidth]{Polar_Line.pdf} \\
 \includegraphics[width=0.055\linewidth]{Polar_NoLine.pdf} \\
 \includegraphics[width=0.045\linewidth]{Euclidian_Line.pdf} \\
@@ -47,6 +47,8 @@ Figure \ref{layouts} shows an overview of all four chart types in the study.
    \label{fig:example}
 \end{figure}
 
+An additional factor we were interested in this particular situation was to assess, how much of the data we actually needed to use in a design to have observers pick out the pattern. Clearly, a design is more efficient, if a smaller sample size is sufficient for showing the presence of a relationship. In order to investigate this, we took different size samples of the data and created lineup plots of all four designs for these subsets. Another perturbation is to 
+That also allows us to get multiple responses from each observer to assess individual ability. 
 
 
 Describe the experimental setup: polar charts versus euclidean - with and without reference lines.
