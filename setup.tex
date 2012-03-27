@@ -8,7 +8,9 @@ while the difference in mean efficiency between the most efficient wind directio
 However, out of the 34 other wind directions,  another 31 show significant differences in efficiency as well. This is much more a property of the large data size rather than practically usable differences.
 
 \subsection{Wind Direction and Airport Efficiency}
-Deciding on the design: since wind direction is circular, we used (conditional) wind rose charts - i.e. for each of 36 wind directions we show the percentage of flights falling into specific time intervals between successive flights: 0, 1, ..., 7, and 8+ minutes.
+In deciding on the design for displaying efficiency  by wind direction we were using the fact that wind direction is circular, and  displayed the data as (conditional) wind rose charts - i.e. for each of 36 wind directions we show the percentage of flights falling into one-minute intervals between successive flights, from  0 minutes to 8 minutes or more.
+
+
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
 %   \centering
    \begin{tabular}{ccl}
@@ -21,8 +23,7 @@ Deciding on the design: since wind direction is circular, we used (conditional) 
    \label{layouts}
 \end{figure}
 
-In spite of the contextual circular property of wind direction, the pattern in efficiency did not seem to stand out much during the exploration process, which led us to using a corresponding  Euclidean design. Both designs were additionally equipped with a reference line at 50\%. 
-
+In spite of the contextual circular property of wind direction, the pattern in efficiency did not seem to stand out well during the exploration process, which led us to using a corresponding  Euclidean design. Both designs were additionally equipped with a reference line at 50\%. 
 Figure \ref{layouts} shows an overview of all four chart types in the study.
 
 
