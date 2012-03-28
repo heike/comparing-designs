@@ -79,3 +79,53 @@ ggsave("rnorm.pdf", height=3, width=3)
 
 
 x <- rep(1:7, c(1,2,3,4,3,2,1))
+
+
+
+
+
+####################
+# turk 5 pictures
+# conc data:
+conc <- read.csv("/Users/heike/Dropbox/Lineups-nf/turk5/data/turk5_1_15_5_12_16.csv")
+
+sample <- subset(conc, .sample==16)
+t.test(values~group, data=sample)
+
+lineup.ops <- opts(legend.position="none", axis.ticks = theme_blank(), #axis.text.y = theme_blank(), 
+axis.text.x = theme_blank(), plot.margin=unit(c(0,0,0,0), "cm"))
+
+ggplot(aes(x=values,   fill=factor(group)), data=sample) + geom_histogram(binwidth=25, alpha=0.5)+ xlab("")  + ylab("") + lineup.ops
+ggsave("hist-conc.pdf")
+
+alpha=0.5
+ggplot(aes(x=factor(group), y=values, fill=factor(group), colour=factor(group)), data=sample)   + geom_boxplot(alpha=alpha) + coord_flip() + lineup.ops + xlab("")  + ylab("") 
+ggsave("boxplot-conc.pdf")
+
+
+ggplot(aes(x=values,  colour=factor(group), fill=factor(group)), data=sample) + geom_density(alpha=alpha)+ lineup.ops + xlab("")  + ylab("") 
+ggsave("density-conc.pdf")
+
+ggplot(aes(x=values, y=factor(group), colour=factor(group)), data=sample)  + geom_jitter(position=position_jitter(height=0.1, width=0), size=4, alpha=alpha)+ lineup.ops + xlab("")  + ylab("") 
+ggsave("dotplot-conc.pdf")
+
+conc.res <- subturk[grep("_15_15_1_", as.character(subturk$pic_name)),]
+
+stats <- ddply(conc.res, .(n1,n2,d, rep), summarize,
+	correct=sum(response),
+	n=length(param_value),
+	difficulty=mean(difficulty),
+	pval=mean(p_value)
+)
+qplot(interaction(n1,n2,d),correct/n, data=stats) + coord_flip()
+
+conc.res <- subset(subturk, n1==15 & n2==15 & d==1)
+ddply(conc.res, .(n1,n2,d,test_param), summarize,
+	correct=sum(response),
+	n=length(param_value),
+	difficulty=mean(difficulty),
+	pval=mean(p_value)
+)
+
+
+xtabs(~ pic_name + responsedata=conc.res)
