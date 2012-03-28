@@ -89,6 +89,89 @@ Time taken to answer was log transformed before the modelling process to de-emph
  Confidence levels are measured on a five point scale --- they are subjective assessments by the participant `how certain are you'. We model the value using a normal distribution - a discrete uniform distribution  might be more appropriate,
 While there is a difference between the designs - participants reported higher confidence in dealing with the barcharts -- this is only  a trend (i.e. not significant at 5\% but below 10\%). The only significant effect on confidence level is visible for the use of reference lines in polar coordinates: participants report an increase in confidence when using the reference line (however, as we have seen before, this is not matched by an increase in actual correctness of the results).
 
+\begin{table}[ht]
+\begin{center}
+\resizebox{\linewidth}{!} {
+\rowcolors{2}{white}{lightgray}
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Error & $z$-value & $p$-value \\ 
+  \hline
+euclid & -0.08 & 0.39 & -0.21 & 0.84 \\ 
+polar & -1.98 & 0.32 & -6.13 & 0.00 \\ [1pt]
+  reflineTRUE & -0.14 & 0.26 & -0.53 & 0.59 \\ [1pt]
+  sample\_size & 0.27 & 0.04 & 6.31 & 0.00 \\ [1pt]
+  offset 90 & -0.43 & 0.37 & -1.18 & 0.24 \\ 
+  offset 180 & -0.89 & 0.35 & -2.51 & 0.01 \\ 
+  offset 270 & 0.21 & 0.38 & 0.55 & 0.58 \\ [1pt]
+  polar:reflineTRUE & 0.51 & 0.35 & 1.44 & 0.15 \\ [1pt]
+  polar:sample\_size & -0.23 & 0.05 & -5.02 & 0.00 \\ [1pt]
+  polar:offset 90 & 0.64 & 0.49 & 1.30 & 0.20 \\ 
+  polar:offset 180 & 0.91 & 0.47 & 1.92 & 0.05 \\ 
+  polar:offset 270 & -0.73 & 0.54 & -1.35 & 0.18 \\
+   \hline
+\end{tabular}}
+\end{center}
+\caption{\label{tbl:correct} Model output for correct result. }
+\end{table}
+
+
+\begin{table}[ht]
+\begin{center}
+\resizebox{\linewidth}{!} {
+\rowcolors{2}{white}{lightgray}
+\begin{tabular}{rrrrr}
+  \hline
+ & Estimate & Std. Error & $z$ value & $p$ value from multcomp\\ 
+  \hline
+(Intercept) & 3.58 & 0.09 & 41.34 \\ 
+  test\_parampolar & 0.22 & 0.10 & 2.17 \\ 
+  reflineTRUE & 0.08 & 0.06 & 1.50 \\ 
+  sample\_size & -0.03 & 0.00 & -8.73 \\ 
+  offset90 & -0.06 & 0.08 & -0.72 \\ 
+  offset180 & 0.16 & 0.08 & 2.07 \\ 
+  offset270 & -0.04 & 0.07 & -0.54 \\ 
+  test\_parampolar:reflineTRUE & -0.03 & 0.08 & -0.40 \\ 
+  test\_parampolar:sample\_size & 0.03 & 0.01 & 6.25 \\ 
+  test\_parampolar:offset90 & 0.14 & 0.11 & 1.23 \\ 
+  test\_parampolar:offset180 & -0.17 & 0.11 & -1.55 \\ 
+  test\_parampolar:offset270 & 0.17 & 0.11 & 1.50 \\ 
+   \hline
+\end{tabular}}
+\end{center}
+\caption{\label{tbl:time} Model output for (log) time taken. }
+\end{table}
+
+
+
+\begin{table}[ht]
+\begin{center}
+\resizebox{\linewidth}{!} {
+\rowcolors{2}{white}{lightgray}
+\begin{tabular}{rrrr}
+  \hline
+ & Estimate & Std. Error & t value \\ 
+  \hline
+(Intercept) & 3.58 & 0.09 & 41.34 \\ 
+  test\_parampolar & 0.22 & 0.10 & 2.17 \\ 
+  reflineTRUE & 0.08 & 0.06 & 1.50 \\ 
+  sample\_size & -0.03 & 0.00 & -8.73 \\ 
+  offset90 & -0.06 & 0.08 & -0.72 \\ 
+  offset180 & 0.16 & 0.08 & 2.07 \\ 
+  offset270 & -0.04 & 0.07 & -0.54 \\ 
+  test\_parampolar:reflineTRUE & -0.03 & 0.08 & -0.40 \\ 
+  test\_parampolar:sample\_size & 0.03 & 0.01 & 6.25 \\ 
+  test\_parampolar:offset90 & 0.14 & 0.11 & 1.23 \\ 
+  test\_parampolar:offset180 & -0.17 & 0.11 & -1.55 \\ 
+  test\_parampolar:offset270 & 0.17 & 0.11 & 1.50 \\ 
+   \hline
+\end{tabular}
+}
+\end{center}
+\caption{\label{tbl:confidence} Model output for confidence level. }
+\end{table}
+
+
 
 The goal of this experiment is to understand the efficiency of displaying information using euclidian and polar coordinates. Efficiency is the deviation from independence, which can be simulated by taking permutations of the original dataset. Data concerning wind patterns and time between flights at SEA airport is used for these charts. The lineup chart is composed of 20 graphics with all of the exact same characteristics except for the data. One of the 20 graphics will be using original airport data while the other 19 will be permutations of that data. Efficiency of the chart types can be inferred by how accurately individuals pick out the plot with the original data. There are other variables which are introduced to further our understanding of the way we perceive euclidian and polar coordinates. All combinations of each level of the variables are involved in the experiment for both polar and euclidian coordinates. The graphics in each chart will all have exactly the same level of the variables with the only difference being the data. 
 
