@@ -47,9 +47,10 @@ Figure \ref{layouts} shows an overview of all four chart types in the study. Dur
    \label{fig:treatment}
 \end{figure}
 
+An additional factor we were interested in this particular situation was to assess, how much of the data we actually needed to use in a design to have observers pick out the pattern. Clearly, a design is more efficient, if a smaller sample size is sufficient for showing the presence of a relationship. In order to investigate this, we took different size samples of the data and created lineup plots of all four designs for these subsets. The effect of sampling size on the displays mostly stems from the additional variability introduced when using small samples, which might hide the pattern, if it is not displayed prominently. 
 XXX picture of sampling size?
-An additional factor we were interested in this particular situation was to assess, how much of the data we actually needed to use in a design to have observers pick out the pattern. Clearly, a design is more efficient, if a smaller sample size is sufficient for showing the presence of a relationship. In order to investigate this, we took different size samples of the data and created lineup plots of all four designs for these subsets. Another perturbation to the data are `shifts' in wind direction, i.e. we make use of the circular nature of the wind direction and adjust the $x$ axis by using different offsets.
-XXXX show picture of offsets
+Another perturbation to the data are `shifts' in wind direction, i.e. we make use of the circular nature of the wind direction and adjust the $x$ axis by using different offsets.
+
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\linewidth]{euclid-offset} 
@@ -58,7 +59,7 @@ XXXX show picture of offsets
       (Bottom) Shifts in wind direction in the polar chart lead to rotations of the display by 90 degrees.}
 \end{figure}
 
- This results in a shift of the wave in Euclidean charts and a rotation in the polar charts. Our initial hypothesis was that this would have no effect on the polar charts, but might have a deteriorating effect on the Euclidean charts, in the case that the peak or the valley of the wave was at either end of the $x$ axis. 
+ This results in a shift of the wave in Euclidean charts and a rotation in the polar charts as can be seen in figure \ref{fig:offset}. Our initial hypothesis was that this would have no effect on the polar charts, but might have a deteriorating effect on the Euclidean charts, in the case that the peak or the valley of the wave was at either end of the $x$ axis. 
 While these simple perturbations and different sample sizes allow us to get insight into different aspects of the designs, they also allow us to get multiple responses from each observer to assess individual ability without the need to go outside the framework of the original data, i.e. we leave the joint relationship between $x$ and $y$ essentially unchanged. For all of these combinations we produced two replicates, resulting in a total of 192 different lineups ($ 4 \text{ designs} \times 6 \text{ sample sizes} \times 4 \text{ offsets} \times 2 \text{ reps})$.
 
 Data was collected using Amazon's Mechanical Turk (MTurk) service. XXX More details: website and screen shot.
@@ -88,7 +89,6 @@ Figure \ref{fig:time} shows time taken until a decision was made in histograms, 
    \label{fig:time}
 \end{figure}
 
-XXX confidence by test, fill by correct
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\linewidth]{conf-answer} 
@@ -109,7 +109,7 @@ Overall discussion: huge difference in power between polar charts and Euclidean,
 An increase in sample size has positive impact on correctness (see figure \ref{fig:treatment} for an overview). Polar charts need much bigger sample size to see an increase in power -- only at about 24\% of the original data do we see about the same power as for Euclidean charts of a sample size of 2\%.
 The offset changes are significant -- interestingly, borderline behavior (90 and 270 degrees) does not show a difference between polar and Euclidean charts, whereas an inversion of the wave pattern (first up, then down), does show a difference. Polar charts benefit more from this inversion than barcharts. This is an unexpected finding, but is consistent throughout different lineups in the data.
 
-Time taken to answer was log transformed before the modelling process to de-emphasize the impact of very large values (up to 500 sec). The findings are consistent with correctness - time taken shows big differences between polar and Euclidean charts. The reference lines seem to increase the evaluation time, but not significantly. An increase in sample size decreases evaluation time, The inversion of the wave pattern at 180 degrees leads to a significant increase in time for Euclidean charts, but not for polar charts (at least not significantly). 
+Time taken to answer was log transformed before the modeling process to de-emphasize the impact of very large values (up to 500 sec). The findings are consistent with correctness - time taken shows big differences between polar and Euclidean charts. The reference lines seem to increase the evaluation time, but not significantly. An increase in sample size decreases evaluation time, The inversion of the wave pattern at 180 degrees leads to a significant increase in time for Euclidean charts, but not for polar charts (at least not significantly). 
 
  Confidence levels are measured on a five point scale --- they are subjective assessments by the participant `how certain are you'. We model the value using a normal distribution - a discrete uniform distribution  might be more appropriate,
 While there is a difference between the designs - participants reported higher confidence in dealing with the barcharts -- this is only  a trend (i.e. not significant at 5\% but below 10\%). The only significant effect on confidence level is visible for the use of reference lines in polar coordinates: participants report an increase in confidence when using the reference line (however, as we have seen before, this is not matched by an increase in actual correctness of the results).
@@ -196,7 +196,12 @@ polar & -1.98 & 0.32 & -6.13 & 0.00 \\ [1pt]
 \caption{\label{tbl:confidence} Model output for confidence level. }
 \end{table}
 
-
+\begin{figure*}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\linewidth]{predict-power} 
+   \caption{Predicted Power of designs.  The thin lines and the points on $y$ axis show  variability due to individuals' abilities. The saturated lines show average predicted power for each of the designs.}
+   \label{fig:power}
+\end{figure*}
 
 The goal of this experiment is to understand the efficiency of displaying information using euclidian and polar coordinates. Efficiency is the deviation from independence, which can be simulated by taking permutations of the original dataset. Data concerning wind patterns and time between flights at SEA airport is used for these charts. The lineup chart is composed of 20 graphics with all of the exact same characteristics except for the data. One of the 20 graphics will be using original airport data while the other 19 will be permutations of that data. Efficiency of the chart types can be inferred by how accurately individuals pick out the plot with the original data. There are other variables which are introduced to further our understanding of the way we perceive euclidian and polar coordinates. All combinations of each level of the variables are involved in the experiment for both polar and euclidian coordinates. The graphics in each chart will all have exactly the same level of the variables with the only difference being the data. 
 
