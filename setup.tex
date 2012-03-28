@@ -27,26 +27,6 @@ In deciding on the design for displaying efficiency  by wind direction we were u
 In spite of the contextual circular property of wind direction, the pattern in efficiency did not seem to stand out well during the exploration process, which led us to using a corresponding  Euclidean design. Both designs were additionally equipped with a reference line at 50\%. 
 Figure \ref{layouts} shows an overview of all four chart types in the study. During the exploration of the data, it became clear that Seattle airport functions at it best with winds coming from the East to Southeast, while winds from the West seemed to be most troublesome, resulting in a wave-like pattern in the Euclidean charts and a shift in center for the polar charts. Since runways can be used in both directions, changing the runway usage according to dominant wind direction for that day or time of the year might be a feasible solution in gaining efficiency. 
 
-\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-
-\begin{tabular}{cl}
-\phantom{\includegraphics[width=0.03\linewidth]{Polar_Line.pdf}} & \vspace{-0.035in} \multirow{10}{*}{\hspace{-0.25in}\includegraphics[width=0.9\linewidth]{turk4-designs.pdf}} \\
-\includegraphics[width=0.05\linewidth]{Polar_Line.pdf} \\
-\includegraphics[width=0.05\linewidth]{Polar_NoLine.pdf} \\
-\includegraphics[width=0.043\linewidth]{Euclidian_Line.pdf} \\
-\includegraphics[width=0.043\linewidth]{Euclidian_NoLine.pdf}\\
-\phantom{\includegraphics[width=0.015\linewidth]{Polar_Line.pdf}}\\
-\includegraphics[width=0.05\linewidth]{Polar_Line.pdf} \\
-\includegraphics[width=0.05\linewidth]{Polar_NoLine.pdf} \\
-\includegraphics[width=0.043\linewidth]{Euclidian_Line.pdf} \\
-\includegraphics[width=0.043\linewidth]{Euclidian_NoLine.pdf}\\
-  \end{tabular} 
-  \vspace{0.1in}
-   \caption{Power results for two competing designs: polar versus a Euclidean, with and without a reference line. Error bars indicate 95\% confidence intervals. Plots are facetted by percentage of data used. }
-   \label{fig:treatment}
-\end{figure}
-
 An additional factor we were interested in this particular situation was to assess, how much of the data we actually needed to use in a design to have observers pick out the pattern. Clearly, a design is more efficient, if a smaller sample size is sufficient for showing the presence of a relationship. In order to investigate this, we took different size samples of the data and created lineup plots of all four designs for these subsets. The effect of sampling size on the displays mostly stems from the additional variability introduced when using small samples, which might hide the pattern, if it is not displayed prominently. 
 XXX picture of sampling size?
 Another perturbation to the data are `shifts' in wind direction, i.e. we make use of the circular nature of the wind direction and adjust the $x$ axis by using different offsets.
@@ -93,7 +73,7 @@ Figure \ref{fig:time} shows time taken until a decision was made in histograms, 
    \centering
    \includegraphics[width=\linewidth]{conf-answer} 
    \caption{Barcharts of (subjective) confidence in answering correctly for each lineup. A strongly bimodal distribution is apparent, while confidence levels for polar charts are more uniform. There are only slight (and non significant) difference between confidence levels and correctness of results.}
-   \label{fig:time}
+   \label{fig:conf}
 \end{figure}
 
 
@@ -105,11 +85,32 @@ Viewers of these charts will visually decode the areas of the bars and pie slice
 For evaluating the results, we are using a linear mixed effects modeling \cite{pinheiro:2000} approach in all three of our response values, using the {\t R} package {\tt lme4} \cite{bates:2011}. 
 
 
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+
+\begin{tabular}{cl}
+\phantom{\includegraphics[width=0.03\linewidth]{Polar_Line.pdf}} & \vspace{-0.035in} \multirow{10}{*}{\hspace{-0.25in}\includegraphics[width=0.9\linewidth]{turk4-designs.pdf}} \\
+\includegraphics[width=0.05\linewidth]{Polar_Line.pdf} \\
+\includegraphics[width=0.05\linewidth]{Polar_NoLine.pdf} \\
+\includegraphics[width=0.043\linewidth]{Euclidian_Line.pdf} \\
+\includegraphics[width=0.043\linewidth]{Euclidian_NoLine.pdf}\\
+\phantom{\includegraphics[width=0.015\linewidth]{Polar_Line.pdf}}\\
+\includegraphics[width=0.05\linewidth]{Polar_Line.pdf} \\
+\includegraphics[width=0.05\linewidth]{Polar_NoLine.pdf} \\
+\includegraphics[width=0.043\linewidth]{Euclidian_Line.pdf} \\
+\includegraphics[width=0.043\linewidth]{Euclidian_NoLine.pdf}\\
+  \end{tabular} 
+  \vspace{0.1in}
+   \caption{Power results for two competing designs: polar versus a Euclidean, with and without a reference line. Error bars indicate 95\% confidence intervals. Plots are facetted by percentage of data used. }
+   \label{fig:treatment}
+\end{figure}
+
 Overall discussion: huge difference in power between polar charts and Euclidean, reference line has surprisingly little influence, but more so for polar charts than for barcharts,
 An increase in sample size has positive impact on correctness (see figure \ref{fig:treatment} for an overview). Polar charts need much bigger sample size to see an increase in power -- only at about 24\% of the original data do we see about the same power as for Euclidean charts of a sample size of 2\%.
 The offset changes are significant -- interestingly, borderline behavior (90 and 270 degrees) does not show a difference between polar and Euclidean charts, whereas an inversion of the wave pattern (first up, then down), does show a difference. Polar charts benefit more from this inversion than barcharts. This is an unexpected finding, but is consistent throughout different lineups in the data.
 
 Time taken to answer was log transformed before the modeling process to de-emphasize the impact of very large values (up to 500 sec). The findings are consistent with correctness - time taken shows big differences between polar and Euclidean charts. The reference lines seem to increase the evaluation time, but not significantly. An increase in sample size decreases evaluation time, The inversion of the wave pattern at 180 degrees leads to a significant increase in time for Euclidean charts, but not for polar charts (at least not significantly). 
+
 
  Confidence levels are measured on a five point scale --- they are subjective assessments by the participant `how certain are you'. We model the value using a normal distribution - a discrete uniform distribution  might be more appropriate,
 While there is a difference between the designs - participants reported higher confidence in dealing with the barcharts -- this is only  a trend (i.e. not significant at 5\% but below 10\%). The only significant effect on confidence level is visible for the use of reference lines in polar coordinates: participants report an increase in confidence when using the reference line (however, as we have seen before, this is not matched by an increase in actual correctness of the results).
