@@ -43,14 +43,17 @@ Figure \ref{layouts} shows an overview of all four chart types in the study. Dur
 \includegraphics[width=0.043\linewidth]{Euclidian_NoLine.pdf}\\
   \end{tabular} 
   \vspace{0.1in}
-   \caption{Power results for two competing designs: polar versus a Euclidean, with and without a reference line. Error bars indicate 95\% confidence intervals. Plots are facetted by percentage of data used. }
+   \caption{Power results for two competing designs: polar versus a Euclidean, with and without a reference line. Error bars indicate 95\% confidence intervals. Plots are facetted by percentage of data used. XXX Orphan}
    \label{fig:treatment}
 \end{figure}
 
-An additional factor we were interested in this particular situation was to assess, how much of the data we actually needed to use in a design to have observers pick out the pattern. Clearly, a design is more efficient, if a smaller sample size is sufficient for showing the presence of a relationship. In order to investigate this, we took different size samples of the data and created lineup plots of all four designs for these subsets. Another perturbation to the data are `shifts' in wind direction, i.e. we make use of the circular nature of the wind direction and adjust the $x$ axis by using different offsets. This results in a shift of the wave in Euclidean charts and a rotation in the polar charts. Our initial hypothesis was that this would have no effect on the polar charts, but might have a deteriorating effect on the Euclidean charts, in the case that the peak or the valley of the wave was at either end of the $x$ axis. 
-While these simple perturbations and different sample sizes allow us to get insight into different aspects of the designs, they also allow us to get multiple responses from each observer to assess individual ability without the need to go outside the framework of the original data, i.e. we leave the joint relationship between $x$ and $y$ essentially unchanged. 
+XXX picture of sampling size?
+An additional factor we were interested in this particular situation was to assess, how much of the data we actually needed to use in a design to have observers pick out the pattern. Clearly, a design is more efficient, if a smaller sample size is sufficient for showing the presence of a relationship. In order to investigate this, we took different size samples of the data and created lineup plots of all four designs for these subsets. Another perturbation to the data are `shifts' in wind direction, i.e. we make use of the circular nature of the wind direction and adjust the $x$ axis by using different offsets.
+XXXX show picture of offsets
+ This results in a shift of the wave in Euclidean charts and a rotation in the polar charts. Our initial hypothesis was that this would have no effect on the polar charts, but might have a deteriorating effect on the Euclidean charts, in the case that the peak or the valley of the wave was at either end of the $x$ axis. 
+While these simple perturbations and different sample sizes allow us to get insight into different aspects of the designs, they also allow us to get multiple responses from each observer to assess individual ability without the need to go outside the framework of the original data, i.e. we leave the joint relationship between $x$ and $y$ essentially unchanged. For all of these combinations we produced two replicates, resulting in a total of 192 different lineups ($ 4 \text{ designs} \times 6 \text{ sample sizes} \times 4 \text{ offsets} \times 2 \text{ reps})$.
 
-Data was collected using Amazon's Mechanical Turk (MTurk) service. Each participant was shown ten lineups. In order to avoid people `gaming the system' as found in earlier studies \cite{heer:2010, kosara:2010}, participants were shown two specially prepared lineups as a baseline of performance -- if participants got just one of these two reference lineups correct, we required at least an overall correct percentage of 20\%, which is indicative of a performance that is better than guessing.
+Data was collected using Amazon's Mechanical Turk (MTurk) service. Each participant was shown ten lineups. In order to avoid people `gaming the system' as found in earlier studies \cite{heer:2010, kosara:2010}, participants were shown two specially prepared lineups as a baseline of performance -- if participants got just one of these two reference lineups correct, we required at least an overall correct percentage of 20\%, which is indicative of a performance that is better than guessing. Table \ref{tbl:treatment} gives an overview of the number of times lineups in each combination of design and sample size were shown, and in how many of them the data plot was correctly identified. 
 
 \begin{table}[hbtp]
 \resizebox{\linewidth}{!} {
@@ -63,7 +66,7 @@ Data was collected using Amazon's Mechanical Turk (MTurk) service. Each particip
 	& without & 13/41 &24/32& 39/44 & 47/51 & 40/45 & 34/37\\
 	\end{tabular}
 	}
-\caption{\label{tbl:treatment} Breakdown of lineups: correct/shown. Each participant was shown eight lineups from the set above and two separate `test' charts. }
+\caption{\label{tbl:treatment} Breakdown of lineups: correct/shown. Each participant was shown eight lineups from the set above and two separate `test' charts.}
 \end{table}
 
 Most generally this experiment can be paralleled to the pie chart versus barchart discussion \cite{}. 
@@ -71,9 +74,20 @@ The Euclidean coordinate plot is made up of bars where areas are colored proport
 Viewers of these charts will visually decode the areas of the bars and pie slices and make a judgement based on their decoding. According to  \citet[page=40]{kosslyn:2006}, area is usually perceived as a function of what the actual area is. This function is the area raised to an exponent of approximately 0.8 and then multiplied by a constant. However, when bars are parallel, the relative height of these bars is perceived very accurately. From this information, one could infer that the Euclidean coordinate plot may gain efficiency based on the height of the colored bars. 
 
 
-Discussion of lmer results
-model 
+For evaluating the results, we are using a linear mixed effects modeling \cite{pinheiro:2000} approach in all three of our response values, using the {\t R} package {\tt lme4} \cite{bates:2011}. 
 
+The three response variables are correctness (binary values: correct and wrong),  time taken for answer (skew distribution, log transformation makes it more normal), and confidence level of result, a subjective assessment of correctness of the result, with values 1 (lowest) to 5 (highest).
+XXX show figure of response variables: histogram of log time facetted by test fill colour correct
+XXX confidence by test, fill by correct
+
+Overall discussion: huge difference in power between polar charts and Euclidean, reference line has surprisingly little influence, but more so for polar charts than for barcharts,
+An increase in sample size has positive impact on correctness (see figure \ref{fig:treatment} for an overview). Polar charts need much bigger sample size to see an increase in power -- only at about 24\% of the original data do we see about the same power as for Euclidean charts of a sample size of 2\%.
+The offset changes are significant -- interestingly, borderline behavior (90 and 270 degrees) does not show a difference between polar and Euclidean charts, whereas an inversion of the wave pattern (first up, then down), does show a difference. Polar charts benefit more from this inversion than barcharts. This is an unexpected finding, but is consistent throughout different lineups in the data.
+
+Time taken to answer was log transformed before the modelling process to de-emphasize the impact of very large values (up to 500 sec). The findings are consistent with correctness - time taken shows big differences between polar and Euclidean charts. The reference lines seem to increase the evaluation time, but not significantly. An increase in sample size decreases evaluation time, The inversion of the wave pattern at 180 degrees leads to a significant increase in time for Euclidean charts, but not for polar charts (at least not significantly). 
+
+ Confidence levels are measured on a five point scale --- they are subjective assessments by the participant `how certain are you'. We model the value using a normal distribution - a discrete uniform distribution  might be more appropriate,
+While there is a difference between the designs - participants reported higher confidence in dealing with the barcharts -- this is only  a trend (i.e. not significant at 5\% but below 10\%). The only significant effect on confidence level is visible for the use of reference lines in polar coordinates: participants report an increase in confidence when using the reference line (however, as we have seen before, this is not matched by an increase in actual correctness of the results).
 
 
 The goal of this experiment is to understand the efficiency of displaying information using euclidian and polar coordinates. Efficiency is the deviation from independence, which can be simulated by taking permutations of the original dataset. Data concerning wind patterns and time between flights at SEA airport is used for these charts. The lineup chart is composed of 20 graphics with all of the exact same characteristics except for the data. One of the 20 graphics will be using original airport data while the other 19 will be permutations of that data. Efficiency of the chart types can be inferred by how accurately individuals pick out the plot with the original data. There are other variables which are introduced to further our understanding of the way we perceive euclidian and polar coordinates. All combinations of each level of the variables are involved in the experiment for both polar and euclidian coordinates. The graphics in each chart will all have exactly the same level of the variables with the only difference being the data. 
