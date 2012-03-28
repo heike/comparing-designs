@@ -77,8 +77,21 @@ Viewers of these charts will visually decode the areas of the bars and pie slice
 For evaluating the results, we are using a linear mixed effects modeling \cite{pinheiro:2000} approach in all three of our response values, using the {\t R} package {\tt lme4} \cite{bates:2011}. 
 
 The three response variables are correctness (binary values: correct and wrong),  time taken for answer (skew distribution, log transformation makes it more normal), and confidence level of result, a subjective assessment of correctness of the result, with values 1 (lowest) to 5 (highest).
-XXX show figure of response variables: histogram of log time facetted by test fill colour correct
+XXX show figure of response variables: histogram of log time facetted by test fill colour correct see figure \ref{fig:time}
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\linewidth]{time-answer} 
+   \caption{Histograms of time taken for answering lineups. On average the Euclidean design is answered faster and with higher power (percentage of correct answers). }
+   \label{fig:time}
+\end{figure}
+
 XXX confidence by test, fill by correct
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\linewidth]{conf-answer} 
+   \caption{Barcharts of (subjective) confidence in answering correctly for each lineup. A strongly bimodal distribution is apparent, while confidence levels for polar charts are more uniform. There are only slight (and non significant) difference between confidence levels and correctness of results.}
+   \label{fig:time}
+\end{figure}
 
 Overall discussion: huge difference in power between polar charts and Euclidean, reference line has surprisingly little influence, but more so for polar charts than for barcharts,
 An increase in sample size has positive impact on correctness (see figure \ref{fig:treatment} for an overview). Polar charts need much bigger sample size to see an increase in power -- only at about 24\% of the original data do we see about the same power as for Euclidean charts of a sample size of 2\%.
