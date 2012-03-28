@@ -43,7 +43,10 @@ Another perturbation to the data are `shifts' in wind direction, i.e. we make us
 While these simple perturbations and different sample sizes allow us to get insight into different aspects of the designs, they also allow us to get multiple responses from each observer to assess individual ability without the need to go outside the framework of the original data, i.e. we leave the joint relationship between $x$ and $y$ essentially unchanged. For all of these combinations we produced two replicates, resulting in a total of 192 different lineups ($ 4 \text{ designs} \times 6 \text{ sample sizes} \times 4 \text{ offsets} \times 2 \text{ reps})$.
 
 Data was collected using Amazon's Mechanical Turk (MTurk) service. XXX More details: website and screen shot.
- Each participant was shown ten lineups. In order to avoid people `gaming the system' as found in earlier studies \cite{heer:2010, kosara:2010}, participants were shown two specially prepared lineups as a baseline of performance -- if participants got just one of these two reference lineups correct, we required at least an overall correct percentage of 20\%, which is indicative of a performance that is better than guessing. Table \ref{tbl:treatment} gives an overview of the number of times lineups in each combination of design and sample size were shown, and in how many of them the data plot was correctly identified. 
+ Each participant was shown ten lineups and asked to choose the graphic on each chart which they think is ``different". They then identify, from a list of choices, why they chose this particular chart as well as how confident they are on a scale of one to five. Personal information such as age group, gender, and education is collected on a voluntary basis. 
+The amount of time it took the individual to answer is also recorded. This study allows us to make informed judgments about how design choices affect decoding \citet{cleveland:1994} in terms of accuracy and speed.
+ 
+ In order to avoid people `gaming the system' as found in earlier studies \cite{heer:2010, kosara:2010}, participants were shown two specially prepared lineups as a baseline of performance -- if participants got just one of these two reference lineups correct, we required at least an overall correct percentage of 20\%, which is indicative of a performance that is better than guessing. Table \ref{tbl:treatment} gives an overview of the number of times lineups in each combination of design and sample size were shown, and in how many of them the data plot was correctly identified. 
 
 \begin{table}[hbtp]
 \resizebox{\linewidth}{!} {
@@ -59,7 +62,7 @@ Data was collected using Amazon's Mechanical Turk (MTurk) service. XXX More deta
 \caption{\label{tbl:treatment} Breakdown of lineups: correct/shown. Each participant was shown eight lineups from the set above and two separate `test' charts.}
 \end{table}
 
-Besides correctness of responses, two additional response variables were recorded:  time taken for answer and a (subjective) confidence level, ranging from 1 (lowest) to 5 (highest), assessing how convinced participants are of the correctness of their answer. 
+%Besides correctness of responses, two additional response variables were recorded:  time taken for answer and a (subjective) confidence level, ranging from 1 (lowest) to 5 (highest), assessing how convinced participants are of the correctness of their answer. 
 Figure \ref{fig:time} shows time taken until a decision was made in histograms, facetted by design and colored by correctness of answer. because of the skewness of the distributions, times were log-transformed. Polar charts take on average more time to answer, but are answered with much lower precision. Figure \ref{fig:conf} shows two barcharts of confidence levels by task, again coloring is used for correctness of answers. Euclidean displays lead to a very bimodal distribution of confidence: participants are either very sure or not sure at all of their answer. Confidence levels in polar charts are distributed much more uniformly.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
@@ -117,7 +120,7 @@ While there is a difference between the designs - participants reported higher c
 
 \begin{table}[ht]
 \begin{center}
-\resizebox{\linewidth}{!} {
+%\resizebox{\linewidth}{!} {
 \rowcolors{2}{white}{lightgray}
 \begin{tabular}{rrrrr}
   \hline
@@ -136,7 +139,8 @@ polar & -1.98 & 0.32 & -6.13 & 0.00 \\ [1pt]
   polar:offset 180 & 0.91 & 0.47 & 1.92 & 0.05 \\ 
   polar:offset 270 & -0.73 & 0.54 & -1.35 & 0.18 \\
    \hline
-\end{tabular}}
+\end{tabular}
+%}
 \end{center}
 \caption{\label{tbl:correct} Model output for correct result. }
 \end{table}
@@ -148,20 +152,20 @@ polar & -1.98 & 0.32 & -6.13 & 0.00 \\ [1pt]
 \rowcolors{2}{white}{lightgray}
 \begin{tabular}{rrrrr}
   \hline
- & Estimate & Std. Error & $z$ value & $p$ value from multcomp\\ 
+ & Estimate & Std..Error & t.value & pval \\ 
   \hline
-(Intercept) & 3.58 & 0.09 & 41.34 \\ 
-  test\_parampolar & 0.22 & 0.10 & 2.17 \\ 
-  reflineTRUE & 0.08 & 0.06 & 1.50 \\ 
-  sample\_size & -0.03 & 0.00 & -8.73 \\ 
-  offset90 & -0.06 & 0.08 & -0.72 \\ 
-  offset180 & 0.16 & 0.08 & 2.07 \\ 
-  offset270 & -0.04 & 0.07 & -0.54 \\ 
-  test\_parampolar:reflineTRUE & -0.03 & 0.08 & -0.40 \\ 
-  test\_parampolar:sample\_size & 0.03 & 0.01 & 6.25 \\ 
-  test\_parampolar:offset90 & 0.14 & 0.11 & 1.23 \\ 
-  test\_parampolar:offset180 & -0.17 & 0.11 & -1.55 \\ 
-  test\_parampolar:offset270 & 0.17 & 0.11 & 1.50 \\ 
+(Intercept) & 3.58 & 0.09 & 41.34 & 0.00 \\ 
+  test\_parampolar & 0.22 & 0.10 & 2.17 & 0.03 \\ 
+  reflineTRUE & 0.08 & 0.06 & 1.50 & 0.13 \\ 
+  sample\_size & -0.03 & 0.00 & -8.73 & 0.00 \\ 
+  offset90 & -0.06 & 0.08 & -0.72 & 0.47 \\ 
+  offset180 & 0.16 & 0.08 & 2.07 & 0.04 \\ 
+  offset270 & -0.04 & 0.07 & -0.54 & 0.59 \\ 
+  test\_parampolar:reflineTRUE & -0.03 & 0.08 & -0.40 & 0.69 \\ 
+  test\_parampolar:sample\_size & 0.03 & 0.01 & 6.25 & 0.00 \\ 
+  test\_parampolar:offset90 & 0.14 & 0.11 & 1.23 & 0.22 \\ 
+  test\_parampolar:offset180 & -0.17 & 0.11 & -1.55 & 0.12 \\ 
+  test\_parampolar:offset270 & 0.17 & 0.11 & 1.50 & 0.13 \\ 
    \hline
 \end{tabular}}
 \end{center}
@@ -174,22 +178,22 @@ polar & -1.98 & 0.32 & -6.13 & 0.00 \\ [1pt]
 \begin{center}
 \resizebox{\linewidth}{!} {
 \rowcolors{2}{white}{lightgray}
-\begin{tabular}{rrrr}
+\begin{tabular}{rrrrr}
   \hline
- & Estimate & Std. Error & t value \\ 
+ & Estimate & Std..Error & t.value & pval \\ 
   \hline
-(Intercept) & 3.58 & 0.09 & 41.34 \\ 
-  test\_parampolar & 0.22 & 0.10 & 2.17 \\ 
-  reflineTRUE & 0.08 & 0.06 & 1.50 \\ 
-  sample\_size & -0.03 & 0.00 & -8.73 \\ 
-  offset90 & -0.06 & 0.08 & -0.72 \\ 
-  offset180 & 0.16 & 0.08 & 2.07 \\ 
-  offset270 & -0.04 & 0.07 & -0.54 \\ 
-  test\_parampolar:reflineTRUE & -0.03 & 0.08 & -0.40 \\ 
-  test\_parampolar:sample\_size & 0.03 & 0.01 & 6.25 \\ 
-  test\_parampolar:offset90 & 0.14 & 0.11 & 1.23 \\ 
-  test\_parampolar:offset180 & -0.17 & 0.11 & -1.55 \\ 
-  test\_parampolar:offset270 & 0.17 & 0.11 & 1.50 \\ 
+(Intercept) & 2.92 & 0.16 & 18.17 & 0.00 \\ 
+  test\_parampolar & -0.30 & 0.16 & -1.86 & 0.06 \\ 
+  reflineTRUE & -0.16 & 0.09 & -1.74 & 0.08 \\ 
+  sample\_size & 0.01 & 0.01 & 1.01 & 0.31 \\ 
+  offset90 & 0.14 & 0.13 & 1.07 & 0.28 \\ 
+  offset180 & 0.03 & 0.13 & 0.26 & 0.80 \\ 
+  offset270 & 0.01 & 0.12 & 0.07 & 0.94 \\ 
+  test\_parampolar:reflineTRUE & 0.31 & 0.13 & 2.46 & 0.01 \\ 
+  test\_parampolar:sample\_size & -0.01 & 0.01 & -0.70 & 0.49 \\ 
+  test\_parampolar:offset90 & -0.14 & 0.18 & -0.78 & 0.44 \\ 
+  test\_parampolar:offset180 & -0.01 & 0.18 & -0.04 & 0.97 \\ 
+  test\_parampolar:offset270 & -0.00 & 0.18 & -0.01 & 0.99 \\ 
    \hline
 \end{tabular}
 }
@@ -212,7 +216,7 @@ The other variables which are monitored are existence of reference line, placeme
  All combinations of these variables were repeated for plots with a reference line and without a reference line, as shown in figure \ref{layouts}.This figure shows examples of graphics showing the actual data, which in the experiment would be randomly positioned among 19 null plots. In total there are XXX unique charts which represent all different combinations of sample size, coordinate type, x-axis placement, and whether or not there is a reference line. The charts are all assigned a difficulty level, which is based on sample size, on a scale from zero to four. There are two plots assigned a difficulty level of zero. These two charts, one polar and one Euclidian, were made from computer generated data and intended to be at the level where an individual, if he or she is not purely guessing, should be able to find the correct plot. 
 
 
-Amazon's Mechanical Turk is an online service in which individuals can request and perform simple tasks and surveys for money. Using Turk we were able to gather data on how people responded to the charts. Each person is shown a series of ten charts and asked to choose the graphic on each chart which they think is "different". They then identify, from a list of choices, why they chose this particular chart as well as how confident they are on a scale of one to five. Personal information such as age group, gender, and education is also collected on a voluntary basis. The amount of time it took the individual to answer is also recorded. This study allows us to make informed judgments about how the plot type effects efficiency in terms of accuracy and time spent reading the plots. Xcite stephen few?X
+%Amazon's Mechanical Turk is an online service in which individuals can request and perform simple tasks and surveys for money. Using Turk we were able to gather data on how people responded to the charts. Each person is shown a series of ten charts and asked to choose the graphic on each chart which they think is "different". They then identify, from a list of choices, why they chose this particular chart as well as how confident they are on a scale of one to five. Personal information such as age group, gender, and education is also collected on a voluntary basis. The amount of time it took the individual to answer is also recorded. This study allows us to make informed judgments about how the plot type effects efficiency in terms of accuracy and time spent reading the plots. Xcite stephen few?X
 
 Effect is deviation from independence. Cannot be properly measured statistically except in highly aggregated situations, where the effect might be washed out.
 
