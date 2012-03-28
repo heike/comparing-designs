@@ -25,35 +25,56 @@ In deciding on the design for displaying efficiency  by wind direction we were u
 \end{figure}
 
 In spite of the contextual circular property of wind direction, the pattern in efficiency did not seem to stand out well during the exploration process, which led us to using a corresponding  Euclidean design. Both designs were additionally equipped with a reference line at 50\%. 
-Figure \ref{layouts} shows an overview of all four chart types in the study. During the exploration of the data, it became clear that Seattle airport functions at it best with winds coming from the East to Southeast, while winds from the West seemed to be most troublesome. Since runways can be used in both directions, changing the runway usage according to dominant wind direction for that day or time of the year might be a feasible solution in gaining efficiency. 
+Figure \ref{layouts} shows an overview of all four chart types in the study. During the exploration of the data, it became clear that Seattle airport functions at it best with winds coming from the East to Southeast, while winds from the West seemed to be most troublesome, resulting in a wave-like pattern in the Euclidean charts and a shift in center for the polar charts. Since runways can be used in both directions, changing the runway usage according to dominant wind direction for that day or time of the year might be a feasible solution in gaining efficiency. 
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
 
 \begin{tabular}{cl}
 \phantom{\includegraphics[width=0.03\linewidth]{Polar_Line.pdf}} & \vspace{-0.035in} \multirow{10}{*}{\hspace{-0.25in}\includegraphics[width=0.9\linewidth]{turk4-designs.pdf}} \\
-\includegraphics[width=0.055\linewidth]{Polar_Line.pdf} \\
-\includegraphics[width=0.055\linewidth]{Polar_NoLine.pdf} \\
-\includegraphics[width=0.045\linewidth]{Euclidian_Line.pdf} \\
-\includegraphics[width=0.045\linewidth]{Euclidian_NoLine.pdf}\\
-\phantom{\includegraphics[width=0.03\linewidth]{Polar_Line.pdf}}\\
-\includegraphics[width=0.055\linewidth]{Polar_Line.pdf} \\
-\includegraphics[width=0.055\linewidth]{Polar_NoLine.pdf} \\
-\includegraphics[width=0.045\linewidth]{Euclidian_Line.pdf} \\
-      \includegraphics[width=0.045\linewidth]{Euclidian_NoLine.pdf}
+\includegraphics[width=0.05\linewidth]{Polar_Line.pdf} \\
+\includegraphics[width=0.05\linewidth]{Polar_NoLine.pdf} \\
+\includegraphics[width=0.043\linewidth]{Euclidian_Line.pdf} \\
+\includegraphics[width=0.043\linewidth]{Euclidian_NoLine.pdf}\\
+\phantom{\includegraphics[width=0.015\linewidth]{Polar_Line.pdf}}\\
+\includegraphics[width=0.05\linewidth]{Polar_Line.pdf} \\
+\includegraphics[width=0.05\linewidth]{Polar_NoLine.pdf} \\
+\includegraphics[width=0.043\linewidth]{Euclidian_Line.pdf} \\
+\includegraphics[width=0.043\linewidth]{Euclidian_NoLine.pdf}\\
   \end{tabular} 
   \vspace{0.1in}
    \caption{Power results for two competing designs: polar versus a Euclidean, with and without a reference line. Error bars indicate 95\% confidence intervals. Plots are facetted by percentage of data used. }
-   \label{fig:example}
+   \label{fig:treatment}
 \end{figure}
 
-An additional factor we were interested in this particular situation was to assess, how much of the data we actually needed to use in a design to have observers pick out the pattern. Clearly, a design is more efficient, if a smaller sample size is sufficient for showing the presence of a relationship. In order to investigate this, we took different size samples of the data and created lineup plots of all four designs for these subsets. Another perturbation is to 
-That also allows us to get multiple responses from each observer to assess individual ability. 
+An additional factor we were interested in this particular situation was to assess, how much of the data we actually needed to use in a design to have observers pick out the pattern. Clearly, a design is more efficient, if a smaller sample size is sufficient for showing the presence of a relationship. In order to investigate this, we took different size samples of the data and created lineup plots of all four designs for these subsets. Another perturbation to the data are `shifts' in wind direction, i.e. we make use of the circular nature of the wind direction and adjust the $x$ axis by using different offsets. This results in a shift of the wave in Euclidean charts and a rotation in the polar charts. Our initial hypothesis was that this would have no effect on the polar charts, but might have a deteriorating effect on the Euclidean charts, in the case that the peak or the valley of the wave was at either end of the $x$ axis. 
+While these simple perturbations and different sample sizes allow us to get insight into different aspects of the designs, they also allow us to get multiple responses from each observer to assess individual ability without the need to go outside the framework of the original data, i.e. we leave the joint relationship between $x$ and $y$ essentially unchanged. 
+
+Data was collected using Amazon's Mechanical Turk (MTurk) service. Each participant was shown ten lineups. In order to avoid people `gaming the system' as found in earlier studies \cite{heer:2010, kosara:2010}, participants were shown two specially prepared lineups as a baseline of performance -- if participants got just one of these two reference lineups correct, we required at least an overall correct percentage of 20\%, which is indicative of a performance that is better than guessing.
+
+\begin{table}[hbtp]
+\resizebox{\linewidth}{!} {
+	\rowcolors{1}{white}{lightgray}
+	\begin{tabular}{ll|@{}r|@{}r|@{}r|@{}r|@{}r|@{}r}
+	\multicolumn{2}{l}{sample size (in percent)}  & 2 & 4 & 6 & 8 & 10 & 24 \\ [1pt] \hline
+	Polar & with & 13/49& 9/43 & 9/39 & 7/35 & 8/40 & 13/38 \\
+	& without & 6/51&   4/34 &  5/34 &  6/39 & 11/43 &  12/37\\ [1pt] \hline
+	Euclidean & with &12/24& 18/27 & 42/44 & 33/41 & 39/43 & 46/47\\
+	& without & 13/41 &24/32& 39/44 & 47/51 & 40/45 & 34/37\\
+	\end{tabular}
+	}
+\caption{\label{tbl:treatment} Breakdown of lineups: correct/shown. Each participant was shown eight lineups from the set above and two separate `test' charts. }
+\end{table}
+
+Most generally this experiment can be paralleled to the pie chart versus barchart discussion \cite{}. 
+The Euclidean coordinate plot is made up of bars where areas are colored proportionally according to percentages. The polar coordinate plot is made up of pie slices which are also colored proportionally according to the data. 
+Viewers of these charts will visually decode the areas of the bars and pie slices and make a judgement based on their decoding. According to  \citet[page=40]{kosslyn:2006}, area is usually perceived as a function of what the actual area is. This function is the area raised to an exponent of approximately 0.8 and then multiplied by a constant. However, when bars are parallel, the relative height of these bars is perceived very accurately. From this information, one could infer that the Euclidean coordinate plot may gain efficiency based on the height of the colored bars. 
 
 
-Describe the experimental setup: polar charts versus euclidean - with and without reference lines.
-Figure showing all four types using the same dataset. 
-Discuss construction of each one. Discuss construction of null chart.
+Discussion of lmer results
+model 
+
+
 
 The goal of this experiment is to understand the efficiency of displaying information using euclidian and polar coordinates. Efficiency is the deviation from independence, which can be simulated by taking permutations of the original dataset. Data concerning wind patterns and time between flights at SEA airport is used for these charts. The lineup chart is composed of 20 graphics with all of the exact same characteristics except for the data. One of the 20 graphics will be using original airport data while the other 19 will be permutations of that data. Efficiency of the chart types can be inferred by how accurately individuals pick out the plot with the original data. There are other variables which are introduced to further our understanding of the way we perceive euclidian and polar coordinates. All combinations of each level of the variables are involved in the experiment for both polar and euclidian coordinates. The graphics in each chart will all have exactly the same level of the variables with the only difference being the data. 
 
@@ -67,7 +88,7 @@ Amazon's Mechanical Turk is an online service in which individuals can request a
 
 Effect is deviation from independence. Cannot be properly measured statistically except in highly aggregated situations, where the effect might be washed out.
 
-Most generally this experiment can be paralleled to the pie chart versus barchart discussion. The Euclidian coordinate plot is made up of bars *whose?* areas are colored proportionally according to the data. The polar coordinate plot is made up of pie slices which are also colored proportionally according to the data. Viewers of these charts will visually decode the areas of the bars and pie slices and make a judgement based on their decoding. How accurate this judgment is is left to be discussed. According to  \citet[page=40]{kosslyn:2006}, area is usually perceived as a function of what the actual area is. This function is the area raised to an exponent of approximately 0.8 and then multiplied by a constant. However, when bars are parallel, the relative height of these bars is perceived very accurately. From this information, one could infer that the Euclidian coordinate plot may gain efficiency based on the height of the colored bars. 
+%Most generally this experiment can be paralleled to the pie chart versus barchart discussion. The Euclidian coordinate plot is made up of bars *whose?* areas are colored proportionally according to the data. The polar coordinate plot is made up of pie slices which are also colored proportionally according to the data. Viewers of these charts will visually decode the areas of the bars and pie slices and make a judgement based on their decoding. How accurate this judgment is is left to be discussed. According to  \citet[page=40]{kosslyn:2006}, area is usually perceived as a function of what the actual area is. This function is the area raised to an exponent of approximately 0.8 and then multiplied by a constant. However, when bars are parallel, the relative height of these bars is perceived very accurately. From this information, one could infer that the Euclidian coordinate plot may gain efficiency based on the height of the colored bars. 
 
 
 Pie versus Barchart discussion is pretty old: cite some of the literature:
