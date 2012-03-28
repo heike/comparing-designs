@@ -15,7 +15,11 @@ preferences, the characteristics of the audience, and a good working
 knowledge of general perceptual strengths and weaknesses of particular
 displays \citep{cleveland:1984,heer:2010}. Perceptual studies are
 thinly spread for data visualization, and have, and will probably,
-only cover very broad perceptual principles. Faced with design
+only cover very broad perceptual principles, primarily because they
+tend to be based solely on simulated data. In order to study
+perceptual principles in a controlled experimental setting simulated
+data is unavoidable. This provides principles that may not apply
+closely enough to a specific analysis task.  Faced with design
 decisions for a very specific task requires a closer level of
 detail. Focus groups \citep{Mazza07} can find small problems with
 designs and move us closer to a final handful of possible
@@ -24,8 +28,9 @@ designs. Usability studies and case studies
 on the use of particular software for solving data exploration tasks.
 These approaches lack broad audience validity and
 objectiveness. Several papers indicate continuing issues arising with
-evaluating information visualizations
-\citep{North:2006,Ellis:2006,Viegas:2006,Munzer:2009}.
+and suggestions for improving evaluation of information visualizations
+\citep{North:2006,Ellis:2006,Viegas:2006,Munzer:2009}. Here we suggest
+a new approach using recent research on visual inference.
 
 %determined from data graphics user studies such as \citet{cleveland:1984} and the large MTurk study in \citet{}. But it is hard to take these general principles and apply them to specific visual communication task, especially in an objective manner. 
 
@@ -33,10 +38,18 @@ evaluating information visualizations
 
 %% Di needs to work on the next few paragraphs, too.
 
+Lineups \citep{buja:2009,wickham:2010} involving real data coupled
+with simulated data will enable both specific plot design evaluation
+and provide support for broad validity. Lineups allow us to directly
+use the data at hand to evaluate different competing designs. Coupling
+this with simulated data studying the feature discovered in the real
+data enables the addition of the calculation of a signal strength
+metric to quantitatively compare the different designs. 
+
 Usually, we need simulation studies to be able to completely control for the signal strength in the data. 
 For charts, this is not a very realistic scenario. The need for displaying information particularly efficiently or accurately usually arises from  a particular problem while analyzing a data set, from which we want to learn new insight. Often, it is difficult to simulate data in such a way that it realistically represents the particular problem, which in turn makes it dubious whether the results from a simulation study are actually applicable to the problem at hand, reminding us painfully of George Box's famous quote on models: ``essentially, all models are wrong, but some are useful.'' \citep[page=424]{box}  
 
-Lineup tests  \citep{buja:2009} allow us to directly use the data at hand to evaluate different competing designs by using permutations tests \cite{good:2011} of the original dataset. We can therefore get valid quantitative measures for comparing different designs without having to set up a simulation.
+Lineup \citep{buja:2009} allow us to directly use the data at hand to evaluate different competing designs by using permutations tests \cite{good:2011} of the original dataset. We can therefore get valid quantitative measures for comparing different designs without having to set up a simulation.
 
 When we are presenting a chart we  want to convince our audience of the presence of a particular feature or relationship in the data. 
 In order to enable us to draw a conclusion about presence or absence of a feature in the data, we have, however, to assess what features show up based purely on marginal distributions rather than joint distributions.
