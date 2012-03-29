@@ -90,7 +90,7 @@ The perceptual tasks involved in decoding the designs fit into the general frame
 
 
 For evaluating the results, we are using a generalized linear mixed effects modeling  approach \cite{pinheiro:2000} for all three of our response values, using the {\t R} package {\tt lme4} \cite{bates:2011}. 
-For power predictions (cf. table \ref{tbl:correct}) a logistic regression was fitted for the competing designs, including covariates of {\it sample size} (2, 4,6, 8, 10, and 24 percent of the data) and {\it shift} in wind direction (offset of 0, 90, 180, and 270 degrees), both as main effects and as two-way interaction effects with design to assess their effect on the power of designs. To adjust for individuals' ability, a random intercept was included in the model.
+For power predictions (cf. table \ref{tbl:correct}) a logistic regression was fitted for the competing designs, including covariates {\it sample size} (2, 4,6, 8, 10, and 24 percent of the data) and {\it shift} in wind direction (offset of 0, 90, 180, and 270 degrees), both as main effects and in two-way interaction effects with design to assess their effect on the power of designs. To adjust for individuals' ability, a random intercept was included in the model.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -113,8 +113,8 @@ For power predictions (cf. table \ref{tbl:correct}) a logistic regression was fi
 \end{figure}
 
 Overall, the results show huge differences in the power of designs between polar charts and Euclidean: Euclidean designs are significantly more powerful than polar charts, particularly so with small sample sizes. The reference line has surprisingly little influence, but it helps more for  polar charts than for barcharts,
-An increase in sample size has positive impact on power (see figure \ref{fig:treatment} for an overview). Polar charts need much bigger sample size to see an increase in power -- only at about 24\% of the original data do we see about the same power as for Euclidean charts of a sample size of 2\%.
-The offset changes are significant -- interestingly, borderline behavior (90 and 270 degrees) does not show a difference between polar and Euclidean charts, whereas an inversion of the wave pattern (first up, then down), does show a difference. Polar charts benefit more from this inversion than barcharts. This is an unexpected finding, but is consistent throughout different lineups in the data. Figure \ref{fig:power} summarizes the results from the model: power predictions are shown by sample size ($x$ axis). The thick lines show average power by design for different shifts in wind direction. The thin lines represent power for individuals. What can be seen is the different impact of the offset by design: while  an offset of 270 degrees (the 'mountain' pattern) has the highest power in Euclidean charts, it comes out worst in polar charts.
+An increase in sample size has positive impact on power (see figure \ref{fig:treatment} for an overview). Polar charts need a much bigger sample size to see an increase in power -- only at about 24\% of the original data do we see about the same power as for Euclidean charts of a sample size of 2\%.
+The  changes in offset are significant -- interestingly, borderline behavior (90 and 270 degrees) does not show a difference between polar and Euclidean charts, whereas an inversion of the wave pattern (first up, then down), does show a difference. The Power of Barcharts suffers significantly  from this inversion whereas power of polar charts is unaffected. This is an unexpected finding, but is consistent throughout different lineups in the data. Figure \ref{fig:power} summarizes the results from the model: power predictions ($y$ axis) are shown by sample size ($x$ axis). The thick lines show average power by design for different shifts in wind direction. The thin lines represent power for individuals. What can be seen is the different impact of the offset by design: while  an offset of 270 degrees (the 'mountain' pattern) has the highest power in Euclidean charts, it comes out worst in polar charts.
 
 \begin{figure*}[htbp] %  figure placement: here, top, bottom, or page
    \centering
@@ -126,8 +126,8 @@ The offset changes are significant -- interestingly, borderline behavior (90 and
 Time taken to answer was log transformed before the modeling process to de-emphasize the impact of very large values (up to 500 sec). The findings are consistent with correctness - time taken shows big differences between polar and Euclidean charts. The reference lines seem to increase the evaluation time, but not significantly. An increase in sample size decreases evaluation time, The inversion of the wave pattern at 180 degrees leads to a significant increase in time for Euclidean charts, but not for polar charts (at least not significantly). 
 
 
- Confidence levels are measured on a five point scale --- they are subjective assessments by the participant `how certain are you'. We model the value using a normal distribution - a discrete uniform distribution  might be more appropriate,
-While there is a difference between the designs - participants reported higher confidence in dealing with the barcharts -- this is only  a trend (i.e. not significant at 5\% but below 10\%). The only significant effect on confidence level is visible for the use of reference lines in polar coordinates: participants report an increase in confidence when using the reference line (however, as we have seen before, this is not matched by an increase in actual correctness of the results).
+ Confidence levels are measured on a five point scale --- they are subjective assessments by the participant `how certain are you'. We model confidence using the same model structure as before, i.e. using sample size and offset as covariates and including up to two-way interactions,
+While there is a difference between the designs - participants reported higher confidence in dealing with the barcharts -- this is only  a trend (i.e. not significant at 5\% but below 10\%). The only significant effect on reported confidence level is the use of reference lines in polar coordinates: participants report an increase in confidence (0.31 $\pm$ 0.13, $p$ value = 0.01) when using the reference line. This, however, does not translate to a significant increase in accuracy of results, as we have seen before.
 
 \begin{table}[ht]
 \begin{center}
@@ -152,6 +152,8 @@ While there is a difference between the designs - participants reported higher c
 &  polar:offset 180 & 0.91 & 0.47 & 1.92 & 0.05 & .\\ 
 &    polar:offset 270 & -0.73 & 0.54 & -1.35 & 0.18 &\\
    \hline
+\\[-5pt]
+   \multicolumn{5}{l}{Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1}
 \end{tabular}
 }
 \end{center}
@@ -187,60 +189,57 @@ While there is a difference between the designs - participants reported higher c
 
 
 
-\begin{table}[ht]
-\begin{center}
-%\resizebox{\linewidth}{!} {
-\rowcolors{2}{white}{lightgray}
-\begin{tabular}{rrrrr}
-  \hline
- & Estimate & Std..Error & t.value & pval \\ 
-  \hline
-(Intercept) & 2.92 & 0.16 & 18.17 & 0.00 \\ 
-  polar & -0.30 & 0.16 & -1.86 & 0.06 \\ 
-  reflineTRUE & -0.16 & 0.09 & -1.74 & 0.08 \\ 
-  sample\_size & 0.01 & 0.01 & 1.01 & 0.31 \\ 
-  offset90 & 0.14 & 0.13 & 1.07 & 0.28 \\ 
-  offset180 & 0.03 & 0.13 & 0.26 & 0.80 \\ 
-  offset270 & 0.01 & 0.12 & 0.07 & 0.94 \\ 
-  polar:reflineTRUE & 0.31 & 0.13 & 2.46 & 0.01 \\ 
-  polar:sample\_size & -0.01 & 0.01 & -0.70 & 0.49 \\ 
-  polar:offset90 & -0.14 & 0.18 & -0.78 & 0.44 \\ 
-  polar:offset180 & -0.01 & 0.18 & -0.04 & 0.97 \\ 
-  polar:offset270 & -0.00 & 0.18 & -0.01 & 0.99 \\ 
-   \hline
-\end{tabular}
-%}
-\end{center}
-\caption{\label{tbl:confidence} Model output for confidence level. }
-\end{table}
+%\begin{table}[ht]
+%\begin{center}
+%%\resizebox{\linewidth}{!} {
+%\rowcolors{2}{white}{lightgray}
+%\begin{tabular}{rrrrr}
+%  \hline
+% & Estimate & Std..Error & t.value & pval \\ 
+%  \hline
+%(Intercept) & 2.92 & 0.16 & 18.17 & 0.00 \\ 
+%  polar & -0.30 & 0.16 & -1.86 & 0.06 \\ 
+%  reflineTRUE & -0.16 & 0.09 & -1.74 & 0.08 \\ 
+%  sample\_size & 0.01 & 0.01 & 1.01 & 0.31 \\ 
+%  offset90 & 0.14 & 0.13 & 1.07 & 0.28 \\ 
+%  offset180 & 0.03 & 0.13 & 0.26 & 0.80 \\ 
+%  offset270 & 0.01 & 0.12 & 0.07 & 0.94 \\ 
+%  polar:reflineTRUE & 0.31 & 0.13 & 2.46 & 0.01 \\ 
+%  polar:sample\_size & -0.01 & 0.01 & -0.70 & 0.49 \\ 
+%  polar:offset90 & -0.14 & 0.18 & -0.78 & 0.44 \\ 
+%  polar:offset180 & -0.01 & 0.18 & -0.04 & 0.97 \\ 
+%  polar:offset270 & -0.00 & 0.18 & -0.01 & 0.99 \\ 
+%   \hline
+%\end{tabular}
+%%}
+%\end{center}
+%\caption{\label{tbl:confidence} Model output for confidence level. }
+%\end{table}
 
-
-The goal of this experiment is to understand the efficiency of displaying information using euclidian and polar coordinates. Efficiency is the deviation from independence, which can be simulated by taking permutations of the original dataset. Data concerning wind patterns and time between flights at SEA airport is used for these charts. The lineup chart is composed of 20 graphics with all of the exact same characteristics except for the data. One of the 20 graphics will be using original airport data while the other 19 will be permutations of that data. Efficiency of the chart types can be inferred by how accurately individuals pick out the plot with the original data. There are other variables which are introduced to further our understanding of the way we perceive euclidian and polar coordinates. All combinations of each level of the variables are involved in the experiment for both polar and euclidian coordinates. The graphics in each chart will all have exactly the same level of the variables with the only difference being the data. 
-
-The other variables which are monitored are existence of reference line, placement of x-axis, and sample size. It is possible that one of the chart types benefits more from additional components such as reference lines. The polar and euclidian null charts will be shown either with or without a white reference line. The line is placed at slightly over 50 percent of the y axis. Additionally, the x-axis has four placements. The original dataset contains a characteristic wave pattern, which for euclidian coordinates, may be a large factor contributing to the perceived effectiveness of the graphic. Characteristic patterns such as the wave pattern may be perceived in a different way when viewed in polar coordinates. When the x-axis is is shifted the look of the pattern changes. The wave pattern is broken up for euclidian coordinates but for polar coordinates is only shifted around the axis. Finally, the amount of information necessary for detection as well as correctness is a measure for efficiency of the charts so the sample size which was taken from the original dataset is of interest. The original data set contained XXX,XXX observations from which 2, 4, 6, 8, 10, and 24 percent of the observations were sampled. Small sample sizes are easier to obtain because of time and money constraints. It would be nice to know if there is one type of chart which can show data trends using less information. 
-
-
- All combinations of these variables were repeated for plots with a reference line and without a reference line, as shown in figure \ref{layouts}.This figure shows examples of graphics showing the actual data, which in the experiment would be randomly positioned among 19 null plots. In total there are XXX unique charts which represent all different combinations of sample size, coordinate type, x-axis placement, and whether or not there is a reference line. The charts are all assigned a difficulty level, which is based on sample size, on a scale from zero to four. There are two plots assigned a difficulty level of zero. These two charts, one polar and one Euclidian, were made from computer generated data and intended to be at the level where an individual, if he or she is not purely guessing, should be able to find the correct plot. 
-
-
-%Amazon's Mechanical Turk is an online service in which individuals can request and perform simple tasks and surveys for money. Using Turk we were able to gather data on how people responded to the charts. Each person is shown a series of ten charts and asked to choose the graphic on each chart which they think is "different". They then identify, from a list of choices, why they chose this particular chart as well as how confident they are on a scale of one to five. Personal information such as age group, gender, and education is also collected on a voluntary basis. The amount of time it took the individual to answer is also recorded. This study allows us to make informed judgments about how the plot type effects efficiency in terms of accuracy and time spent reading the plots. Xcite stephen few?X
-
-Effect is deviation from independence. Cannot be properly measured statistically except in highly aggregated situations, where the effect might be washed out.
-
-%Most generally this experiment can be paralleled to the pie chart versus barchart discussion. The Euclidian coordinate plot is made up of bars *whose?* areas are colored proportionally according to the data. The polar coordinate plot is made up of pie slices which are also colored proportionally according to the data. Viewers of these charts will visually decode the areas of the bars and pie slices and make a judgement based on their decoding. How accurate this judgment is is left to be discussed. According to  \citet[page=40]{kosslyn:2006}, area is usually perceived as a function of what the actual area is. This function is the area raised to an exponent of approximately 0.8 and then multiplied by a constant. However, when bars are parallel, the relative height of these bars is perceived very accurately. From this information, one could infer that the Euclidian coordinate plot may gain efficiency based on the height of the colored bars. 
-
-
-Pie versus Barchart discussion is pretty old: cite some of the literature:
-
-From Stephen Few, perceptual edge:
-	When a graph is made, quantitative and categorical information is encoded by a display method. Then the information is visually decoded. This visual perception is a vital link. No matter how clever the choice of the information, and no matter how technologically impressive the encoding, a visualization fails if the decoding fails. Some display methods lead to efficient, accurate decoding, and others lead to inefficient, inaccurate decoding. It is only through scientific study of visual perception that informed judgments can be made about display methods. (William S. Cleveland, The Elements of Graphing Data, Hobart Press, 1994, p. 1)
-	
-	The systematic distortion of area is captured by �Steven�s Power Law,� which states that the psychological impression is a function of the actual physical magnitude raised to an exponent (and multiplied by a scaling constant). To be precise, the perceived area is usually equal to the actual area raised to an exponent of about 0.8, times a scaling constant...In contrast, relative line length [such as the lengths of bars] is perceived almost perfectly, provided that the lines are oriented the same way \cite[page=40]{kosslyn:2006}
-	
-	
-	We make angle judgments when we read a pie chart, but we don�t judge angles very well. These judgments are biased; we underestimate acute angles (angles less than 90�) and overestimate obtuse angles (angles greater than 90�). Also, angles with horizontal bisectors (when the line dividing the angle in two is horizontal) appear larger than angles with vertical bisectors. (Naomi Robbins, Creating More Effective Graphs, Wiley, 2005, p. 49)
-	
-	 Edward Tufte once said that �the only worse design than a pie chart is several of them, for then the viewer is asked to compare quantities located in spatial disarray both within and between pies� (Edward Tufte, The Visual Display of Quantitative Information, Graphics Press, 1983, p. 178.)
-
- We do not claim to settle the question - which is multi-facetted and will not have a clear 'winning' design but instead very much depends on the purpose of the chart and task at hand.
+%%
+%%The goal of this experiment is to understand the efficiency of displaying information using euclidian and polar coordinates. Efficiency is the deviation from independence, which can be simulated by taking permutations of the original dataset. Data concerning wind patterns and time between flights at SEA airport is used for these charts. The lineup chart is composed of 20 graphics with all of the exact same characteristics except for the data. One of the 20 graphics will be using original airport data while the other 19 will be permutations of that data. Efficiency of the chart types can be inferred by how accurately individuals pick out the plot with the original data. There are other variables which are introduced to further our understanding of the way we perceive euclidian and polar coordinates. All combinations of each level of the variables are involved in the experiment for both polar and euclidian coordinates. The graphics in each chart will all have exactly the same level of the variables with the only difference being the data. 
+%%
+%%The other variables which are monitored are existence of reference line, placement of x-axis, and sample size. It is possible that one of the chart types benefits more from additional components such as reference lines. The polar and euclidian null charts will be shown either with or without a white reference line. The line is placed at slightly over 50 percent of the y axis. Additionally, the x-axis has four placements. The original dataset contains a characteristic wave pattern, which for euclidian coordinates, may be a large factor contributing to the perceived effectiveness of the graphic. Characteristic patterns such as the wave pattern may be perceived in a different way when viewed in polar coordinates. When the x-axis is is shifted the look of the pattern changes. The wave pattern is broken up for euclidian coordinates but for polar coordinates is only shifted around the axis. Finally, the amount of information necessary for detection as well as correctness is a measure for efficiency of the charts so the sample size which was taken from the original dataset is of interest. The original data set contained XXX,XXX observations from which 2, 4, 6, 8, 10, and 24 percent of the observations were sampled. Small sample sizes are easier to obtain because of time and money constraints. It would be nice to know if there is one type of chart which can show data trends using less information. 
+%%
+%%
+%% All combinations of these variables were repeated for plots with a reference line and without a reference line, as shown in figure \ref{layouts}.This figure shows examples of graphics showing the actual data, which in the experiment would be randomly positioned among 19 null plots. In total there are XXX unique charts which represent all different combinations of sample size, coordinate type, x-axis placement, and whether or not there is a reference line. The charts are all assigned a difficulty level, which is based on sample size, on a scale from zero to four. There are two plots assigned a difficulty level of zero. These two charts, one polar and one Euclidian, were made from computer generated data and intended to be at the level where an individual, if he or she is not purely guessing, should be able to find the correct plot. 
+%%
+%%
+%%Amazon's Mechanical Turk is an online service in which individuals can request and perform simple tasks and surveys for money. Using Turk we were able to gather data on how people responded to the charts. Each person is shown a series of ten charts and asked to choose the graphic on each chart which they think is "different". They then identify, from a list of choices, why they chose this particular chart as well as how confident they are on a scale of one to five. Personal information such as age group, gender, and education is also collected on a voluntary basis. The amount of time it took the individual to answer is also recorded. This study allows us to make informed judgments about how the plot type effects efficiency in terms of accuracy and time spent reading the plots. Xcite stephen few?X
+%%Effect is deviation from independence. Cannot be properly measured statistically except in highly aggregated situations, where the effect might be washed out.
+%%
+%%Most generally this experiment can be paralleled to the pie chart versus barchart discussion. The Euclidian coordinate plot is made up of bars *whose?* areas are colored proportionally according to the data. The polar coordinate plot is made up of pie slices which are also colored proportionally according to the data. Viewers of these charts will visually decode the areas of the bars and pie slices and make a judgement based on their decoding. How accurate this judgment is is left to be discussed. According to  \citet[page=40]{kosslyn:2006}, area is usually perceived as a function of what the actual area is. This function is the area raised to an exponent of approximately 0.8 and then multiplied by a constant. However, when bars are parallel, the relative height of these bars is perceived very accurately. From this information, one could infer that the Euclidian coordinate plot may gain efficiency based on the height of the colored bars. 
+%%Pie versus Barchart discussion is pretty old: cite some of the literature:
+%%
+%%From Stephen Few, perceptual edge:
+%%	When a graph is made, quantitative and categorical information is encoded by a display method. Then the information is visually decoded. This visual perception is a vital link. No matter how clever the choice of the information, and no matter how technologically impressive the encoding, a visualization fails if the decoding fails. Some display methods lead to efficient, accurate decoding, and others lead to inefficient, inaccurate decoding. It is only through scientific study of visual perception that informed judgments can be made about display methods. (William S. Cleveland, The Elements of Graphing Data, Hobart Press, 1994, p. 1)
+%%	
+%%	The systematic distortion of area is captured by �Steven�s Power Law,� which states that the psychological impression is a function of the actual physical magnitude raised to an exponent (and multiplied by a scaling constant). To be precise, the perceived area is usually equal to the actual area raised to an exponent of about 0.8, times a scaling constant...In contrast, relative line length [such as the lengths of bars] is perceived almost perfectly, provided that the lines are oriented the same way \cite[page=40]{kosslyn:2006}
+%%	
+%%	
+%%	We make angle judgments when we read a pie chart, but we don�t judge angles very well. These judgments are biased; we underestimate acute angles (angles less than 90�) and overestimate obtuse angles (angles greater than 90�). Also, angles with horizontal bisectors (when the line dividing the angle in two is horizontal) appear larger than angles with vertical bisectors. (Naomi Robbins, Creating More Effective Graphs, Wiley, 2005, p. 49)
+%%	
+%%	 Edward Tufte once said that �the only worse design than a pie chart is several of them, for then the viewer is asked to compare quantities located in spatial disarray both within and between pies� (Edward Tufte, The Visual Display of Quantitative Information, Graphics Press, 1983, p. 178.)
+%%
+%% We do not claim to settle the question - which is multi-facetted and will not have a clear 'winning' design but instead very much depends on the purpose of the chart and task at hand.
 
