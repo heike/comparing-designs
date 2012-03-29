@@ -1,7 +1,16 @@
 % !TEX root = comparison.tex
 \section{Experimental Setup}~\label{experimentone}
-We want two discuss two applications, in which we are making use of lineups to compare competing designs. 
-The first one arises from a discussion of how wind direction affects efficiency of an airport. in the second example we are interested in visualizing mean shifts between two distributions.  
+
+Two recent data analyses motivated the setup of this experiment. The
+first one arises from an analysis of US flight traffic data, and a
+finding related to how wind direction affects the efficiency of an
+airport.  The second one arose during the review of a paper claiming
+that it was impossible to statistically test for differences in center
+between two samples where sample size was small and from a non-normal
+population, with application to studying toxic waste sites. Visually,
+using lineups of dotplots, it was clear that there was a difference.
+
+%We want two discuss two applications, in which we are making use of lineups to compare competing designs. in the second example we are interested in visualizing mean shifts between two distributions.  
 
 \subsection{Wind Direction and Airport Efficiency}
 In this example, we are dealing with all flights \cite{rita} in and out of Seattle/Tacoma International Airport (SEA) between July 2008 and June 2011. As a measure of airport efficiency we are using time between successive wheel-events (time at wheel take-off or touch-down), which we found to be independent of airline carrier and operating hours, as long as we restricted the data to `regular' operating hours between 7 am and midnight and `regular' weather conditions -- i.e. we eliminated records associated with the top 5\% wind speed measurements \cite{noaa-weather}, leaving us with just under 0.5 Million flights.
