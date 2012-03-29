@@ -47,27 +47,44 @@ the name comes from. The suspect (the plot of the real data) is placed
 randomly in a field of plots of null data, and an impartial viewer is
 asked to identify the plot that is the most different. If the viewer
 identifies the suspect it lends statistical signficance to the
-conclusion that the real data is not consistent with the null data.
+conclusion that the real data is not consistent with the null
+data. Figure \ref{lineup} has an example of a lineup. Overlaid density
+plots are used to display the distribution of two groups (blue, red)
+of data. We are interested to know whether the real data has a
+significant diffeerence between the centers of the two groups. Plot
+numbered 13 contains the real data. Did you pick that one? In this
+plot the blue group has a flat density whereas the density of red
+group is more peaked and concentrated to the left of the blue.
 
-Lineups enable specific plot design evaluation of a specific
-visualization result. Different lineups are created, using the same
-data, same null plots and positions within the lineup, but different
-plot designs. Comparing how long and how accurately the viewers take
-to report the feature of interest will assess which design is better
-for the task. In addition, this approach is ideally coupled with
-simulation studies, where data is constructed to match and expand on
-the features of interest in the real data. For example, in a simple
-situation, where the discovered feature of interest is a difference
-between the centers of two distributions, simulated data would be
-constructed roughly matching the distribution of the real data that
-varies the distance between centers, and also spread and sample
-size. Lineups of these simulated data (embedded with simulated null
-data plots) are generated and evaluated along with the lineups of real
-data. The simulation study provides a backdrop for the real data,
+\begin{figure}[htbp]
+   \centering
+   \includegraphics[height=0.95\linewidth]{density_1_45_15_20_13.png} 
+   \caption{Example lineup using density plots: one plot of real data
+     embedded with nineteen plots of null data. Which plot is
+     most different from the others? (See the text for the answer.)}
+   \label{lineup}
+\end{figure}
+
+The previous work \citet{buja:2009,wickham:2010} describes the use of
+lineups for evaluating discoveries made in exploratory analysis. Here
+we describe the use of lineups for evalating plot design for
+communicating findings visually. Different lineups are created, using
+the same data, same null plots and positions within the lineup, but
+different plot designs. Comparing how long and how accurately the
+viewers take to report the feature of interest will assess which
+design is better for the task. In addition, this approach is ideally
+coupled with simulation studies, where data is constructed to match
+and expand on the features of interest in the real data. For example,
+in a simple situation, where the discovered feature of interest is a
+difference between the centers of two distributions, simulated data
+would be constructed roughly matching the distribution of the real
+data that varies the distance between centers, and also spread and
+sample size. Lineups of these simulated data (embedded with simulated
+null data plots) are generated and evaluated along with the lineups of
+real data. The simulation study provides a backdrop for the real data,
 which enables the broad applicability to be studied and a guage for
 the signal strength of the pattern in the real data. It provides a way
-to objectively evaluate plot design. 
-
+to objectively evaluate plot design.
 
 %Usually, we need simulation studies to be able to completely control for the signal strength in the data. For charts, this is not a very realistic scenario. The need for displaying information particularly efficiently or accurately usually arises from  a particular problem while analyzing a data set, from which we want to learn new insight. Often, it is difficult to simulate data in such a way that it realistically represents the particular problem, which in turn makes it dubious whether the results from a simulation study are actually applicable to the problem at hand, reminding us painfully of George Box's famous quote on models: ``essentially, all models are wrong, but some are useful.'' \citep[page=424]{box}  
 
@@ -86,21 +103,39 @@ to objectively evaluate plot design.
 
 %Features in the marginal distributions, such as multi-modality, skewness  or outliers, might interfere with our intuition of what `randomness' might mean in a particular situation and lead us to wrong conclusions. All of the plots in figure \ref{random} show distinctive features. None, of these, however, is a feature of the joint distribution, i.e. all of the variables involved are independent of each other. The scatterplot on the left of figure \ref{random} shows data sampled from an exponential distribution with rate parameter $\lambda=1$. The data in the middle comes from mixing two normal distributions with different means: half of the points has mean $\mu_1 = -3$, the other half has mean $\mu_2=3$, which results in the distinctive four groups. The two boxplots on the right appear to show a median shift between the two groups. This, however is a result of both the group size (only 7\% of the points is in the second group) and a skew distribution in vertical direction, with $y \sim Exp_{\lambda=1}$. 
 
-Lineup plots have been shown as an effective tool \cite{wickham:2010} for enabling us to quantitively assess the strength of the relationship between $X$ and $Y$.
-In a lineup plot the plot of the actual data is -- as in a police line-up -- inserted among decoy plots. The decoy or {\it null} plots are generated in a way that is consistent with the null hypothesis, i.e. these are plots in which we can assume that any relationship visible is there purely by chance. This gives us a reference framework against which to compare the data plot and, if we are still able to identify the data plot from the lineup because of a distinguishing feature, we have formal evidence that the feature in the data is, in fact, not just coincidental. 
+%Lineup plots have been shown as an effective tool \cite{wickham:2010} for enabling us to quantitively assess the strength of the relationship between $X$ and $Y$. In a lineup plot the plot of the actual data is -- as in a police line-up -- inserted among decoy plots. The decoy or {\it null} plots are generated in a way that is consistent with the null hypothesis, i.e. these are plots in which we can assume that any relationship visible is there purely by chance. This gives us a reference framework against which to compare the data plot and, if we are still able to identify the data plot from the lineup because of a distinguishing feature, we have formal evidence that the feature in the data is, in fact, not just coincidental. 
 
-The strength of this evidence is determined by both the number of independent evaluations as well as the size of the lineup. Assume a lineup of size $m$ is evaluated by $n$ independent observers, out of which $x$ identify the data plot correctly, which we can use as an estimate for the probability to correctly identify the data plot:
-this leads us to an estimate for the probability of correctly identifying the plot of $x/n$, with 95\% confidence intervals  for $x/n$ given as $x/n \pm 1.96 \cdot \sqrt{x/n \cdot (1-x/n)}$ limited to the interval [0,1]. Note, that the resulting interval is often too large to be useful.
-
-We can think of a lineup as $m-1$ head-to-head comparisons of the dataplot and $m-1$ nullplots, which the dataplot all has to `win', in order to be picked as the plot with the most distinct features. Assuming that observers identify the plot with the strongest signal, the probability that data plot is picked follows a Beta distribution for the maximum:
-this allows us to introduce the {\it signal strength} \cite{majumder:2011} of a lineup as:
+Lineups provide a way to quantify the significance of the finding
+\citet{majumder:2011}. The significance depends on the size ($m$) of
+the lineup ($m=20$ in Figure \ref{lineup}) and the number of
+independent observers ($n$). Let $x$ be the number of observers who
+correctly identify the plot of the real data. The probability that one
+observer correctly identifies the real data plot, in a size $m$
+lineup, by chance is $1/m$. To incorporate the results from multiple
+observers think about the lineup as $m-1$ head-to-head competitions of
+the data plot against $m-1$ null plots, which the data plot has to
+win, is picked as the plot with the most distinct features. Assume
+that the data plot is the one with the strongest signal, then the
+probability that the data plot is picked by $x$ observers follows a
+Beta distribution for the maximum \citet{****}:
 \[
 \text{signal strength} =  \left( \frac{x}{n}\right)^{1/(m-1)}.
 \]
-Signal strength is limited to a range of values between 0 and 1. Higher values indicate stronger signal.
- In the case of a parametric situation (i.e. the feature shown in the chart can be described in parametric form as a real-valued vector $\theta$ in the data), it can be shown \cite{majumder:2011} that the signal strength is strongly correlated to the $p$-value of the corresponding statistical test for $\theta$.
+We call it signal strength, and it is analgous to power in classical hypothesis testing. Signal strength will range between 0 and 1, with higher values indicating stronger signal, more distinctive feature in the data.
+
+*** The above paragraph needs more explanation, and a reference for the beta distribution. I don't think the Majumder paper really is the source for this result is it? It leads up to it, but this is the new work that is not submitted yet.
+
+*** Also need to refer to Niladri's ``Where's Waldo paper'' here too.
+
+%The strength of this evidence is determined by both the number of independent evaluations as well as the size of the lineup. Assume a lineup of size $m$ is evaluated by $n$ independent observers, out of which $x$ identify the data plot correctly, which we can use as an estimate for the probability to correctly identify the data plot: this leads us to an estimate for the probability of correctly identifying the plot of $x/n$, with 95\% confidence intervals  for $x/n$ given as $x/n \pm 1.96 \cdot \sqrt{x/n \cdot (1-x/n)}$ limited to the interval [0,1]. Note, that the resulting interval is often too large to be useful.
+
+%We can think of a lineup as $m-1$ head-to-head comparisons of the dataplot and $m-1$ nullplots, which the dataplot all has to `win', in order to be picked as the plot with the most distinct features. Assuming that observers identify the plot with the strongest signal, the probability that data plot is picked follows a Beta distribution for the maximum: this allows us to introduce the {\it signal strength} \cite{majumder:2011} of a lineup as:
+
+%Signal strength is limited to a range of values between 0 and 1. Higher values indicate stronger signal. In the case of a parametric situation (i.e. the feature shown in the chart can be described in parametric form as a real-valued vector $\theta$ in the data), it can be shown \cite{majumder:2011} that the signal strength is strongly correlated to the $p$-value of the corresponding statistical test for $\theta$.
  
-\section{Comparison of Designs}
+Signal strength is used in our new work to evaluate the effectiveness of different plot designs. This paper describes two examples where we had real data analysis problems and decisions to make in order to communicate the results. Section \ref{designs} describes the process for comparing designs. Sections \ref{experimentone} and \ref{experimenttwo} describe the two data analysis problems and the experiments conducted to evaluate the plots designs. Section \ref{results} presents the findings of the experiments. 
+
+\section{Comparison of Designs}\label{designs}
 We are going to make use of the signal strength gained from multiple viewings of a lineup in order to evaluate competing designs as follows:
 \begin{enumerate}
 \item{{\bf Create Lineup Data:} create data for a lineup of size $m$ by  creating  $m-1$ permutations of $y$ or, in the case of a simulation study, drawing $m-1$ samples of size $n$ (the number of rows in the data) from the null distribution. Add the original data to the lineup data randomly between 1 and $m$. }
