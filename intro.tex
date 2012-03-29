@@ -106,7 +106,36 @@ to objectively evaluate plot design.
 %Lineup plots have been shown as an effective tool \cite{wickham:2010} for enabling us to quantitively assess the strength of the relationship between $X$ and $Y$. In a lineup plot the plot of the actual data is -- as in a police line-up -- inserted among decoy plots. The decoy or {\it null} plots are generated in a way that is consistent with the null hypothesis, i.e. these are plots in which we can assume that any relationship visible is there purely by chance. This gives us a reference framework against which to compare the data plot and, if we are still able to identify the data plot from the lineup because of a distinguishing feature, we have formal evidence that the feature in the data is, in fact, not just coincidental. 
 
 Lineups provide a way to quantify the significance of the finding
-\citet{majumder:2011}. The significance depends on the size ($m$) of
+\citet{majumder:2011}. 
+%
+The significance depends on the size ($m$) of
+the lineup ($m=20$ in Figure \ref{lineup}) and the number of
+independent observers ($n$). Let $n$ be the number of independent observers and $x_i$ the number of observers who picked plot $i$, $i \in \{1, ..., m\}$, from the lineup. Then $(x_1, x_2, ..., x_m)$ follows a Multinomial Distribution Mult$_{\pi_1, \pi_2, ..., \pi_m}$ with $\sum_i \pi_i = 1$, where $\pi_i$ is the probability that plot $i$ is picked by an observer, which we can estimate as $\widehat{\pi_i} = x_i/n$. 
+
+The power of a test is the probability to reject the null hypothesis. In the framework of lineups, power is the probability to identify the data plot, i.e. power can be estimated as $x/n$, where $x$ is the number of observers who correctly identifies the plot of the real data out of $n$ observers.
+
+%Let $x$ be the number of observers who
+%correctly identify the plot of the real data. The probability that one
+%observer correctly identifies the real data plot, in a size $m$
+%lineup, by chance is $1/m$. 
+
+\paragraph{Signal Strength}
+To incorporate the results from multiple
+observers think about the lineup as $m-1$ head-to-head competitions of
+the data plot against $m-1$ null plots, which the data plot has to
+win, is picked as the plot with the most distinct features. Assume
+that the data plot is the one with the strongest signal, then the
+probability that the data plot is picked by $x$ observers follows a
+Beta distribution for the maximum \citet{****}:
+\[
+\text{signal strength} =  \left( \frac{x}{n}\right)^{1/(m-1)}.
+\]
+We call it signal strength, and it is analogous to 1-$p$-value of a classical hypothesis test. Signal strength will range between 0 and 1, with higher values indicating stronger signal, more distinctive feature in the data.
+
+
+
+
+The significance depends on the size ($m$) of
 the lineup ($m=20$ in Figure \ref{lineup}) and the number of
 independent observers ($n$). Let $x$ be the number of observers who
 correctly identify the plot of the real data. The probability that one
