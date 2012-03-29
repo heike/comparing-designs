@@ -11,32 +11,41 @@
    \label{fig:expii}
 \end{figure*}
 
+\begin{figure*}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\linewidth]{power-exp2} 
+   \caption{Overview of power predictions for the four different designs. The fully saturated thick lines show average predicted power for each of the designs facetted by size of the red group (top to bottom) and relative size of the blue group to the red group (left to right). }
+   \label{fig:power2}
+\end{figure*}
+
+Figure \ref{fig:power2} summarizes the modeling results as shown in table \ref{tbl:power2}. Generally we can see that the power of all four designs increases with an increase in effect size ($x$ axis), as well as an increase in sample size (top to bottom facetting). Depending on visualization setup, different designs have highest power: boxplots seem to be overall a good choice in visualizing a mean shift in a distribution. For small overall sample size dotplots (green dots and lines) show good power, but they  start to lose their advantage in favor of more summarized plots, such as density charts or histograms. Density charts are particularly suited for larger sample sizes.
 \begin{table}[ht]
 \begin{center}
 \begin{tabular}{rrrrr}
   \hline
- & Estimate & Std. Error & z value & Pr($>$$|$z$|$) \\ 
+ & Estimate & Std. Error & $z$ value & $p$-value \\ 
   \hline
-(Intercept) & -2.00 & 0.38 & -5.29 & 0.00 \\ 
-  density & -0.29 & 0.53 & -0.55 & 0.58 \\ 
-  dotplot & -0.72 & 0.52 & -1.39 & 0.17 \\ 
-  histogram & -0.29 & 0.53 & -0.54 & 0.59 \\ 
-  d & 1.78 & 0.34 & 5.22 & 0.00 \\ 
-  n1 & 0.02 & 0.00 & 9.77 & 0.00 \\ 
-  I(n1/n2) & -0.31 & 0.11 & -2.94 & 0.00 \\ 
-  density:d & -0.61 & 0.47 & -1.29 & 0.20 \\ 
-  dotplot:d & 0.04 & 0.46 & 0.08 & 0.94 \\ 
-  histogram:d & -0.29 & 0.48 & -0.60 & 0.55 \\ 
-  density:n1 & -0.00 & 0.00 & -0.40 & 0.69 \\ 
-  dotplot:n1 & -0.01 & 0.00 & -3.04 & 0.00 \\ 
-  histogram:n1 & -0.01 & 0.00 & -2.67 & 0.01 \\ 
-  density:I(n1/n2) & 0.09 & 0.15 & 0.59 & 0.55 \\ 
-  dotplot:I(n1/n2) & 0.27 & 0.15 & 1.81 & 0.07 \\ 
-  histogram:I(n1/n2) & 0.09 & 0.15 & 0.62 & 0.53 \\ 
+(Intercept) & -3.11 & 0.41 & -7.61 & 0.00 \\ 
+  density & 0.05 & 0.57 & 0.09 & 0.93 \\ 
+  dotplot & 0.46 & 0.57 & 0.81 & 0.42 \\ 
+  histogram & 0.06 & 0.58 & 0.11 & 0.91 \\ 
+  d & 1.77 & 0.34 & 5.18 & 0.00 \\ 
+  n1 & 0.02 & 0.00 & 9.73 & 0.00 \\ 
+  ratio & 0.84 & 0.33 & 2.56 & 0.01 \\ 
+  density:d & -0.60 & 0.47 & -1.27 & 0.20 \\ 
+  dotplot:d & 0.03 & 0.46 & 0.07 & 0.95 \\ 
+  histogram:d & -0.28 & 0.48 & -0.59 & 0.56 \\ 
+  density:n1 & -0.00 & 0.00 & -0.36 & 0.72 \\ 
+  dotplot:n1 & -0.01 & 0.00 & -3.00 & 0.00 \\ 
+  histogram:n1 & -0.01 & 0.00 & -2.64 & 0.01 \\ 
+  density:ratio & -0.28 & 0.47 & -0.59 & 0.56 \\ 
+  dotplot:ratio & -1.01 & 0.46 & -2.19 & 0.03 \\ 
+  histogram:ratio & -0.28 & 0.47 & -0.59 & 0.55 \\ 
    \hline
 \end{tabular}
 \end{center}
-\caption{correctness}
+\caption{Results from a Generalized Linear Mixed Effects Model of Power of a lineup given design and all two-way interactions with effect size $d$, group size $n_1$, and ratio to second to first group size. The model was fit based on 2513 lineup evaluations of 208 participants.}
+\label{tbl:power2}
 \end{table}
 
 \begin{table}[ht]
