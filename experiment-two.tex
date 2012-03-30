@@ -4,71 +4,95 @@
 \begin{figure*}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\linewidth]{power-exp2} 
-   \caption{Overview of power predictions for the four different designs. The fully saturated thick lines show average predicted power for each of the designs facetted by size of the red group (top to bottom) and relative size of the blue group to the red group (left to right). }
+   \caption{Overview of power predictions for the four different designs. The fully saturated thick lines show average predicted power for each of the designs facetted by size of the red group (top to bottom) and relative size of the blue group to the red group (left to right). Thin lines represent variability due to subject-specific abilities. }
    \label{fig:power2}
 \end{figure*}
 
 Since each participant provides results from nine lineups, we can use a generalized linear mixed effects model of power and account for individuals' abilities by including a subject-specific random intercept. We included all of the above described covariates  in the model, both as main effects and as two-way interaction with the design to assess their impact on the power of each of the designs.
-Figure \ref{fig:power2} summarizes the modeling results as shown in table \ref{tbl:power2}. Generally we can see that the power of all four designs increases with an increase in effect size ($x$ axis), as well as an increase in sample size (top to bottom facetting). Depending on visualization setup, different designs have highest power: boxplots  are an alround good choice in visualizing a mean shift in a distribution. For small overall sample size dotplots (green dots and lines) show good power, but they  start to lose their advantage in favor of more summarized plots, such as density charts or histograms. Following the predicted power for density charts for the different ratios between the groups, we see that from left to right the density line does not benefit from additional information in the second group, unlike all of the other designs. Dotplots are the only design, in which each observation is shown individually. This increase in visual complexity might be the reason behind this phenomenon.
+Figure \ref{fig:power2} summarizes the modeling results as shown in table \ref{tbl:power2}. Generally we can see that the power of all four designs increases with an increase in effect size $d$ (on the $x$ axis), as well as an increasing sample size $n_1$ (top to bottom facetting). Generally, an increase of the second group also is beneficial to power. Unlike all of the other designs,  dotplots actually lose power significantly as the second group increases. 
+The reason behind this phenomenon might be visual complexity: dotplots are the only design that show individuals. With an increase in group size, visual complexity increases with it, which could hamper the observer in evaluating shifts.
 
-Density charts profit the most from an increase in sample size - making them particularly good design choices for a larger sample sizes.
+The two highly summarized designs benefit the most from an increase in sample size: both density charts and boxplots profit significantly more than histograms and dotplots. This might, again, be a hint towards a trade-off between visual complexity and amount of information shown as basis for decisions. 
 \begin{table}[ht]
 \begin{center}
-\begin{tabular}{rrrrr}
+\resizebox{\linewidth}{!} {
+\begin{tabular}{lrrrrrl}
   \hline
- & Estimate & Std. Error & $z$ value & $p$-value \\ 
-  \hline
-(Intercept) & -3.11 & 0.41 & -7.61 & 0.00 \\ 
-  density & 0.05 & 0.57 & 0.09 & 0.93 \\ 
-  dotplot & 0.46 & 0.57 & 0.81 & 0.42 \\ 
-  histogram & 0.06 & 0.58 & 0.11 & 0.91 \\ 
-  d & 1.77 & 0.34 & 5.18 & 0.00 \\ 
-  n1 & 0.02 & 0.00 & 9.73 & 0.00 \\ 
-  ratio & 0.84 & 0.33 & 2.56 & 0.01 \\ 
-  density:d & -0.60 & 0.47 & -1.27 & 0.20 \\ 
-  dotplot:d & 0.03 & 0.46 & 0.07 & 0.95 \\ 
-  histogram:d & -0.28 & 0.48 & -0.59 & 0.56 \\ 
-  density:n1 & -0.00 & 0.00 & -0.36 & 0.72 \\ 
-  dotplot:n1 & -0.01 & 0.00 & -3.00 & 0.00 \\ 
-  histogram:n1 & -0.01 & 0.00 & -2.64 & 0.01 \\ 
-  density:ratio & -0.28 & 0.47 & -0.59 & 0.56 \\ 
-  dotplot:ratio & -1.01 & 0.46 & -2.19 & 0.03 \\ 
-  histogram:ratio & -0.28 & 0.47 & -0.59 & 0.55 \\ 
+& & Estimate & Error & $t$-value & \multicolumn{2}{l}{approx $p$-value} \\   \hline
+\\[-8pt]
+\bf design& Intercept & -3.11 & 0.41 & -7.61 & 0.00 & ***\\ 
+&  density & 0.05 & 0.57 & 0.09 & 0.93 \\ 
+ & dotplot & 0.46 & 0.57 & 0.81 & 0.42 \\ 
+  &histogram & 0.06 & 0.58 & 0.11 & 0.91 \\ [2pt]
+\multicolumn{2}{l}{\bf covariates}\\
+&  d & 1.77 & 0.34 & 5.18 & 0.00 & ***\\ [1pt]
+&   n1$_{100}$ & 1.84 & 0.19 & 9.73 & 0.00 & *** \\ [1pt]
+&  ratio & 0.84 & 0.33 & 2.56 & 0.01 & ** \\ [2pt]
+\multicolumn{2}{l}{\bf interactions}\\
+&    density:d & -0.60 & 0.47 & -1.27 & 0.20 \\ 
+&    dotplot:d & 0.03 & 0.46 & 0.07 & 0.95 \\ 
+&    histogram:d & -0.28 & 0.48 & -0.59 & 0.56 \\ [1pt]
+&    density: n1$_{100}$ & -0.10 & 0.26 & -0.36 & 0.72 \\ 
+&    dotplot: n1$_{100}$ & -0.77 & 0.26 & -3.00 & 0.00 & *** \\ 
+&    histogram: n1$_{100}$ & -0.69 & 0.26 & -2.64 & 0.01 & ** \\ [1pt]
+&    density:ratio & -0.28 & 0.47 & -0.59 & 0.56 \\ 
+&    dotplot:ratio & -1.01 & 0.46 & -2.19 & 0.03 & * \\ 
+&histogram:ratio & -0.28 & 0.47 & -0.59 & 0.55 \\ 
    \hline
-\end{tabular}
+\\[-5pt]
+   \multicolumn{5}{l}{Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1}
+\end{tabular}}
 \end{center}
-\caption{Results from a Generalized Linear Mixed Effects Model of Power of a lineup given design and all two-way interactions with effect size $d$, group size $n_1$, and ratio to second to first group size. The model was fit based on 2513 lineup evaluations of 208 participants.}
+\caption{Results from a Generalized Linear Mixed Effects Model of Power of a lineup given design and all two-way interactions with effect size $d$, group size $n_1$, and ratio to second to first group size. Reference group for all effects are boxplot designs. The model was fit based on 2513 lineup evaluations of 208 participants. Note that estimate and error for all terms involving $n_1$ are multiplied by a factor of 100.}
 \label{tbl:power2}
 \end{table}
 
+Table \ref{tbl:speed2} gives an overview of results from a linear model for (log) evaluation time of lineups. Subject-specific speed (due to spatial ability) are accounted for  including a random intercept. Structurally, the model is the same as before, i.e. we regard effect size $d$, size $n_1$ of the first group, and the ratio $n_2/n_1$ between group sizes both as main effects and in two-way interactions with the four competing designs. To make estimate sizes comparable, we have again multiplied all estimates and standard errors involving the group size $n_1$ by 100. This means that we need to interpret those  estimates as average change if the group size is increased by 100 elements. 
+The results of this model are similar to the previous: evaluation speeds needed for the four different designs is very close, but  histograms take on average a significantly longer time ($e^{0.23} = 1.26$ seconds) to evaluate than lineups of boxplots. 
+Where an increase of sample size led to an increase of accuracy before, we now see that it increases time for evaluation of boxplot slightly, but not significantly so. What is interesting is that evaluation time decreases significantly with an increase in sample size, particularly for dotplots, but also for density charts. This is counter-intuitive to our previous argument on dotplots being affected by visual complexity the most. It seems, that observers of dotplot lineups come to a conclusion faster as sample size increases, albeit more often to  the wrong conclusion. Rather than visual complexity, this might be indicative that over-plotting is problematic in dotplots. While we tried to accommodate for over-plotting by making use of alpha-blending and jittering, this might not have been sufficient for the large sample size.
+ 
 \begin{table}[ht]
 \begin{center}
-\begin{tabular}{rrrrr}
+\resizebox{\linewidth}{!} {
+\begin{tabular}{lrrrrrl}
   \hline
- & Estimate & Std..Error & t.value & pval \\ 
-  \hline
-(Intercept) & 3.85 & 0.09 & 42.21 & 0.00 \\ 
-  density & 0.01 & 0.12 & 0.07 & 0.94 \\ 
-  dotplot & 0.03 & 0.12 & 0.26 & 0.80 \\ 
-  histogram & 0.23 & 0.12 & 1.97 & 0.05 \\ 
-  d & -0.23 & 0.08 & -3.02 & 0.00 \\ 
-  n1 & 0.00 & 0.00 & 1.74 & 0.08 \\ 
-  I(n1/n2) & -0.04 & 0.02 & -1.48 & 0.14 \\ 
-  density:d & 0.11 & 0.11 & 1.02 & 0.31 \\ 
-  dotplot:d & 0.20 & 0.11 & 1.86 & 0.06 \\ 
-  histogram:d & -0.01 & 0.11 & -0.09 & 0.93 \\ 
-  density:n1 & -0.00 & 0.00 & -2.15 & 0.03 \\ 
-  dotplot:n1 & -0.00 & 0.00 & -2.87 & 0.00 \\ 
-  histogram:n1 & -0.00 & 0.00 & -0.93 & 0.35 \\ 
-  density:I(n1/n2) & 0.04 & 0.03 & 1.18 & 0.24 \\ 
-  dotplot:I(n1/n2) & 0.02 & 0.03 & 0.65 & 0.52 \\ 
-  histogram:I(n1/n2) & 0.00 & 0.04 & 0.04 & 0.97 \\ 
+& & Estimate & Error & $t$-value & \multicolumn{2}{l}{approx $p$-value} \\   \hline
+\\[-8pt]
+\bf design& Intercept & 3.85 & 0.09 & 42.21 & 0.00 & ***\\ 
+&  density & 0.01 & 0.12 & 0.07 & 0.94 \\ 
+&  dotplot & 0.03 & 0.12 & 0.26 & 0.80 \\ 
+&  histogram & 0.23 & 0.12 & 1.97 & 0.05 & . \\ [2pt]
+\multicolumn{2}{l}{\bf covariates}\\
+&      d & -0.23 & 0.08 & -3.02 & 0.00 & ***\\ [1pt]
+&    n1$_{100}$ & 0.07 & 0.04 & 1.70 & 0.09 & .\\ [1pt]
+&  ratio & -0.04 & 0.02 & -1.48 & 0.14  \\ [2pt]
+\multicolumn{2}{l}{\bf interactions}\\
+&  density:d & 0.11 & 0.11 & 1.02 & 0.31 \\ 
+&  dotplot:d & 0.20 & 0.11 & 1.86 & 0.06 & .  \\ 
+&  histogram:d & -0.01 & 0.11 & -0.09 & 0.93 \\ [1pt]
+&  density:n1$_{100}$ & -0.12 & 0.06 & -2.11 & 0.03 & *\\ 
+&  dotplot:n1$_{100}$ & -0.16 & 0.06 & -2.83 & 0.00 & ***\\ 
+&  histogram:n1$_{100}$ & -0.05 & 0.06 & -0.93 & 0.35 \\ [1pt]
+&  density:ratio & 0.04 & 0.03 & 1.18 & 0.24 \\ 
+&  dotplot:ratio & 0.02 & 0.03 & 0.65 & 0.52 \\ 
+&  histogram:ratio & 0.00 & 0.04 & 0.04 & 0.97 \\ 
    \hline
-\end{tabular}
+\\[-5pt]
+   \multicolumn{5}{l}{Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1}
+\end{tabular}}
 \end{center}
-\caption{log time taken}
-
+\caption{\label{tbl:speed2}Results from a Generalized Linear Mixed Effects Model of (log) time to answer a lineup given design and all two-way interactions with effect size $d$, group size $n_1$, and ratio to second to first group size. Estimate and error for all terms involving $n_1$ are multiplied by a factor of 100 for comparability.
+Reference group for all effects are boxplot designs. }
 \end{table}
 
+Our third response variable is again the subjective assessment of confidence level. On average participants reported a confidence in their results of  3.41 (on a five point scale with 1=lowest and 5=highest), with a standard deviation of 0.149. Modeling confidence levels with a linear mixed effects model with the same structure as before resulted in only one significant effect beyond the intercept: participants report significantly higher confidence for increased number of  points in dotplot lineups. On average an increase of 100 points leads to an increase in confidence of 0.22 (with a standard error of 0.082). This finding is significant with a $p$-value of 0.007. 
+Together with the previous results, we can tell that something interesting happens in the perception of dotplots as sample sizes increase. 
+*** Follow-up experiments are planned. *** do we?
 
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\linewidth]{conf-exp2} 
+   \caption{example caption}
+   \label{fig:example}
+\end{figure}
 
