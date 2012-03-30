@@ -1,7 +1,7 @@
 % !TEX root = comparison.tex
 \section{Experimental Setup}~\label{setup}
 
-Two recent data analyses motivated the setup of this experiment. The first one arises from an analysis of US flight traffic data, and a finding related to how wind direction affects the efficiency of an airport.  The second one arose during the review of a paper claiming that it was impossible to statistically test for differences in center between two samples where sample size was small and from a non-normal population, with application to studying toxic waste sites. Visually, using lineups of dotplots, it was clear that there was a difference.
+Two recent data analyses motivated the setup of this experiment. The first one arises from an analysis of US flight traffic data, and a finding related to how wind direction affects the efficiency of an airport.  The second one arose during the review of a paper claiming that it was impossible to statistically test for differences in center between two samples where sample size was small and from a non-normal population, with application to studying toxic waste sites. Using lineups containing dotplots we found it was possible to detect a difference, and we were curious to see if other display types (density, histogram, boxplot) might be better than dotplots.
 
 %We want two discuss two applications, in which we are making use of lineups to compare competing designs. in the second example we are interested in visualizing mean shifts between two distributions.  
 
@@ -34,7 +34,7 @@ In spite of the contextual circular property of wind direction, the pattern in e
 Figure \ref{layouts} shows an overview of all four chart types in the study. During the exploration of the data, it became clear that Seattle airport functions at it best with winds coming from the East to Southeast, while winds from the West seemed to be most troublesome, resulting in a wave-like pattern in the Euclidean charts and a shift in center for the polar charts. Since runways can be used in both directions, changing the runway usage according to dominant wind direction for that day or time of the year might be a feasible solution in gaining efficiency. 
 
 An additional factor we were interested in this particular situation was to assess, how much of the data we actually needed to use in a design to have observers pick out the pattern. Clearly, a design is more efficient, if a smaller sample size is sufficient for showing the presence of a relationship. In order to investigate this, we took different size samples of the data and created lineup plots of all four designs for these subsets. The effect of sampling size on the displays mostly stems from the additional variability introduced when using small samples, which might hide the pattern, if it is not displayed prominently. 
-%XXX picture of sampling size?
+
 Another perturbation to the data are `shifts' in wind direction, i.e. we make use of the circular nature of the wind direction and adjust the $x$ axis by using different offsets.
 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
@@ -56,16 +56,21 @@ The amount of time it took the individual to answer is also recorded. This  allo
 
 \begin{table}[hbtp]
 \resizebox{\linewidth}{!} {
-	\rowcolors{1}{white}{lightgray}
-	\begin{tabular}{ll|@{}r|@{}r|@{}r|@{}r|@{}r|@{}r}
-	\multicolumn{2}{l}{sample size (in percent)}  & 2 & 4 & 6 & 8 & 10 & 24 \\ [1pt] \hline
-	Polar & with & 13/49& 9/43 & 9/39 & 7/35 & 8/40 & 13/38 \\
-	& without & 6/51&   4/34 &  5/34 &  6/39 & 11/43 &  12/37\\ [1pt] \hline
-	Euclidean & with &12/24& 18/27 & 42/44 & 33/41 & 39/43 & 46/47\\
-	& without & 13/41 &24/32& 39/44 & 47/51 & 40/45 & 34/37\\
+	%\rowcolors{1}{white}{lightgray}
+	\begin{tabular}{ll@{   }r@{   }r@{   }r@{   }r@{   }r@{   }r}
+	& & \multicolumn{6}{c}{sample size}  \\
+        \multicolumn{2}{c}{type of chart} & 2 & 4 & 6 & 8 & 10 & 24 \\ [1pt] \hline 
+	euclid & with & 12/{\bf 24}& 18/{\bf 27} & 42/{\bf 44} & 33/{\bf 41} & 39/{\bf 43} & 46/{\bf 47}\\
+	       &      &(0.50)& (0.67) & (0.95) & (0.80) & (0.91) & (0.98)\\[1pt]
+	& without & 13/{\bf 41} &24/{\bf 32}& 39/{\bf 44} & 47/{\bf 51} & 40/{\bf 45} & 34/{\bf 37}\\
+	&         & (0.32) &(0.75)& (0.89) & (0.92) & (0.89) & (0.92)\\[3pt] %\hline
+	polar & with & 13/{\bf 49}& 9/{\bf 43} & 9/{\bf 39} & 7/{\bf 35} & 8/{\bf 40} & 13/{\bf 38} \\
+	      &      & (0.27)& (0.21) & (0.23) & (0.20) & (0.20) & (0.34) \\[1pt]
+	& without & 6/{\bf 51}&   4/{\bf 34} &  5/{\bf 34} &  6/{\bf 39} & 11/{\bf 43} &  12/{\bf 37} \\
+        &         & (0.12) & (0.12) &  (0.15) &  (0.15) & (0.26) &  (0.32)\\ 
 	\end{tabular}
 	}
-\caption{\label{tbl:treatment} Breakdown of lineups: correct/shown. Each participant was shown eight lineups from the set above and two separate `test' charts.}
+\caption{\label{tbl:treatment} Breakdown of lineups: number correct/\textbf{number shown} (proportion correct). Each participant was shown eight lineups, and the same lineup was shown to multiple people (denominator in the table) reasonably well-spread among the treatment levels. }
 \end{table}
 
 %Besides correctness of responses, two additional response variables were recorded:  time taken for answer and a (subjective) confidence level, ranging from 1 (lowest) to 5 (highest), assessing how convinced participants are of the correctness of their answer. 
