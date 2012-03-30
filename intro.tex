@@ -72,19 +72,19 @@ communicating findings visually. Different lineups are created, using
 the same data, same null plots and positions within the lineup, but
 different plot designs. Comparing how long and how accurately the
 viewers take to report the feature of interest will assess which
-design is better for the task. In addition, this approach is ideally
-coupled with simulation studies, where data is constructed to match
-and expand on the features of interest in the real data. For example,
-in a simple situation, where the discovered feature of interest is a
+design is better for the task. To investigate the benefit of lineups
+for plot design evaluation we have conducted an experiment that also
+contains simulated data, where the data is constructed to match and
+expand on the features of interest in the real data. For example, in a
+simple situation, where the discovered feature of interest is a
 difference between the centers of two distributions, simulated data
 would be constructed roughly matching the distribution of the real
 data that varies the distance between centers, and also spread and
 sample size. Lineups of these simulated data (embedded with simulated
 null data plots) are generated and evaluated along with the lineups of
 real data. The simulation study provides a backdrop for the real data,
-which enables the broad applicability to be studied and a guage for
-the signal strength of the pattern in the real data. It provides a way
-to objectively evaluate plot design.
+which enables the broad applicability to be studied and a gauge for
+the signal strength of the pattern in the real data. 
 
 %Usually, we need simulation studies to be able to completely control for the signal strength in the data. For charts, this is not a very realistic scenario. The need for displaying information particularly efficiently or accurately usually arises from  a particular problem while analyzing a data set, from which we want to learn new insight. Often, it is difficult to simulate data in such a way that it realistically represents the particular problem, which in turn makes it dubious whether the results from a simulation study are actually applicable to the problem at hand, reminding us painfully of George Box's famous quote on models: ``essentially, all models are wrong, but some are useful.'' \citep[page=424]{box}  
 
@@ -105,14 +105,14 @@ to objectively evaluate plot design.
 
 %Lineup plots have been shown as an effective tool \cite{wickham:2010} for enabling us to quantitively assess the strength of the relationship between $X$ and $Y$. In a lineup plot the plot of the actual data is -- as in a police line-up -- inserted among decoy plots. The decoy or {\it null} plots are generated in a way that is consistent with the null hypothesis, i.e. these are plots in which we can assume that any relationship visible is there purely by chance. This gives us a reference framework against which to compare the data plot and, if we are still able to identify the data plot from the lineup because of a distinguishing feature, we have formal evidence that the feature in the data is, in fact, not just coincidental. 
 
-Lineups provide a way to quantify the significance of the finding
-\citet{majumder:2011}. 
+Lineups provide a way to statistically quantify the significance of the finding
+\citet{majumder:2011}. Think of the linup as a set of $m$ plots, one of which is the real data. For one lineup and one observer, the significance level, $\alpha$ is $1/m$. This is the probability that the observer picks the plot of the real data by chance. It is the probability of picking the real data plot, when it is really *not* different from the other null plots, that is a Type I error. (In Figure \ref{lineup}, $m=20$.) The power of a test is the probability that the real data plot is identified when it really is different from the null plots. Power is usually difficult to calculate because it is requires specific use of alternative hypothesis to calculate the probability.  Work in \citet{niladri:2012} addresses this to some extent with measures on the quality of a lineup, how different numerically, as best it can be calculated, the real data plot is from the null plots. 
 %
-The significance depends on the size ($m$) of
-the lineup ($m=20$ in Figure \ref{lineup}) and the number of
-independent observers ($n$). Let $n$ be the number of independent observers and $x_i$ the number of observers who picked plot $i$, $i \in \{1, ..., m\}$, from the lineup. Then $(x_1, x_2, ..., x_m)$ follows a Multinomial Distribution Mult$_{\pi_1, \pi_2, ..., \pi_m}$ with $\sum_i \pi_i = 1$, where $\pi_i$ is the probability that plot $i$ is picked by an observer, which we can estimate as $\widehat{\pi_i} = x_i/n$. 
+When there are multiple observers the significance level also depends on the number of independent observers ($n$). Let $n$ be the number of independent observers and $x_i$ the number of observers who picked plot $i$, $i \in \{1, ..., m\}$, from the lineup. Then $(x_1, x_2, ..., x_m)$ follows a multinomial distribution Mult$_{\pi_1, \pi_2, ..., \pi_m}$ with $\sum_i \pi_i = 1$, where $\pi_i$ is the probability that plot $i$ is picked by an observer, which we can estimate as $\widehat{\pi_i} = x_i/n$. 
 
-The power of a test is the probability to reject the null hypothesis. In the framework of lineups, power is the probability to identify the data plot, i.e. power can be estimated as $x/n$, where $x$ is the number of observers who correctly identifies the plot of the real data out of $n$ observers.
+*** Under the null that the real is no different from the null, isn't $\pi_i=1/m$? Fixing this then I think the next paragraph on signal strength flows right from this one. It is when we are calculating signal strength that we start counting the number of observers who pick it.
+
+%The power of a test is the probability to reject the null hypothesis, when it is not true. In the framework of lineups, power is, effectively, the probability that the data plot is identified. , i.e. power can be estimated as $x/n$, where $x$ is the number of observers who correctly identifies the plot of the real data out of $n$ observers.
 
 %Let $x$ be the number of observers who
 %correctly identify the plot of the real data. The probability that one
@@ -130,7 +130,7 @@ Beta distribution for the maximum \citet{****}:
 \[
 \text{signal strength} =  \left( \frac{x}{n}\right)^{1/(m-1)}.
 \]
-We call it signal strength, and it is analogous to 1-$p$-value of a classical hypothesis test. Signal strength will range between 0 and 1, with higher values indicating stronger signal, more distinctive feature in the data.
+We call it signal strength \citet{majumder:2012}, and it is analogous to 1-$p$-value of a classical hypothesis test. Signal strength will range between 0 and 1, with higher values indicating stronger signal, more distinctive feature in the data.
 
 
 
