@@ -12,6 +12,40 @@ Since each participant provides results from nine lineups, we can use a generali
 Figure \ref{fig:power2} summarizes the modeling results as shown in table \ref{tbl:power2}. Generally we can see that the power of all four designs increases with an increase in effect size $d$ (on the $x$ axis), as well as an increasing sample size $n_1$ (top to bottom facetting). Generally, an increase of the second group also is beneficial to power. Unlike all of the other designs,  dotplots actually lose power significantly as the second group increases. 
 The reason behind this phenomenon might be visual complexity: dotplots are the only design that show individuals. With an increase in group size, visual complexity increases with it, which could hamper the observer in evaluating shifts.
 
+\begin{table}[ht]
+\begin{center}
+\resizebox{\linewidth}{!} {
+\begin{tabular}{lrrrrrl}
+  \hline
+& & Estimate & Error & $t$-value & \multicolumn{2}{l}{approx $p$-value} \\   \hline
+\\[-8pt]
+\bf design& Intercept & -3.11 & 0.41 & -7.61 & 0.00 & ***\\ 
+&  density & 0.05 & 0.57 & 0.09 & 0.93 \\ 
+&  dotplot & 0.46 & 0.57 & 0.81 & 0.42\\ 
+&  histogram & 0.06 & 0.58 & 0.11 & 0.91 \\ [2pt]
+\multicolumn{2}{l}{\bf covariates}\\
+&  d & 1.77 & 0.34 & 5.18 & 0.00 & ***\\ 
+&  n1$_{100}$ & 1.84 & 0.19 & 9.73 & 0.00 & ***\\ 
+&  ratio & 0.84 & 0.33 & 2.56 & 0.01 & **\\ 
+\multicolumn{2}{l}{\bf interactions}\\
+&  density:d & -0.60 & 0.47 & -1.27 & 0.20 \\ 
+&  dotplot:d & 0.03 & 0.46 & 0.07 & 0.95  \\ 
+&  histogram:d & -0.28 & 0.48 & -0.59 & 0.56 \\ [1pt]
+&  density:n1$_{100}$ & -0.10 & 0.26 & -0.36 & 0.72\\ 
+&  dotplot:n1$_{100}$ & -0.77 & 0.26 & -3.00 & 0.00 & ***\\ 
+&  histogram:n1$_{100}$ & -0.69 & 0.26 & -2.64 & 0.01 & ** \\ [1pt]
+&  density:ratio & -0.28 & 0.47 & -0.59 & 0.56 \\ 
+&  dotplot:ratio & -1.01 & 0.46 & -2.19 & 0.03 & * \\ 
+&  histogram:ratio & -0.28 & 0.47 & -0.59 & 0.55 \\ 
+   \hline
+\\[-5pt]
+   \multicolumn{5}{l}{Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1}
+\end{tabular}}
+\end{center}
+\caption{\label{tbl:power2}Results from a Generalized Linear Mixed Effects Model of power of a  lineup given design and all two-way interactions with effect size $d$, group size $n_1$, and ratio to second to first group size. 
+Note that for all terms involving $n_1$ estimate and error are multiplied by a factor of 100. 
+Reference group for all effects are boxplot designs. The model fit is based on 2513 lineup evaluations by 208 participants. }
+\end{table}
 
 The two highly summarized designs benefit the most from an increase in sample size: both density charts and boxplots profit significantly more than histograms and dotplots. This might, again, be a hint towards a trade-off between visual complexity and amount of information shown as basis for decisions. 
 
@@ -50,7 +84,7 @@ Where an increase of sample size led to an increase of accuracy before, we now s
    \multicolumn{5}{l}{Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1}
 \end{tabular}}
 \end{center}
-\caption{\label{tbl:speed2}Results from a Generalized Linear Mixed Effects Model of (log) time to answer a lineup given design and all two-way interactions with effect size $d$, group size $n_1$, and ratio to second to first group size. Estimate and error for all terms involving $n_1$ are multiplied by a factor of 100 for comparability.
+\caption{\label{tbl:speed2}Results from a Linear Mixed Effects Model of (log) time to answer a lineup given design and all two-way interactions with effect size $d$, group size $n_1$, and ratio to second to first group size. Estimate and error for all terms involving $n_1$ are multiplied by a factor of 100 for comparability.
 Reference group for all effects are boxplot designs. }
 \end{table}
 
@@ -65,4 +99,6 @@ Together with the previous results, we can tell that something worth of further 
    \label{fig:conf-margins}
 \end{figure}
 
-Figure \ref{fig:conf-margins} shows barcharts of confidence assessments by design. It is obvious that the distribution of confidence is very different from one design to the next. Boxplots and Dotplots show a similar pattern with an emphasis on high confidence levels, whereas histograms and density lineups have modes at a confidence level of three. One reason behind these differences in confidence distributions might be familiarity with the design - neither density charts nor histograms are particularly frequent displays for a general audience.
+Figure \ref{fig:conf-margins} shows barcharts of confidence assessments by design. It is obvious that the distribution of confidence is very different from one design to the next. Boxplots and Dotplots show a similar pattern with an emphasis on high confidence levels, whereas histograms and density lineups have modes at a confidence level of three. One reason behind these differences in confidence distributions might be familiarity with the design - neither density charts nor histograms are particularly frequent displays for a general audience. 
+
+
