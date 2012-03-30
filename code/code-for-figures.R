@@ -129,3 +129,26 @@ ddply(conc.res, .(n1,n2,d,test_param), summarize,
 
 
 xtabs(~ pic_name + responsedata=conc.res)
+
+
+
+nf <- ldply(c(0,90,180,270), function(x) {
+	flights_sample$offset <- x
+	flights_sample$WindDirDegrees <- (flights_sample$WindDirDegrees+x)%%360
+	flights_sample
+})
+
+ggplot(nf, aes(x = (WindDirDegrees-1 + X)%%360, fill = factor(nf, levels = c(0:8)))) +
+geom_bar(binwidth = 10, position="fill", alpha=0.8) +
+scale_x_continuous(limits = c(0, 360), breaks=seq(0, 360, by=45), labels=c("N", "NE","E","SE","S","SW","W","NW","N")) + geom_hline(yintercept=0.5, size = .5, alpha=0.5, colour = "white") + opts(legend.position="none", plot.margin=unit(c(0,0,0,0), "cm")) +
+seq7rev + labs(x = " ", y = " ") +facet_grid(.~offset)
+ggsave("euclid-offset.pdf")
+
+ggplot(nf, aes(x = (WindDirDegrees-1 + X)%%360, fill = factor(nf, levels = c(0:8)))) +
+geom_bar(binwidth = 10, position="fill") +
+scale_x_continuous(limits = c(0, 360), breaks=seq(0, 360, by=45), labels=c("N", "NE","E","SE","S","SW","W","NW","N")) +
+coord_polar(start = 0) + geom_line(aes(x=xx, y=yy), size = .5, alpha=0.5, colour = "white", inherit.aes=FALSE, data=refdf) + opts(legend.position="none", plot.margin=unit(c(0,0,0,0), "cm")) +
+seq7rev + labs(x = " ", y = " ")  +facet_grid(.~offset)
+ggsave("polar-offset.pdf")
+
+
