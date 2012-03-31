@@ -91,7 +91,7 @@ calculated, the data plot is from the null plots.
 In our situation, though, it is fairly straightforward to {\it estimate} the power of a lineup:
 
 \begin{quote}
-Let $n$ be the number of independent observers and $x_i$ the number of observers who picked plot $i$, $i \in \{1, ..., m\}$, from the lineup. Then $(x_1, x_2, ..., x_m)$ follows a multinomial distribution Mult$_{\pi_1, \pi_2, ..., \pi_m}(x_1, x_2, ..., x_m)$ with $\sum_i \pi_i = 1$, where $\pi_i$ is the probability that plot $i$ is picked by an observer, which we can estimate as $\widehat{\pi_i} = x_i/n$. 
+Let $n$ be the number of independent observers and $x_i$ the number of observers who picked plot $i$, $i \in \{1, ..., m\}$, from the lineup. Then $(x_1, x_2, ..., x_m)$ follows a multinomial distribution Mult$_{\pi_1, \pi_2, ..., \pi_m}(x_1, x_2, ..., x_m)$ with $\sum_i \pi_i = 1$, where $\pi_i$ is the probability that plot $i$ is picked by an observer, which we can estimate as $\widehat{\pi}_i = x_i/n$. 
 \end{quote}
 
 \noindent The power of a lineup can therefore be estimated as the ratio of correct identifications $x$ out of $n$ viewings. (More details on these derivations can be found in \citet{majumder:2012}.)
@@ -147,12 +147,12 @@ We are going to make use of the signal strength gained from multiple viewings of
 \item{{\bf Evaluate Competing Designs:} differences in signal strength or time to decision are due to differences in the design. In the case that individuals were shown multiple lineups (as part of a bigger study), it is possible to correct outcome measurements for an individual's visual ability. }
 \end{enumerate}
 
-The power of a statistical test is defined as the probability to reject the null hypothesis. Translated to the visual tests, power is the probability to identify the data plot from the lineup. 
-Comparing power of competing designs therefore involves comparing percentages of correct responses $p_1$ and $p_2$. An $\alpha\cdot$100\% confidence interval for this comparison is given as 
+%The power of a statistical test is defined as the probability to reject the null hypothesis. Translated to the visual tests, power is the probability to identify the data plot from the lineup. 
+Comparing power of competing designs therefore involves comparing percentages of correct responses $\widehat{\pi}_1$ and $\widehat{\pi}_2$. An $\alpha\cdot$100\% confidence interval for this comparison is given as 
 \[
-p_1 - p_2 \pm t_{1-\alpha/2, n-1} \sqrt{p_1(1-p_1)/n_1 + p_2(1-p_2)/n_2},
+\widehat{\pi}_1 - \widehat{\pi}_2 \pm t_{1-\alpha/2, n-1} \sqrt{\widehat{\pi}_1(1-\widehat{\pi}_1)/n_1 + \widehat{\pi}_2(1-\widehat{\pi}_2)/n_2},
 \]
-where $n$ is the Welch-Satterthwaite \cite{welch:1947} estimate of the degrees of freedom. Note that we use $p_i = (x_i+1)/(n_i+1)$ and $n_i+2$ for a better coverage of the confidence interval \cite{agresti:1998}.
+where $n$ is the Welch-Satterthwaite \cite{welch:1947} estimate of the degrees of freedom. Note that we use $\widehat{\pi}_i = (x_i+1)/(n_i+1)$ and $n_i+2$ for a better coverage of the confidence interval \cite{agresti:1998}.
 
 While this allows a direct comparison of the designs, we cannot adjust for the individuals' perceptual abilities.
 In the case that we have multiple responses from each person (i.e. data is collected on several {\it different} lineup tasks), we can estimate for their perceptual ability and correct power differences between competing designs accordingly, e.g. by modeling power using  a subject-specific random intercept in a generalized linear model.
