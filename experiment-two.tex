@@ -1,12 +1,5 @@
 % !TEX root = comparison.tex
-
 \subsection{Comparing Distribution Centers}
-\begin{figure*}[htbp] %  figure placement: here, top, bottom, or page
-   \centering
-   \includegraphics[width=\linewidth]{power-exp2} 
-   \caption{Overview of power predictions for the four different designs. The fully saturated thick lines show average predicted power for each of the designs facetted by size of the red group (top to bottom) and relative size of the blue group to the red group (left to right). Thin lines represent variability due to subject-specific abilities. }
-   \label{fig:power2}
-\end{figure*}
 
 Since each participant provides results from nine lineups, we can use a generalized linear mixed effects model of power and account for individuals' abilities by including a subject-specific random intercept. We included all of the above described covariates  in the model, both as main effects and as two-way interaction with the design to assess their impact on the power of each of the designs.
 Figure \ref{fig:power2} summarizes the modeling results as shown in table \ref{tbl:power2}. Generally we can see that the power of all four designs increases with an increase in effect size $d$ (on the $x$ axis), as well as an increasing sample size $n_1$ (top to bottom facetting). Generally, an increase of the second group also is beneficial to power. Unlike all of the other designs,  dotplots actually lose power significantly as the second group increases. 
@@ -47,13 +40,11 @@ Note that for all terms involving $n_1$ estimate and error are multiplied by a f
 Reference group for all effects are boxplot designs. The model fit is based on 2513 lineup evaluations by 208 participants. }
 \end{table}
 
-The two highly summarized designs benefit the most from an increase in sample size: both density charts and boxplots profit significantly more than histograms and dotplots. This might, again, be a hint towards a trade-off between visual complexity and amount of information shown as basis for decisions. 
+The two highly summarized designs benefit the most from an increase in sample size: both density charts and boxplots profit significantly more than histograms and dotplots. This might, again, be a hint towards a trade-off between visual complexity and amount of information shown as the basis for making decisions. 
 
 
 Table \ref{tbl:speed2} gives an overview of results from a linear model for (log) evaluation time of lineups. Subject-specific speed (due to spatial ability) are accounted for  including a random intercept. Structurally, the model is the same as before, i.e. we regard effect size $d$, size $n_1$ of the first group, and the ratio $n_2/n_1$ between group sizes both as main effects and in two-way interactions with the four competing designs. To make estimate sizes comparable, we have again multiplied all estimates and standard errors involving the group size $n_1$ by 100. This means that we need to interpret those  estimates as average change if the group size is increased by 100 elements. 
-The results of this model are similar to the previous: evaluation speeds needed for the four different designs is very close, but  histograms take on average a significantly longer time ($e^{0.23} = 1.26$ seconds) to evaluate than lineups of boxplots. 
-Where an increase of sample size led to an increase of accuracy before, we now see that it increases time for evaluation of boxplot slightly, but not significantly so. What is interesting is that evaluation time decreases significantly with an increase in sample size, particularly for dotplots, but also for density charts. This is counter-intuitive to our previous argument on dotplots being affected by visual complexity the most. It seems, that observers of dotplot lineups come to a conclusion faster as sample size increases, albeit more often to  the wrong conclusion. Rather than visual complexity, this might be indicative that over-plotting is problematic in dotplots. While we tried to accommodate for over-plotting by making use of alpha-blending and jittering, this might not have been sufficient for the large sample size.
- 
+
 \begin{table}[ht]
 \begin{center}
 \resizebox{\linewidth}{!} {
@@ -88,10 +79,9 @@ Where an increase of sample size led to an increase of accuracy before, we now s
 Reference group for all effects are boxplot designs. }
 \end{table}
 
-Our third response variable is again the subjective assessment of confidence level. On average participants reported a confidence in their results of  3.41 (on a five point scale with 1=lowest and 5=highest), with a standard deviation of 0.149. Modeling confidence levels with a linear mixed effects model with the same structure as before resulted in only one significant effect beyond the intercept: participants report significantly higher confidence for increased number of  points in dotplot lineups. On average an increase of 100 points leads to an increase in confidence of 0.22 (with a standard error of 0.082). This finding is significant with a $p$-value of 0.007. 
-Together with the previous results, we can tell that something worth of further investigation happens in the perception of dotplots as sample sizes increase. 
-
-
+The results of this model are similar to the previous: evaluation speeds needed for the four different designs is very close, but  histograms take on average a significantly longer time ($e^{0.23} = 1.26$ seconds) to evaluate than lineups of boxplots. 
+Where an increase of sample size led to an increase of accuracy before, we now see that it increases time for evaluation of boxplot slightly, but not significantly so. What is interesting is that evaluation time decreases significantly with an increase in sample size, particularly for dotplots, but also for density charts. This is counter-intuitive to our previous argument on dotplots being affected by visual complexity the most. It seems, that observers of dotplot lineups come to a conclusion faster as sample size increases, albeit more often to  the wrong conclusion. Rather than visual complexity, this might be indicative that over-plotting is problematic in dotplots. While we tried to accommodate for over-plotting by making use of alpha-blending and jittering, this might not have been sufficient for the large sample size.
+ 
 \begin{figure}[htbp] %  figure placement: here, top, bottom, or page
    \centering
    \includegraphics[width=\linewidth]{conf-exp2} 
@@ -99,7 +89,14 @@ Together with the previous results, we can tell that something worth of further 
    \label{fig:conf-margins}
 \end{figure}
 
+Our third response variable is again the subjective assessment of confidence level. On average participants reported a confidence in their results of  3.41 (on a five point scale with 1=lowest and 5=highest), with a standard deviation of 0.149. Modeling confidence levels with a linear mixed effects model with the same structure as before resulted in only one significant effect beyond the intercept: participants report significantly higher confidence for increased number of  points in dotplot lineups. On average an increase of 100 points leads to an increase in confidence of 0.22 (with a standard error of 0.082). This finding is significant with a $p$-value of 0.007. 
+Together with the previous results, we can tell that something worth of further investigation happens in the perception of dotplots as sample sizes increase. 
+
+
+
 Figure \ref{fig:conf-margins} shows barcharts of confidence assessments by design. It is obvious that the distribution of confidence is very different from one design to the next. Boxplots and Dotplots show a similar pattern with an emphasis on high confidence levels, whereas histograms and density lineups have modes at a confidence level of three. 
 One reason behind these differences in confidence distributions might be familiarity with the design - neither density charts nor histograms are particularly frequent displays for a general audience. 
+
+
 
 
