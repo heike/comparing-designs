@@ -149,10 +149,10 @@ We are going to make use of the signal strength gained from multiple viewings of
 
 %The power of a statistical test is defined as the probability to reject the null hypothesis. Translated to the visual tests, power is the probability to identify the data plot from the lineup. 
 Comparing power of competing designs therefore involves comparing percentages of correct responses $\widehat{\pi}_1$ and $\widehat{\pi}_2$. An $\alpha\cdot$100\% confidence interval for this comparison is given as 
-\[
+\begin{equation}\label{eq:comp}
 \widehat{\pi}_1 - \widehat{\pi}_2 \pm t_{1-\alpha/2, n-1} \sqrt{\widehat{\pi}_1(1-\widehat{\pi}_1)/n_1 + \widehat{\pi}_2(1-\widehat{\pi}_2)/n_2},
-\]
-where $n$ is the Welch-Satterthwaite \cite{welch:1947} estimate of the degrees of freedom. Note that we use $\widehat{\pi}_i = (x_i+1)/(n_i+1)$ and $n_i+2$ for a better coverage of the confidence interval \cite{agresti:1998}.
+\end{equation}
+where $n$ is the Welch-Satterthwaite \cite{welch:1947} estimate of the degrees of freedom. Note that we use $\widehat{\pi}_i = (x_i+1)/(n_i+1)$ and $n_i+2$ for a better coverage of the confidence interval \cite{agresti:1998}. In the case of more than two competing designs, we have to additionally adjust the confidence intervals for multiple testing, e.g. using a Bonferroni adjustment which uses an adjusted  confidence level $\tilde{\alpha} = \alpha/k$, where $k$ are the number of confidence intervals involved (single adjustment) or the number of comparisons anticipated.
 
 While this allows a direct comparison of the designs, we cannot adjust for the individuals' perceptual abilities.
 In the case that we have multiple responses from each person (i.e. data is collected on several {\it different} lineup tasks), we can estimate for their perceptual ability and correct power differences between competing designs accordingly, e.g. by modeling power using  a subject-specific random intercept in a generalized linear model.
