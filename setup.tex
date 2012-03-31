@@ -5,12 +5,31 @@ Two recent data analyses motivated the setup of this experiment. The first one a
 
 %We want two discuss two applications, in which we are making use of lineups to compare competing designs. in the second example we are interested in visualizing mean shifts between two distributions.  
 
+\subsection{Data Collection}
+Data for both studies was collected using Amazon's Mechanical Turk (MTurk) service. 
+The website for the second study is available at \url{http://www.public.iastate.edu/~mahbub/feedback_turk5/homepage.html}. Figure \ref{fig:screen} shows a screen shot of the website's layout for a dotplot lineup.
+
+\begin{figure}[htbp] %  figure placement: here, top, bottom, or page
+   \centering
+   \includegraphics[width=\linewidth]{website} 
+   \caption{Screenshot of the website for the second study. }
+   \label{fig:screen}
+\end{figure}
+
+ Each participant is shown ten lineups and asked to identify the plot that is the most different from the other plots. In the second study the `difference' is further specified as `In which plot is the blue group the furthest to the right?". 
+ In both studies, though, the question is placed prominently above each lineup as a reminder of what participants are asked to look for. 
+  Additionally, participants are asked for a reason for their choice. They can select from a list of choices particular to the lineup design, why they chose this particular plot as well as how confident they are on a scale of one to five. 
+ Personal information such as age group, gender, and education is collected on a voluntary basis. 
+The amount of time it takes the individual to answer is also recorded. 
+This  allows us to assess how design choices affect decoding \citet{cleveland:1994} in terms of accuracy and speed.
+ 
+ In order to avoid people `gaming the system' as found in earlier studies \cite{heer:2010, kosara:2010}, participants were shown specially prepared lineups as a baseline of performance -- if participants fail to answer some of these baseline lineups, we require at least two correct answers for the remaining plots, which is indicative of a better-than-guessing performance, as inclusion criterion for the data evaluation. 
+
 \subsection{Wind Direction and Airport Efficiency}
 
-*** Null hypothesis for the lineup?
-$Ho: $ wind direction has no effect on efficiency and $H_a:$ wind direction does affect efficiency.
-
 The data contains all flights \cite{rita} in and out of Seattle/Tacoma International Airport (SEA) between July 2008 and June 2011. As a measure of airport efficiency we are using time between successive wheel-events (time at wheel take-off or touch-down), which we found to be independent of airline carrier and operating hours, as long as we restricted the data to `regular' operating hours between 7 am and midnight and `regular' weather conditions -- i.e. we eliminated records associated with the top 5\% wind speed measurements \cite{noaa-weather}, leaving us with just under 0.5 Million flights.
+
+In this scenario, we are dealing with the null hypothesis $H_0: $ wind direction has no effect on efficiency and the alternative $H_a:$ wind direction does affect efficiency.
 
 Statistical tests of mean efficiency by wind direction are not particularly helpful in this situation: the difference in mean efficiency between the  wind direction at which the airport operates the most efficiently and its least efficient direction shows a statistically significant difference with a $p$-value $\le 10^{15}$. %2.2e-16$.  
 However, out of the 34 other wind directions,  another 31 show significant differences in efficiency as well. This is much more a property of the large data size rather than practically usable differences. Mere significances also do not allow us an assessment of the underlying pattern.
@@ -47,19 +66,15 @@ Another perturbation to the data are `shifts' in wind direction, i.e. we make us
 
  This results in a shift of the wave in Euclidean charts and a rotation in the polar charts as can be seen in figure \ref{fig:offset}. Our initial hypothesis was that this would have no effect on the polar charts, but might have a deteriorating effect on the Euclidean charts, in the case that the peak or the valley of the wave was at either end of the $x$ axis, i.e. an offset of 90 or 270 degrees. 
 While these simple perturbations and different sample sizes allow us to get insight into different aspects of the designs, they also allow us to get multiple responses from each observer to assess individual ability without the need to go outside the framework of the original data, i.e. we leave the joint relationship between $x$ and $y$ essentially unchanged. For all of these combinations we produced two replicates, resulting in a total of 192 different lineups ($ 4 \text{ designs} \times 6 \text{ sample sizes} \times 4 \text{ offsets} \times 2 \text{ reps})$.
-
-Data was collected using Amazon's Mechanical Turk (MTurk) service. XXX More details: website and screen shot.
- Each participant was shown ten lineups and asked to choose the graphic on each chart which they think is ``different''. They then identify, from a list of choices, why they chose this particular chart as well as how confident they are on a scale of one to five. Personal information such as age group, gender, and education is collected on a voluntary basis. 
-The amount of time it took the individual to answer is also recorded. This  allows us to assess how design choices affect decoding \citet{cleveland:1994} in terms of accuracy and speed.
- 
- In order to avoid people `gaming the system' as found in earlier studies \cite{heer:2010, kosara:2010}, participants were shown two specially prepared lineups as a baseline of performance -- if participants answered just one of these two reference lineups correctly, we required at least an overall correct percentage of 20\%, which is indicative of a performance that is better than guessing. Table \ref{tbl:treatment} gives an overview of the number of times lineups in each combination of design and sample size were shown, and in how many of them the data plot was correctly identified. 
+Table \ref{tbl:treatment} gives an overview of the number of times lineups in each combination of design and sample size were shown, and in how many of them the data plot was correctly identified. 
 
 \begin{table}[hbtp]
-\resizebox{\linewidth}{!} {
+\centering
+%\resizebox{\linewidth}{!} {
 	%\rowcolors{1}{white}{lightgray}
 	\begin{tabular}{ll@{   }r@{   }r@{   }r@{   }r@{   }r@{   }r}
 	& & \multicolumn{6}{c}{sample size}  \\
-        \multicolumn{2}{c}{type of chart} & 2 & 4 & 6 & 8 & 10 & 24 \\ [1pt] \hline 
+        \multicolumn{2}{l}{type of chart} & 2 & 4 & 6 & 8 & 10 & 24 \\ [1pt] \hline 
 	euclid & with & 12/{\bf 24}& 18/{\bf 27} & 42/{\bf 44} & 33/{\bf 41} & 39/{\bf 43} & 46/{\bf 47}\\
 	       &      &(0.50)& (0.67) & (0.95) & (0.80) & (0.91) & (0.98)\\[1pt]
 	& without & 13/{\bf 41} &24/{\bf 32}& 39/{\bf 44} & 47/{\bf 51} & 40/{\bf 45} & 34/{\bf 37}\\
@@ -69,7 +84,7 @@ The amount of time it took the individual to answer is also recorded. This  allo
 	& without & 6/{\bf 51}&   4/{\bf 34} &  5/{\bf 34} &  6/{\bf 39} & 11/{\bf 43} &  12/{\bf 37} \\
         &         & (0.12) & (0.12) &  (0.15) &  (0.15) & (0.26) &  (0.32)\\ 
 	\end{tabular}
-	}
+%	}
 \caption{\label{tbl:treatment} Breakdown of lineups: number correct/\textbf{number shown} (proportion correct). Each participant was shown eight lineups, and the same lineup was shown to multiple people (denominator in the table) reasonably well-spread among the treatment levels. }
 \end{table}
 
@@ -132,9 +147,11 @@ The amount of time it took the individual to answer is also recorded. This  allo
 
 \subsection{Comparing Distribution Centers}
 
-In a second experiment, we conducted a simulation study to investigate the power of four competing designs, as shown in figure\ref{fig:expii}, in assessing a mean shift between distributions. The null hypothesis of each lineup is $H_o:$ centers of the two groups are the same, and the alternative hypothesis is $H_a:$ center of the blue group is shifted to the right.
+In a second experiment, we conducted a simulation study to investigate the power of four competing designs, as shown in figure \ref{fig:expii}, in assessing a mean shift between distributions. The null hypothesis of each lineup is $H_o:$ centers of the two groups are the same, and the alternative hypothesis is $H_a:$ center of the blue group is shifted to the right.
 
-As covariates for this experiment, we considered the {\it size of the shift}, $d$, between the means of the distributions, with $d=0.4, 0.6, 0.8. 1.0,$ and $1.2$, as well as the sample size.  Since we are dealing with two groups of points, we varied both the size of the larger group, $n_1 = 15, 45$, and 135, as well as the relative size of the second group, with $n_2 = 1/3, 2/3$ and $3/3$ of $n_1$. For each of these combinations, we created three replicate data sets and four lineup charts, one for each of the competing designs. This resulted in 540 different lineup charts overall, which we sorted by $p$-value corresponding to the difference in means between the two groups in the simulated data. According to the $p$-value, we associated a `difficulty' level with lineups from 1 to 9 (easy to hard). Ten lineup plots were shown to each participant - one out of each of the difficulty levels and one additional reference chart with a particularly easy lineup  to allows for data quality checks.
+As covariates for this experiment, we considered the {\it size of the shift}, $d$, between the means of the distributions, with $d=0.4, 0.6, 0.8. 1.0,$ and $1.2$, as well as the sample size.  Since we are dealing with two groups of points, we varied both the size of the larger group, $n_1 = 15, 45$, and 135, as well as the relative size of the second group, with $n_2 = 1/3, 2/3$ and $3/3$ of $n_1$. 
+For each of these combinations, we created three replicate data sets with values from an Exponential distribution with rate parameter $\lambda=1$ (for the first group) and rate parameter $\lambda_2=1/(d+1)$, which corresponds to a mean shift of $d$, for the second groups. 
+Based on each data set we created four lineup charts, one for each of the competing designs. This resulted in 540 different lineup charts overall, which we sorted by $p$-value corresponding to the difference in means between the two groups in the simulated data. According to the $p$-value, we associated a `difficulty' level with lineups from 1 to 9 (easy to hard). Ten lineup plots were shown to each participant - one out of each of the difficulty levels and one additional reference chart with a particularly easy lineup  to allow for data quality checks.
 \begin{figure} [hbtp]
    \centering
    \includegraphics[width=0.45\linewidth]{hist-conc} 
