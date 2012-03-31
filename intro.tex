@@ -38,53 +38,18 @@ visualizations
 
 %% Di needs to work on the next few paragraphs, too.
 
-Here we suggest a new approach using recent research on visual
-inference \citep{buja:2009,wickham:2010}. In visual inference, real
-data plots are considered to be test statistics, and these are
-compared with plots of data generated from a null hypothesis using a
-lineup. A lineup is similar to the police lineup, and this is where
-the name comes from. The suspect (the plot of the real data) is placed
-randomly in a field of plots of null data, and an impartial viewer is
-asked to identify the plot that is the most different. If the viewer
-identifies the suspect it lends statistical significance to the
-conclusion that the real data is not consistent with the null
-data. Figure \ref{lineup} has an example of a lineup. Overlaid density
-plots are used to display the distribution of two groups (blue, red)
-of data. We are interested to know whether the real data has a
-significant difference between the centers of the two groups. Plot
-numbered 13 contains the real data. Did you pick that one? In this
-plot the blue group has a flat density whereas the density of red
-group is more peaked and concentrated to the left of the blue.
+Here we suggest a new approach using recent research on visual inference \citep{buja:2009,wickham:2010}. In visual inference, data plots are considered to be test statistics, and these are compared with plots of data generated from a null hypothesis using a lineup. The null hypothesis underlying a lineup is that there is no real structure visible in the data plot, that any patterns seen are consistent with randomness, or from a known model. If the null hypothesis is true then the plot of the data will not be distinguishable form the plots of null data. A lineup is similar to the police lineup, and this is where the name comes from. The suspect (the plot of the data) is placed randomly in a field of plots of null data, and an impartial viewer is asked to identify the plot that is the most different. If the viewer identifies the suspect it lends statistical significance to the conclusion that the data is not consistent with the null data. Figure \ref{lineup} has an example of a lineup. Overlaid density plots are used to display the distribution of two groups (blue, red) of data. We are interested to know whether the data has a significant difference between the centers of the two groups. Plot numbered 13 contains the data. Did you pick that one? In this plot the blue group has a flat density whereas the density of red group is more peaked and concentrated to the left of the blue.
 
 \begin{figure}[htbp]
    \centering
    \includegraphics[height=0.95\linewidth]{density_1_45_15_20_13.png} 
-   \caption{Example lineup using density plots: one plot of real data
+   \caption{Example lineup using density plots: one plot of data
      embedded with nineteen plots of null data. Which plot is
      most different from the others? (See the text for the answer.)}
    \label{lineup}
 \end{figure}
 
-The previous work \citet{buja:2009,wickham:2010} describes the use of
-lineups for evaluating discoveries made in exploratory analysis. Here
-we describe the use of lineups for evaluating plot design for
-communicating findings visually. Different lineups are created, using
-the same data, same null plots and positions within the lineup, but
-different plot designs. Comparing how long and how accurately the
-viewers take to report the feature of interest will assess which
-design is better for the task. To investigate the benefit of lineups
-for plot design evaluation we have conducted an experiment that also
-contains simulated data, where the data is constructed to match and
-expand on the features of interest in the real data. For example, in a
-simple situation, where the discovered feature of interest is a
-difference between the centers of two distributions, simulated data
-would be constructed roughly matching the distribution of the real
-data that varies the distance between centers, and also spread and
-sample size. Lineups of these simulated data (embedded with simulated
-null data plots) are generated and evaluated along with the lineups of
-real data. The simulation study provides a backdrop for the real data,
-which enables the broad applicability to be studied and a gauge for
-the signal strength of the pattern in the real data. 
+The previous work \citet{buja:2009,wickham:2010} describes the use of lineups for evaluating discoveries made in exploratory analysis. Here we describe the use of lineups for evaluating plot design for communicating findings visually. Different lineups are created, using the same data, same null plots and positions within the lineup, but different plot designs. Comparing how long and how accurately the viewers take to report the feature of interest will assess which design is better for the task. To investigate the benefit of lineups for plot design evaluation we have conducted an experiment that also contains simulated data, where the data is constructed to match and expand on the features of interest in the data. For example, in a simple situation, where the discovered feature of interest is a difference between the centers of two distributions, simulated data would be constructed roughly matching the distribution of the data that varies the distance between centers, and also spread and sample size. Lineups of these simulated data (embedded with simulated null data plots) are generated and evaluated along with the lineups of data. The simulation study provides a backdrop for the real data, which enables the broad applicability to be studied and a gauge for the strength of the pattern in the data.
 
 %Usually, we need simulation studies to be able to completely control for the signal strength in the data. For charts, this is not a very realistic scenario. The need for displaying information particularly efficiently or accurately usually arises from  a particular problem while analyzing a data set, from which we want to learn new insight. Often, it is difficult to simulate data in such a way that it realistically represents the particular problem, which in turn makes it dubious whether the results from a simulation study are actually applicable to the problem at hand, reminding us painfully of George Box's famous quote on models: ``essentially, all models are wrong, but some are useful.'' \citep[page=424]{box}  
 
@@ -105,26 +70,31 @@ the signal strength of the pattern in the real data.
 
 %Lineup plots have been shown as an effective tool \cite{wickham:2010} for enabling us to quantitively assess the strength of the relationship between $X$ and $Y$. In a lineup plot the plot of the actual data is -- as in a police line-up -- inserted among decoy plots. The decoy or {\it null} plots are generated in a way that is consistent with the null hypothesis, i.e. these are plots in which we can assume that any relationship visible is there purely by chance. This gives us a reference framework against which to compare the data plot and, if we are still able to identify the data plot from the lineup because of a distinguishing feature, we have formal evidence that the feature in the data is, in fact, not just coincidental. 
 
-Lineups provide a way to statistically quantify the significance of the finding \citet{majumder:2011}: 
-think of the lineup as a set of $m$ plots, one of which is the real data. 
-The probability that an observer picks the real data plot just by chance, i.e. when it is really *not* different from the other null plots, is $1/m$. 
-If an observer is able to identify the data plot from the lineup, we reject the null hypothesis that the null plot is not different from the data.  This sets  our Type I error rate  $\alpha$ at a level of $1/m$. (In Figure \ref{lineup}, $m=20$)
+Lineups provide a way to statistically quantify the significance of the finding \citet{majumder:2011}: think of the lineup as a set of $m$ plots, one of which is the data. (In Figure \ref{lineup}, $m=20$.)  The probability that an observer picks the data plot just by chance, i.e. when it is really *not* different from the other null plots, is $1/m$.  If an observer is able to identify the data plot from the lineup, we reject the null hypothesis.  This sets our Type I error rate, $\alpha$, at a level of $1/m$.
 
-When there are multiple independent observers ($n$) we have more freedom in setting  the significance level: assume that $x$ out of those $n$ observers picked the data plot. Let $X$ be the corresponding random variable, i.e. $X$ = \# times out of $n$ independent repetitions that  the data is picked from the lineup. Under the null hypothesis, $X$ has a Binomial distribution: $X \sim B_{n, 1/m}$.
-We can then compute the $p$ value of a lineup as the probability to have $x$ or more observers picking the data plot (under the assumption that the null hypothesis is true, i.e. the plot is not different):
+When there are multiple independent observers ($n$) we have more freedom in setting  the significance level: assume that $x$ out of those $n$ observers picked the data plot. Let $X$ be the corresponding random variable, i.e. $X$ = \# times out of $n$ independent repetitions that  the data plot is picked from the lineup. Under the null hypothesis, $X$ has a Binomial distribution: $X \sim B_{n, 1/m}$. We can then compute the $p$-value of a lineup as the probability to have $x$ or more observers picking the data plot (under the assumption that the null hypothesis is true, i.e. the plot is not different):
 \[
 p\text{-value} = P(X \ge x \mid H_0) =   1 - B_{n, 1/m} (x-1).
 \]
 
-When comparing different tests of the same quantity, we consider that test better, that has greater {\it power}.
-The power of a test is the probability to reject the null hypothesis -- in a lineup this is the probability that an observer identifies the plot of the real data. 
-Analytically, power is usually difficult to calculate because it is requires specific use of an alternative hypothesis to calculate the probability.  Work in \citet{niladri:2012} addresses this to some extent with measures on the quality of a lineup, how different numerically, as best it can be calculated, the real data plot is from the null plots. 
+When comparing different tests of the same quantity, we consider that
+test better if it has greater {\it power}.  The power of a test is the
+probability to reject the null hypothesis, irrespective of whether it
+is true or false -- in a lineup this is the probability that an
+observer identifies the plot of the real data.  Analytically, power is
+usually difficult to calculate because it is requires specific use of
+an alternative hypothesis to calculate the probability.  Work in
+\citet{niladri:2012} addresses this to some extent with measures on
+the quality of a lineup, how numerically different, as best it can be
+calculated, the data plot is from the null plots.
 
 In our situation, though, it is fairly straightforward to {\it estimate} the power of a lineup:
 
+\begin{quote}
 Let $n$ be the number of independent observers and $x_i$ the number of observers who picked plot $i$, $i \in \{1, ..., m\}$, from the lineup. Then $(x_1, x_2, ..., x_m)$ follows a multinomial distribution Mult$_{\pi_1, \pi_2, ..., \pi_m}(x_1, x_2, ..., x_m)$ with $\sum_i \pi_i = 1$, where $\pi_i$ is the probability that plot $i$ is picked by an observer, which we can estimate as $\widehat{\pi_i} = x_i/n$. 
+\end{quote}
 
-The power of a lineup can therefore be estimated as the ratio of correct identifications $x$ out of $n$ viewings.
+\noindent The power of a lineup can therefore be estimated as the ratio of correct identifications $x$ out of $n$ viewings. (More details on these derivations can be found in \citet{majumder:2012}.)
 
 %*** Under the null that the real is no different from the null, isn't $\pi_i=1/m$? Fixing this then I think the next paragraph on signal strength flows right from this one. It is when we are calculating signal strength that we start counting the number of observers who pick it.
 %
@@ -166,7 +136,7 @@ The power of a lineup can therefore be estimated as the ratio of correct identif
 %%Signal strength is limited to a range of values between 0 and 1. Higher values indicate stronger signal. In the case of a parametric situation (i.e. the feature shown in the chart can be described in parametric form as a real-valued vector $\theta$ in the data), it can be shown \cite{majumder:2011} that the signal strength is strongly correlated to the $p$-value of the corresponding statistical test for $\theta$.
 % 
 
-The power of lineups is used in our new work to evaluate the effectiveness of different plot designs. This paper describes two examples where we had real data analysis problems and decisions to make in order to communicate the results. Section \ref{designs} describes the process for comparing designs. Section \ref{setup} and describe the two data analysis problems and the experiments conducted to evaluate the plots designs. Section \ref{results} presents the findings of the experiments, and Section \ref{conclusions} presents conclusions and suggestions for future use.
+The power of lineups is used in the work presented here to evaluate the effectiveness of different plot designs. This paper describes two examples where we had real data analysis problems and decisions to make in order to communicate the results. Section \ref{designs} describes the process for comparing designs. Section \ref{setup} and describe the two data analysis problems and the experiments conducted to evaluate the plots designs. Section \ref{results} presents the findings of the experiments, and Section \ref{conclusions} presents conclusions and suggestions for future use.
 
 \section{Comparison of Designs}\label{designs}
 We are going to make use of the signal strength gained from multiple viewings of a lineup in order to evaluate competing designs as follows:
@@ -176,8 +146,6 @@ We are going to make use of the signal strength gained from multiple viewings of
 \item{{\bf Evaluate Lineups:} by presenting the lineups to independent observers. Assess both signal strength and time needed by individuals to come to a decision. Note that each observer should only be exposed to each lineup data once.}
 \item{{\bf Evaluate Competing Designs:} differences in signal strength or time to decision are due to differences in the design. In the case that individuals were shown multiple lineups (as part of a bigger study), it is possible to correct outcome measurements for an individual's visual ability. }
 \end{enumerate}
-
-XXXX should we include nullabor code?
 
 The power of a statistical test is defined as the probability to reject the null hypothesis. Translated to the visual tests, power is the probability to identify the data plot from the lineup. 
 Comparing power of competing designs therefore involves comparing percentages of correct responses $p_1$ and $p_2$. An $\alpha\cdot$100\% confidence interval for this comparison is given as 
