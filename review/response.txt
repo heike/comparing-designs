@@ -1,0 +1,52 @@
+I would like to thank the reviewers for the great discussion of the paper, and a lot of helpful suggestions!
+
+We have made the following changes:
+
+All of the main suggestions are implemented:
+ - in the presentation of figure 8, differences between power results are now presented using a Benjamini-Hochberg adjustment for the false discovery rate.
+   Since BH adjustments are based on individual p-values (whereas the Bonferroni adjustment results in a global scaling of the intervals), it was necessary to change the presentation in the figure slightly - we now show the significant differences using a letter-based approach as suggested by H.-P. Piepho (2004).
+ 
+ - the paper is re-organized and the two studies are now presented one after the other.
+ 
+ - the discussion regarding pie vs barcharts is removed - we'd like to thank the reviewers for pointing out the additional references.
+
+
+Changes based on suggestions of individual reviewers:
+ - the blue scale for the pictures of the wind direction was darkened a bit, which makes the small levels better distinguishable both in print and pdf.
+ 
+ - reporting the log: we indeed used log base 10 for figure 6 - we changed this picture to natural log for consistency.
+ 
+ - Euclidean vs Cartesian coordinates - agreed, and changed
+
+ - language concerning null hypothesis and alternative in 3.2 is fixed.
+
+ - The scale for the self-reported confidence is included explicitly now.  
+
+ -  the design choices for the second study were based on designs commonly used; we have addressed this in the paper.
+
+ - conclusion section is strengthened and also focuses on the results from the experiment rather than just their setup.  
+
+
+ 
+Discussion:
+
+Q: Would it be more understandable and specific to characterize the power
+  model as a hierarchical linear model with random intercept instead of a
+  generalized linear model? If I understand correctly, the HLM with random
+  intercept is specifically what they are using. If not, the authors can
+  explain to the reviewers why I am wrong and not make the change.
+  
+A: What we are using in estimating power is actually a generalized linear model with a random intercept - since power has to be a value between 0 and 1, we are using a logistic regression instead of a linear model. 
+  
+Q: The first study does not state clearly what constitutes "best" time for
+  minutes between wheel events. You claim that it is clear that Seattle
+  functions at its best with winds coming from the East but I'm not sure if
+  that means that you just want the lowest number of minutes or if there is
+  an optimal number. The hypotheses just address "differences" but not any
+  specific time interval in general.
+
+A: We were trying to avoid the phrase 'best' - as we are, indeed, just looking at efficiency ('its best' has been changed in the paper to 'most efficiently') - i.e. less time between wheel events is considered 'better'. (Note: Seattle has several runways, so a time of 0 between wheel events is not as unsafe as it might sound). 
+  
+  
+     
+Hans-Peter Piepho (2004), An Algorithm for a Letter-Based Representation of All-Pairwise Comparisons, Journal of Computational and Graphical Statistics, 13(2), 456–466.     

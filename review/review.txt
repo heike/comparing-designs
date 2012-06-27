@@ -1,0 +1,407 @@
+Dear Heike Hofmann -
+
+Congratulations! We are delighted to inform you that your paper
+
+ 330 - Graphical Tests for Power Comparison of Competing Designs
+
+was conditionally accepted for presentation at InfoVis 2012,
+to be held October 14-19 in Seattle, Washington, USA.
+
+All accepted papers will be published as a special issue of IEEE
+Transactions on Visualization and Computer Graphics. To ensure that all
+papers are indeed of journal quality, we use conditional acceptance to
+ensure revisions when needed. The primary reviewer has identified, in
+the summary review, the most important issues raised by the reviewers
+that you should address. It is included with the reviews below.
+Furthermore, we encourage you to take all comments of reviewers
+seriously, and use them to improve your paper.
+
+Primary reviewers will verify if the changes you made are satisfactory.
+Note that we do not guarantee yet that your paper is accepted. If we do
+not think that you have adequately addressed the comments raised by
+reviewers, your submission will be declined during this second stage
+review and will not appear at the conference.
+
+This year, InfoVis had 178 submissions and we conditionally accepted
+44, for a provisional acceptance rate of 25%.
+
+The timeline for the remainder of the review process is as follows:
+
+June 27: Submit revised version for second stage review.
+        Upload this version via the conference management system PCS,
+        at https://precisionconference.com/~vgtc/
+        Also upload a text file with a summary of the revisions made.
+
+July 11: Authors of conditionally accepted papers notified of final
+        decision.
+
+August 1: Final camera-ready papers and supplemental materials due, at:
+      	  https://precisionconference.com/~vgtc/
+
+Your camera-ready paper may not exceed the length of your submitted
+paper unless otherwise mentioned in your review. The website 
+http://www.cs.sfu.ca/~vis/Track/tvcg.html has complete information
+regarding formatting requirements of your final revised PDF and
+optional videos. Please note in particular the suggestions for ensuring
+that the images in your PDF document are stored at sufficiently high
+resolution, instead of using the default lossy compression settings.
+
+If your paper is eventually accepted, you can include a video of your
+work on the conference DVD-ROM. TVCG requires that all supplemental
+material is peer reviewed, hence this is only allowed if you have
+submitted a video with your original submission, and if the reviewers
+have found it acceptable. Videos can be up to 5 minutes in length, and
+you may also include other supplemental material such as additional
+images or source code on the DVD. The web site above includes
+information on how to do so.
+
+The official conference web site, which will include final program and
+registration information as it becomes available, is:
+http://www.visweek.org/
+
+At least one author per accepted paper must register to present the
+work. Also, an author from each paper will present a short preview
+during the first session.
+
+We are looking forward to an exciting and vibrant InfoVis 2012, with
+an outstanding set of papers. We thank you for your contribution to
+InfoVis this year, and hope that you will succeed in producing a fully
+acceptable version of your paper.
+
+Chris Weaver and Jason Dykes
+InfoVis 2012 Papers Co-Chairs
+
+
+------------------------ Submission 330, Review 4 ------------------------
+
+Title: Graphical Tests for Power Comparison of Competing Designs
+
+Reviewer:           primary
+
+Paper type
+
+  Technique
+
+Expertise
+
+  2  (Knowledgeable)
+
+Overall Rating
+
+  5  (Definitely accept: This paper is an excellent contribution and could be accepted with no or very minor changes.)
+
+Supplemental Materials
+
+  Not applicable (no supplemental materials were submitted with the paper)
+
+Justification
+
+  This paper opens up for a new opportunity to compare visualization
+  designs (based on lineups and visual inference).  It is very well 
+  written and seems technically sound (at least to my best unter-
+  standing [I'm not a statistician]).  Everything that one would like
+  to know is well described in the paper.  It also has interesting 
+  results from two studies which were conducted with Mechanical Turk.  
+  All in all, a nice paper that clearly should be accepted.  
+
+The Review
+
+  I have basically only two small remarks: 
+  -- I missed a reference for the Bonferroni adjustment
+  -- I had the impression that there was some mismatch of 
+     which type of logarithm was used for measuring the 
+     timing (from at least Fig. 7 I got the impression 
+     that it's log_10, while in the text it's usually 
+     reported as based on the natural log)
+
+Summary Rating
+
+  5  (Definitely accept: This paper is an excellent contribution and could be accepted with no or very minor changes.)
+
+The Summary Review
+
+  In summary, this paper got very good reviews and it should be accepted.  
+
+  In order make optimal use of these reviews, the authors are requested 
+  to work on the following improvements for the final version of this 
+  paper: 
+  -- The authors should use the Benjamini-Hochberg FDR test (instead 
+     of the Bonferroni test) -- this comment from one of the reviewers
+     was also confirmed during the discussion between the reviewers.
+  -- The organization of the paper should be improved such that the 
+     two studies are presented after each other (and not interleaved
+     with each other).  
+  -- The authors are advised to adapt their discussion of pie charts
+     to achieve a better agreement with the additional pieces of
+     literature as named in the corresponding review.  
+  Additionally, there are some more constructive comments and 
+  suggestions in the individual reviews which the authors are invited
+  to consider for improving their paper.  
+
+  After all, once again: a really nice paper that for sure should be
+  accepted!
+
+Second round comments (public)
+
+
+------------------------ Submission 330, Review 1 ------------------------
+
+Title: Graphical Tests for Power Comparison of Competing Designs
+
+Reviewer:           external
+
+Paper type
+
+  Application / Design Study
+
+Expertise
+
+  3  (Expert)
+
+Overall Rating
+
+  5  (Definitely accept: This paper is an excellent contribution and could be accepted with no or very minor changes.)
+
+Supplemental Materials
+
+  Not applicable (no supplemental materials were submitted with the paper)
+
+Justification
+
+  The paper tackles an important issue, the evaluation of graphical
+  insights, in a well-structured and statistically sound way.  The examples
+  are related to real data.  The paper is well-written.
+
+The Review
+
+
+
+
+  Positives
+  Clear description of the study.
+  Good statistical design and analysis.
+  Understandable examples based on real applications.
+
+  Negatives
+  Table 1 is ugly.  Surely it can be improved and made interpretable.
+  Fig 6 implies that the histograms have an overplotting problem (which is
+  avoided to some extent with the density charts).  Why were they not drawn
+  in parallel?  There is also no information on how the histograms were
+  drawn as sample size increased.
+  p8 (Last sentence of §4)  This implies that a general audience would be
+  familiar with boxplots!
+
+
+  Recommendations
+  I would have preferred if the first study was presented and analysed
+  completely before presenting the second study.
+  The filtering of participants described in the last paragraph of §3.1 is
+  interesting and should perhaps be elaborated on.  Why were not all
+  excluded who failed the two tasks and how many were excluded?
+
+------------------------ Submission 330, Review 2 ------------------------
+
+Title: Graphical Tests for Power Comparison of Competing Designs
+
+Reviewer:           secondary
+
+Paper type
+
+  Application / Design Study
+
+Expertise
+
+  3  (Expert)
+
+Overall Rating
+
+  4  (Probably accept: This paper will be acceptable with minor changes.)
+
+Supplemental Materials
+
+  Not applicable (no supplemental materials were submitted with the paper)
+
+Justification
+
+  The major strength of this paper is its demonstration of the usefulness
+  of lineups for real research questions that are not amenable to classical
+  statistical modeling due to complexity or particularity.
+
+The Review
+
+  This intriguing paper applies the lineup procedure introduced in an
+  earlier VisWeek paper to real datasets in order to answer some questions
+  that can be problematic for standard statistical procedures.
+
+  The analyses are well done. The authors need to be cautious, however, in
+  generalizing their results to all polar vs. all rectangular charts.
+
+  Details:
+
+  The use of Euclidean in this context is a misnomer. The proper
+  designation is Rectangular (or, if you wish, Cartesian). The authors need
+  to change this word throughout the paper. Fortunately, that will be easy
+  in the LaTeX editor. Euclidean refers to a metric, not a coordinate
+  system. See http://en.wikipedia.org/wiki/Polar_coordinate_system for
+  further information.
+
+  Section 2
+  The authors should use the Benjamini-Hochberg FDR test instead of
+  Bonferroni because it offers superior power. Since they are already
+  sorting p-values elsewhere, the FDR method is naturally suited to their
+  approach.
+
+  Would it be more understandable and specific to characterize the power
+  model as a hierarchical linear model with random intercept instead of a
+  generalized linear model? If I understand correctly, the HLM with random
+  intercept is specifically what they are using. If not, the authors can
+  explain to the reviewers why I am wrong and not make the change.
+
+  Section 4.1
+  OK. Look. Pie charts. Here we go again. The references cited [5, 20, 10,
+  7] are the primary sources still given for the false conclusion that pie
+  charts are "worse" than bar charts. The two methodologically sound
+  studies of pie charts vs. bar charts were done by Simkin and Hastie in a
+  detailed JASA article and Spence and Lewandowsky in a psychology journal.
+  Every statistician or visualization person who believes in the "bad" pie
+  chart myth should go back and read these articles closely. Their
+  conclusions were that pie charts with a relatively small number of
+  categories were superior to bar charts for proportion-of-whole judgments
+  and bar charts were superior otherwise. These are also the only authors
+  to develop and test a coherent cognitive theory of why this is the case
+  (and, I will add in an ad hominem, they are the only pie researchers
+  professionally trained to address this problem in all its complexity).
+  All the other references are either anecdotal, based on faulty
+  methodology, or inappropriate generalizations of irrelevant experimental
+  findings. I feel especially strongly about this point because there is no
+  place in an academic paper for perpetuating a myth that over-generalizes
+  Cleveland's finding for angles (which have no relation to the slices of a
+  pie). Finally, the only similarity between the polar charts in this study
+  and pie charts is that they are both in polar coordinates. There is no
+  point in mentioning pie charts at all.
+
+  End of rant.
+
+  Otherwise, this paper is a competent application that illustrates the
+  methodological usefulness of lineups. While the application itself is
+  somewhat complicated and not widely generalizable, this paper should
+  point the way for others to use this methodology creatively in answering
+  important questions that are not amenable to conventional statistical
+  analysis.
+
+  References
+
+  Spence, I. and Lewandowsky, S. (1991). Displaying proportions and
+  percentages. Applied Cognitive Psychology, 6, 61-77.
+
+  Simkin, D., & Hastie, R. (1987). An information processing analysis of
+  graph perception. Journal of the American Statistical Association, 82,
+  454-465.
+
+------------------------ Submission 330, Review 3 ------------------------
+
+Title: Graphical Tests for Power Comparison of Competing Designs
+
+Reviewer:           external
+
+Paper type
+
+  Evaluation
+
+Expertise
+
+  2  (Knowledgeable)
+
+Overall Rating
+
+  4  (Probably accept: This paper will be acceptable with minor changes.)
+
+Supplemental Materials
+
+  Not applicable (no supplemental materials were submitted with the paper)
+
+Justification
+
+  I really liked the motivation, purpose, setup, and evaluation of the two
+  studies but found slight issues with how they were presented and felt
+  like the conclusion did not do justice to the work. We spend a lot of
+  energy in the infovis community creating new ways to visualize data, but
+  I am very happy that we are also remembering to try to stay mindful of
+  how those techniques are perceived by our audience. This paper is very
+  solid in its statistical fundamentals, and with minor changes to
+  formatting I believe it should be accepted. 
+
+The Review
+
+  Overall I throughly enjoyed both studies, the rigor with which the
+  authors evaluated them and the overall takeaways that can be concluded.
+  The paper does a great job of explaining Power (as we statisticians
+  calculate it) and comparisons that can be made. There are several
+  comments included in the following paragraphs that outline some of my
+  complaints with the paper. Several are very picky comments and I want to
+  reiterate that I found this paper to be very successful in sharing strong
+  results from a pair of useful perception studies and my comments are all
+  in the hopes of offering the authors constructive feedback.
+
+  Just a general note that in printing out this paper, even with the
+  highest quality, the paper copy could not display all of the nuances of
+  the first study's charts. The blue scale is so subtle for the lowest
+  values that I had an incredibly hard time following the commentary
+  without opening the paper digitally and zooming all the way in. In the
+  same vein, Fig 10 and Fig 11 use the same coloring to represent two
+  completely different sets of variables. I turn to Figure 11 and see a 0
+  shift when I should be seeing "box plot" for the orange lines. (Moreover,
+  this figure belongs to the second study which is incredibly confusing
+  given that this page contains major information for the first study's
+  results.)
+
+  With the null and alt hypotheses in 3.2 one claims to "effect" and the
+  other to "affect". In first speaking of "sample size" in 3.2 the authors
+  could be referring to the data (which they are) or to the survey sample.
+  The context obviously helps but it takes away from the flow. 
+
+  The first study does not state clearly what constitutes "best" time for
+  minutes between wheel events. You claim that it is clear that Seattle
+  functions at its best with winds coming from the East but I'm not sure if
+  that means that you just want the lowest number of minutes or if there is
+  an optimal number. The hypotheses just address "differences" but not any
+  specific time interval in general. 
+
+  I would perhaps suggest moving the two studies to be sections with
+  subsections for the Experiment Setup and Results rather than staggering
+  the study Intros from their Results. The authors do a wonderful job of
+  displaying and explaining the results, but because the two studies are
+  overlapping, those results become more difficult to keep straight. This
+  is completely my opinion and only a suggestion. 
+
+  The scale for the self-reported confidence is not included in the study
+  designs or the captions for the charts -- is a 1 highest confidence or
+  lowest confidence? I can deduce from section 4.1 that larger values mean
+  more confident but maybe the authors could just come out and say it
+  earlier to help make things clear.
+
+  For the second study: you acknowledge that differences in perception may
+  be occurring because the dotplot is the only one that displays all data
+  points but you do not address why the density plots displays the blue
+  data on top of the pink and the histogram is stacked rather than
+  following suit. These design choices were not explained anywhere in
+  detail. The authors do acknowledge the tradeoff between visual complexity
+  and amount of info visible but I would like to have seen more of a
+  discussion around that point. 
+
+  Finally, I have to say that despite my enthusiasm for the study designs,
+  implementation, testing, and write up -- the conclusion section was very
+  light. There were statistically significant findings that the authors
+  made that should be boasted as contributions or a stepping stone for
+  future work, but feel overshadowed by a recounting of the study designs. 
+
+
+
+
+
+
+
+
+
+
+

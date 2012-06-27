@@ -1,0 +1,179 @@
+\begin{thebibliography}{10}
+
+\bibitem{agresti:1998}
+A.~Agresti and B.~A. Coull.
+\newblock Approximate is better than ``exact" for interval estimation of
+  binomial proportions.
+\newblock {\em The American Statistician}, 52(2):119--126, 1998.
+
+\bibitem{bates:2011}
+D.~Bates, M.~Maechler, and B.~Bolker.
+\newblock {\em lme4: Linear mixed-effects models using S4 classes}, 2011.
+\newblock R package version 0.999375-42.
+
+\bibitem{bh:1995}
+Y.~Benjamini and Y.~Hochberg.
+\newblock Controlling the false discovery rate: a practical and powerful
+  approach to multiple testing.
+\newblock {\em Journal of the Royal Statistical Society Series {B}},
+  57(1):289--300, 1995.
+
+\bibitem{buja:2009}
+A.~Buja, D.~Cook, H.~Hofmann, M.~Lawrence, E.-K. Lee, D.~F. Swayne, and
+  H.~Wickham.
+\newblock Statistical inference for exploratory data analysis and model
+  diagnostics.
+\newblock {\em Royal Society Philosophical Transactions A},
+  367(1906):4361--4383, 2009.
+
+\bibitem{cleveland:1994}
+W.~S. Cleveland.
+\newblock {\em Elements of graphing data}.
+\newblock Hobart Press, 1994.
+
+\bibitem{cleveland:1984}
+W.~S. Cleveland and R.~McGill.
+\newblock Graphical perception: Theory, experimentation, and application to the
+  development of graphical methods.
+\newblock {\em Journal of the American Statistical Association}, 79(387):pp.
+  531--554, 1984.
+
+\bibitem{Ellis:2006}
+G.~Ellis and A.~Dix.
+\newblock An explorative analysis of user evaluation studies in information
+  visualisation.
+\newblock In {\em Proceedings of the 2006 AVI workshop on BEyond time and
+  errors: novel evaluation methods for information visualization}, BELIV '06,
+  pages 1--7, New York, NY, USA, 2006. ACM.
+
+\bibitem{heer:2010}
+J.~Heer and M.~Bostock.
+\newblock Crowdsourcing graphical perception: using mechanical turk to assess
+  visualization design.
+\newblock In {\em Proceedings of the 28th international conference on Human
+  factors in computing systems}, CHI \'10, pages 203--212, New York, NY, USA,
+  2010. ACM.
+
+\bibitem{hothorn:2010}
+T.~Hothorn, F.~Bretz, and P.~Westfall.
+\newblock Simultaneous inference in general parametric models.
+\newblock {\em Biometrical Journal}, 50(3):346--363, 2008.
+
+\bibitem{kosara:2010}
+R.~Kosara and C.~Ziemkiewicz.
+\newblock Do mechanical turks dream of square pie charts?
+\newblock In {\em Proceedings BEyond time and errors: novel evaLuation methods
+  for Information Visualization (BELIV)}, pages 373--382. ACM Press, 2010.
+
+\bibitem{Kosslyn:2006}
+S.~Kosslyn.
+\newblock {\em Graph design for the eye and mind}.
+\newblock Oxford University Press, 2006.
+
+\bibitem{majumder:2011}
+M.~Majumder, H.~Hofmann, and D.~Cook.
+\newblock Visual statistical inference for regression parameters.
+\newblock Technical Report~13, Iowa State University, Department of Statistics,
+  2011.
+
+\bibitem{majumder:2012}
+M.~Majumder, H.~Hofmann, and D.~Cook.
+\newblock Validation of visual statistical inference, with applications to
+  linear models.
+\newblock Technical Report~4, Iowa State University, Department of Statistics,
+  2012.
+
+\bibitem{Mazza07}
+R.~Mazza and A.~Berre.
+\newblock Focus group methodology for evaluating information visualization
+  techniques and tools.
+\newblock In {\em Information Visualization, 2007. IV '07. 11th International
+  Conference}, pages 74--80, Los Alamitos, CA, USA, 2007. IEEE Computer
+  Society.
+
+\bibitem{Munzer:2009}
+T.~Munzner.
+\newblock A nested model for visualization design and validation.
+\newblock {\em Visualization and Computer Graphics, IEEE Transactions on},
+  15(6):921 --928, nov.-dec. 2009.
+
+\bibitem{noaa-weather}
+{NOAA Climatic Data Center}.
+\newblock Past weather.
+\newblock \url{http://weather.noaa.gov/weather/current/}, last accessed
+  \date{\today}, 2011.
+
+\bibitem{North:2006}
+C.~North.
+\newblock Toward measuring visualization insight.
+\newblock {\em IEEE Computer Graphics and Applications}, pages 6--9, 2006.
+
+\bibitem{piepho:2004}
+H.-P. Piepho.
+\newblock An algorithm for a letter-based representation of all-pairwise
+  comparisons.
+\newblock {\em Journal of Computational and Graphical Statistics},
+  13(2):456--466, 2004.
+
+\bibitem{pinheiro:2000}
+J.~Pinheiro and D.~Bates.
+\newblock {\em Mixed-effects models in S and S-Plus}.
+\newblock Springer, 2000.
+
+\bibitem{Plaisant:2004}
+C.~Plaisant.
+\newblock The challenge of information visualization evaluation.
+\newblock In {\em Proceedings of Conference on Advanced Visual Interfaces},
+  pages 109--116, New York, NY, USA, 2004. ACM.
+
+\bibitem{rita}
+{RITA BTS Transtat}.
+\newblock On-time performance.
+\newblock \url{http://www.transtats.bts.gov/Fields.asp?Table_ID=236}, last
+  accessed \date{\today}, 2011.
+
+\bibitem{niladri:2012}
+N.~{Roy Chowdhury}, D.~Cook, H.~Hofmann, M.~Majumder, and Y.~Zhao.
+\newblock Where's {W}aldo: Looking closely at a lineup.
+\newblock Technical Report~2, Iowa State University, Department of Statistics,
+  2012.
+
+\bibitem{Shneiderman:2006}
+B.~Shneiderman and C.~Plaisant.
+\newblock Strategies for evaluating information visualization tools:
+  multi-dimensional in-depth long-term case studies.
+\newblock In {\em Proceedings of the 2006 AVI workshop on BEyond time and
+  errors: novel evaluation methods for information visualization}, BELIV '06,
+  pages 1--7, New York, NY, USA, 2006. ACM.
+
+\bibitem{simkin:1987}
+D.~Simkin and R.~Hastie.
+\newblock An information processing analysis of graph perception.
+\newblock {\em Journal of the American Statistical Association}, 82:454--465,
+  1987.
+
+\bibitem{spence:1991}
+I.~Spence and S.~Lewandowsky.
+\newblock Displaying proportions and percentages.
+\newblock {\em Applied Cognitive Psychology}, 6:61--77, 1991.
+
+\bibitem{Viegas:2006}
+F.~B. Viegas and M.~Wattenberg.
+\newblock Communication-minded visualization: A call to action [technical
+  forum].
+\newblock {\em IBM Systems Journal}, 45(4):801 --812, 2006.
+
+\bibitem{welch:1947}
+B.~L. Welch.
+\newblock The generalization of ``{S}tudent's" problem when several different
+  population variances are involved.
+\newblock {\em Biometrika}, 34:28--35, 1947.
+
+\bibitem{wickham:2010}
+H.~Wickham, D.~Cook, H.~Hofmann, and A.~Buja.
+\newblock Graphical inference for infovis.
+\newblock {\em IEEE Transactions on Visualization and Computer Graphics (Proc.
+  InfoVis '10)}, 16(6):973–979, Nov.-Dec. 2010.
+\newblock {26\% acceptance rate. Best paper award.}
+
+\end{thebibliography}
